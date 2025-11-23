@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/png" href="https://tokenkripto.github.io/favicon.png" />
+    <title>DApp Web3 Admin - AGUS</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <style>
+        :root {
+            --primary: #10d906;
+            --primary-dark: #9b04c1;
+            --primary-light: #2EF0CC;
+            --secondary: #87CEEB;
+            --secondary-dark: #5DADE2;
+            --accent: #FF6B6B;
+            --accent-dark: #FF4757;
+            --admin: #FFA500;
+            --admin-dark: #FF8C00;
+            --dark: #0A0F1C;
+            --darker: #050A14;
+            --light: #F8FAFC;
+            --gray: #94A3B8;
+            --danger: #FF4757;
+            --success: #00D4AA;
+            --warning: #FFA502;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 20px rgba(0, 212, 170, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #0F172A 100%);
+            color: var(--light);
+            min-height: 100vh;
+            position: relative;
+            touch-action: pan-y;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(135, 206, 235, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            box-shadow: var(--glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .admin-badge {
+            background: linear-gradient(135deg, var(--admin) 0%, var(--admin-dark) 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+            color: white;
+            animation: slideUp 0.5s ease-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.03) 0%, rgba(135, 206, 235, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.35);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .card-title i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .admin-card .card-title i {
+            color: var(--admin);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .wallet-display {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .wallet-address {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .address {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 14px;
+            border-radius: 10px;
+            flex: 1;
+            margin-right: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .wallet-balance {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .balance-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .balance-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-admin {
+            background: linear-gradient(135deg, var(--admin) 0%, var(--admin-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.3);
+        }
+
+        .btn-admin:hover {
+            background: linear-gradient(135deg, #FFB733 0%, var(--admin) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--success) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #FF8E8E 0%, var(--accent) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--primary-light);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--dark);
+            padding: 16px 22px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            max-width: 90%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .notification.show {
+            display: flex;
+            animation: slideUpIn 0.4s ease-out forwards;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUpIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-connected {
+            background: rgba(0, 212, 170, 0.2);
+            color: var(--success);
+        }
+
+        .status-disconnected {
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--accent);
+        }
+
+        .admin-warning {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid var(--admin);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .admin-warning i {
+            color: var(--admin);
+            margin-right: 8px;
+        }
+
+        .owner-info {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .owner-info i {
+            color: var(--success);
+            margin-right: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/cryptorecehcom/images/refs/heads/main/tokenlogo/AGUS.png"
+                    width="100" height="100" alt="agus token">
+            </div>
+            <h1>AGUS TokenSale Admin</h1>
+            <p class="subtitle">Panel Admin untuk Mengelola Penjualan Token</p>
+        </div>
+
+        <div id="connectWallet" class="card">
+            <div class="card-title">
+                <i class="fas fa-wallet"></i>
+                <span>Hubungkan Wallet</span>
+            </div>
+            <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.8);">
+                Sambungkan wallet admin untuk mengelola penjualan token
+            </p>
+            <button id="connectWalletBtn" class="btn btn-success">
+                <i class="fas fa-plug"></i> Connect Wallet Admin
+            </button>
+        </div>
+
+        <div id="networkWarning" class="card hidden">
+            <div class="card-title" style="color: var(--accent);">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Jaringan Salah!</span>
+            </div>
+            <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">
+                Wallet tidak terhubung ke jaringan BNB Chain.
+            </p>
+            <button id="switchNetworkBtn" class="btn btn-warning">
+                <i class="fas fa-exchange-alt"></i> Ganti ke BNB Chain
+            </button>
+        </div>
+
+        <div id="connectedWallet" class="card hidden">
+            <div class="card-title">
+                <i class="fas fa-check-circle"></i>
+                <span>Wallet Terhubung</span>
+                <span class="status-badge status-connected">
+                    <i class="fas fa-circle"></i> Terhubung
+                </span>
+                <span id="ownerStatus" class="admin-badge hidden">
+                    <i class="fas fa-check-circle"></i> Owner
+                </span>
+            </div>
+
+            <div class="wallet-display">
+                <div class="wallet-address">
+                    <div class="address" id="walletAddress"></div>
+                    <button class="copy-btn" id="copyAddressBtn">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+                <div class="wallet-balance">
+                    <div class="balance-label">Saldo BNB:</div>
+                    <div class="balance-value" id="ethBalance">-</div>
+                </div>
+                <div class="wallet-balance">
+                    <div class="balance-label">Saldo Kontrak:</div>
+                    <div class="balance-value" id="contractBalance">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tokenInfo" class="card">
+            <div class="card-title">
+                <i class="fas fa-chart-line"></i>
+                <span>Informasi Token Sale</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Rate Token</div>
+                    <div class="info-value" id="presaleRate">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Hasil Penjualan</div>
+                    <div class="info-value" id="weiRaised">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Token Terjual</div>
+                    <div class="info-value" id="tokensSold">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Token di Kontrak</div>
+                    <div class="info-value" id="tokenBalance">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="adminPanel" class="card admin-card hidden">
+            <div class="card-title">
+                <i class="fas fa-user-shield"></i>
+                <span>Panel Admin</span>
+                <span class="admin-badge">
+                    <i class="fas fa-lock"></i> Owner
+                </span>
+            </div>
+
+            <div id="ownerInfo" class="owner-info hidden">
+                <i class="fas fa-check-circle"></i>
+                Wallet Anda adalah owner kontrak. Anda dapat menggunakan fungsi admin.
+            </div>
+
+            <div id="notOwnerWarning" class="admin-warning hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                Wallet Anda bukan owner kontrak. Hanya wallet
+                <strong>0x17cFA36C5d845585226da765739D0e71e5dE6798</strong> yang dapat menggunakan fungsi admin.
+            </div>
+
+            <div class="form-group">
+                <label for="newRate">Set Rate (AGUS per BNB):</label>
+                <div class="input-container">
+                    <input type="number" id="newRate" placeholder="Contoh: 1000" step="1" min="1">
+                </div>
+                <button id="setRateBtn" class="btn btn-admin" style="margin-top: 10px;">
+                    <i class="fas fa-sync-alt"></i> Update Rate
+                </button>
+            </div>
+
+            <div class="form-group">
+                <label>Tarik BNB dari Kontrak:</label>
+                <button id="withdrawCoinsBtn" class="btn btn-admin" style="margin-top: 10px;">
+                    <i class="fas fa-download"></i> Tarik Semua BNB
+                </button>
+                <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-top: 8px;">
+                    Menarik semua BNB yang terkumpul di kontrak
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="withdrawTokenAddress">Tarik Token Lain:</label>
+                <div class="input-container">
+                    <input type="text" id="withdrawTokenAddress" placeholder="Alamat kontrak token">
+                </div>
+                <div class="input-container" style="margin-top: 10px;">
+                    <input type="number" id="withdrawTokenAmount" placeholder="Jumlah token (kosongkan untuk semua)">
+                </div>
+                <button id="withdrawTokensBtn" class="btn btn-admin" style="margin-top: 10px;">
+                    <i class="fas fa-coins"></i> Tarik Token
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">
+                    <i class="fas fa-exchange-alt"></i> Ke Aplikasi User
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 CryptoRECEH.com - Admin Panel
+            </div>
+        </div>
+
+        <div id="notification" class="notification">
+            <i class="fas fa-check-circle"></i>
+            <div class="notification-message" id="notificationMessage"></div>
+            <button class="close-notification">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const TARGET_CHAIN_ID = '0x38';
+        const TARGET_CHAIN_NAME = 'BNB Chain';
+        const CONTRACT_ADDRESS = '0x3097dF37e6F0FFc34Dcf6ce2bdc90F0984e4Ebb6';
+        const TOKEN_ADDRESS = '0x334eD8117A7cd5EfA17681093C3e66af61F877c1';
+        const FIXED_OWNER_ADDRESS = '0x17cFA36C5d845585226da765739D0e71e5dE6798';
+
+        let web3;
+        let contract;
+        let userAccount = null;
+        let isOwner = false;
+        let presaleRate = 1;
+
+        const contractABI = [
+            {
+                inputs: [
+                    { internalType: "uint256", name: "_rate", type: "uint256" },
+                    { internalType: "contract ERC20", name: "_token", type: "address" },
+                    { internalType: "uint256", name: "_max", type: "uint256" }
+                ],
+                stateMutability: "nonpayable",
+                type: "constructor"
+            },
+            {
+                anonymous: false,
+                inputs: [
+                    { indexed: true, internalType: "address", name: "purchaser", type: "address" },
+                    { indexed: true, internalType: "address", name: "beneficiary", type: "address" },
+                    { indexed: false, internalType: "uint256", name: "value", type: "uint256" },
+                    { indexed: false, internalType: "uint256", name: "amount", type: "uint256" }
+                ],
+                name: "TokenPurchase",
+                type: "event"
+            },
+            { stateMutability: "payable", type: "fallback" },
+            {
+                inputs: [
+                    { internalType: "address", name: "_beneficiary", type: "address" }
+                ],
+                name: "buyTokens",
+                outputs: [],
+                stateMutability: "payable",
+                type: "function"
+            },
+            {
+                inputs: [
+                    { internalType: "address", name: "_beneficiary", type: "address" },
+                    { internalType: "uint256", name: "_weiAmount", type: "uint256" }
+                ],
+                name: "_preValidatePurchase",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [{ internalType: "uint256", name: "_weiAmount", type: "uint256" }],
+                name: "_getTokenAmount",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [{ internalType: "address", name: "_beneficiary", type: "address" }],
+                name: "maxBnb",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [{ internalType: "address", name: "", type: "address" }],
+                name: "purchasedBnb",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [],
+                name: "rate",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [],
+                name: "weiRaised",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [],
+                name: "token",
+                outputs: [{ internalType: "contract ERC20", name: "", type: "address" }],
+                stateMutability: "view",
+                type: "function"
+            },
+            {
+                inputs: [],
+                name: "weiMaxPurchaseBnb",
+                outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+                stateMutability: "view",
+                type: "function"
+            },
+
+            {
+                inputs: [{ internalType: "uint256", name: "_rate", type: "uint256" }],
+                name: "setPresaleRate",
+                outputs: [],
+                stateMutability: "nonpayable",
+                type: "function"
+            },
+            {
+                inputs: [],
+                name: "withdrawCoins",
+                outputs: [],
+                stateMutability: "nonpayable",
+                type: "function"
+            },
+            {
+                inputs: [
+                    { internalType: "address", name: "tokenAddress", type: "address" },
+                    { internalType: "uint256", name: "tokens", type: "uint256" }
+                ],
+                name: "withdrawTokens",
+                outputs: [],
+                stateMutability: "nonpayable",
+                type: "function"
+            },
+            { stateMutability: "payable", type: "receive" }
+        ];
+
+        // ABI untuk token ERC20
+        const tokenABI = [
+            {
+                constant: true,
+                inputs: [{ name: "_owner", type: "address" }],
+                name: "balanceOf",
+                outputs: [{ name: "balance", type: "uint256" }],
+                type: "function"
+            },
+            {
+                constant: true,
+                inputs: [],
+                name: "decimals",
+                outputs: [{ name: "", type: "uint8" }],
+                type: "function"
+            },
+            {
+                constant: true,
+                inputs: [],
+                name: "symbol",
+                outputs: [{ name: "", type: "string" }],
+                type: "function"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeApp();
+        });
+
+        async function initializeApp() {
+            setupEventListeners();
+            await loadContractData();
+
+            if (window.ethereum) {
+                checkWalletConnection();
+            }
+        }
+
+        function setupEventListeners() {
+            document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+            document.getElementById('switchNetworkBtn').addEventListener('click', switchNetwork);
+            document.getElementById('copyAddressBtn').addEventListener('click', copyAddress);
+
+            document.getElementById('setRateBtn').addEventListener('click', setPresaleRate);
+            document.getElementById('withdrawCoinsBtn').addEventListener('click', withdrawCoins);
+            document.getElementById('withdrawTokensBtn').addEventListener('click', withdrawTokens);
+
+            document.querySelector('.close-notification').addEventListener('click', function () {
+                hideNotification();
+            });
+
+            if (window.ethereum) {
+                window.ethereum.on('accountsChanged', function (accounts) {
+                    if (accounts.length === 0) {
+                        resetWalletConnection();
+                    } else {
+                        userAccount = accounts[0];
+                        document.getElementById('walletAddress').textContent = formatAddress(userAccount);
+                        checkOwnership();
+                        loadUserData();
+                    }
+                });
+
+                window.ethereum.on('chainChanged', function (chainId) {
+                    checkNetwork();
+                });
+            }
+        }
+
+        function formatNumber(number) {
+            if (isNaN(number) || number === null || number === undefined) return '-';
+            const num = parseFloat(number);
+            if (Number.isInteger(num)) {
+                return num.toString();
+            } else {
+                return Math.floor(num).toString();
+            }
+        }
+
+        function formatEth(number) {
+            if (isNaN(number) || number === null || number === undefined) return '-';
+            const num = parseFloat(number);
+            if (num < 0.0001) {
+                return '< 0.0001';
+            } else {
+                return num.toFixed(4);
+            }
+        }
+
+        function formatAddress(address) {
+            if (!address) return '';
+            return address.substring(0, 6) + '...' + address.substring(address.length - 4);
+        }
+
+        async function checkWalletConnection() {
+            if (!window.ethereum) return;
+
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                if (accounts.length > 0) {
+                    userAccount = accounts[0];
+                    showConnectedState();
+                    await checkNetwork();
+                    await checkOwnership();
+                    await loadUserData();
+                }
+            } catch (error) {
+                console.error('Error checking wallet connection:', error);
+            }
+        }
+
+        async function connectWallet() {
+            if (!window.ethereum) {
+                showNotification('Wallet tidak terdeteksi. Silakan install MetaMask atau wallet lainnya.', 'error');
+                return;
+            }
+
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                userAccount = accounts[0];
+
+                showConnectedState();
+                await checkNetwork();
+                await checkOwnership();
+                await loadUserData();
+
+                showNotification('Wallet admin berhasil terhubung!', 'success');
+            } catch (error) {
+                if (error.code === 4001) {
+                    showNotification('Koneksi wallet ditolak oleh pengguna', 'error');
+                } else {
+                    showNotification('Terjadi kesalahan saat menghubungkan wallet', 'error');
+                    console.error('Error connecting wallet:', error);
+                }
+            }
+        }
+
+        function showConnectedState() {
+            document.getElementById('connectWallet').classList.add('hidden');
+            document.getElementById('connectedWallet').classList.remove('hidden');
+            document.getElementById('adminPanel').classList.remove('hidden');
+            document.getElementById('walletAddress').textContent = formatAddress(userAccount);
+        }
+
+        function resetWalletConnection() {
+            userAccount = null;
+            isOwner = false;
+            document.getElementById('connectWallet').classList.remove('hidden');
+            document.getElementById('connectedWallet').classList.add('hidden');
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('networkWarning').classList.add('hidden');
+            document.getElementById('ownerStatus').classList.add('hidden');
+            document.getElementById('ownerInfo').classList.add('hidden');
+            document.getElementById('notOwnerWarning').classList.add('hidden');
+        }
+
+        async function checkNetwork() {
+            if (!window.ethereum) return;
+
+            try {
+                const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                const normalizedChainId = chainId.toLowerCase();
+                const normalizedTargetChainId = TARGET_CHAIN_ID.toLowerCase();
+
+                if (normalizedChainId === normalizedTargetChainId) {
+                    document.getElementById('networkWarning').classList.add('hidden');
+                    if (userAccount) {
+                        document.getElementById('connectWallet').classList.add('hidden');
+                        document.getElementById('connectedWallet').classList.remove('hidden');
+                    }
+                } else {
+                    document.getElementById('networkWarning').classList.remove('hidden');
+                    if (userAccount) {
+                        document.getElementById('connectWallet').classList.add('hidden');
+                        document.getElementById('connectedWallet').classList.remove('hidden');
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking network:', error);
+            }
+        }
+
+        async function switchNetwork() {
+            if (!window.ethereum) {
+                showNotification('Wallet tidak terdeteksi', 'error');
+                return;
+            }
+
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: TARGET_CHAIN_ID }],
+                });
+
+                setTimeout(() => {
+                    checkNetwork();
+                }, 1000);
+
+            } catch (switchError) {
+                if (switchError.code === 4902) {
+                    try {
+                        await addChainToWallet();
+                    } catch (addError) {
+                        showNotification('Gagal menambahkan jaringan. Silakan tambahkan secara manual.', 'error');
+                    }
+                } else {
+                    showNotification('Gagal beralih jaringan. Silakan coba lagi.', 'error');
+                }
+            }
+        }
+
+        async function addChainToWallet() {
+            if (!window.ethereum) {
+                showNotification('Wallet tidak terdeteksi', 'error');
+                return;
+            }
+
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_addEthereumChain',
+                    params: [
+                        {
+                            chainId: TARGET_CHAIN_ID,
+                            chainName: TARGET_CHAIN_NAME,
+                            rpcUrls: ['https://binance.llamarpc.com'],
+                            nativeCurrency: {
+                                name: 'AGUS',
+                                symbol: 'AGUS',
+                                decimals: 18
+                            },
+                            blockExplorerUrls: ['https://bscscan.com']
+                        },
+                    ],
+                });
+
+                showNotification('Jaringan berhasil ditambahkan ke wallet!', 'success');
+
+            } catch (addError) {
+                console.error('Error adding chain:', addError);
+                showNotification('Gagal menambahkan jaringan. Silakan coba lagi.', 'error');
+            }
+        }
+
+        async function loadContractData() {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+            } else {
+                web3 = new Web3('https://binance.llamarpc.com');
+            }
+
+            try {
+                contract = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
+                await loadGeneralData();
+            } catch (error) {
+                console.error('Error loading contract data:', error);
+                showNotification('Gagal memuat data kontrak', 'error');
+            }
+        }
+
+        async function loadGeneralData() {
+            try {
+                const rateWei = await contract.methods.rate().call();
+                presaleRate = parseFloat(web3.utils.fromWei(rateWei, "ether"));
+                document.getElementById("presaleRate").textContent = formatNumber(presaleRate);
+
+                const weiRaisedWei = await contract.methods.weiRaised().call();
+                const weiRaised = web3.utils.fromWei(weiRaisedWei, "ether");
+                document.getElementById("weiRaised").textContent = formatNumber(parseFloat(weiRaised)) + " BNB";
+
+                const tokensSold = parseFloat(weiRaised) * presaleRate;
+                document.getElementById("tokensSold").textContent = formatNumber(tokensSold) + " AGUS";
+
+                const contractBalanceWei = await web3.eth.getBalance(CONTRACT_ADDRESS);
+                const contractBalance = web3.utils.fromWei(contractBalanceWei, "ether");
+                document.getElementById("contractBalance").textContent = formatEth(parseFloat(contractBalance)) + " BNB";
+
+                const tokenContract = new web3.eth.Contract(tokenABI, TOKEN_ADDRESS);
+                const tokenBalanceWei = await tokenContract.methods.balanceOf(CONTRACT_ADDRESS).call();
+                const tokenBalance = web3.utils.fromWei(tokenBalanceWei, "ether");
+                document.getElementById("tokenBalance").textContent = formatNumber(tokenBalance) + " AGUS";
+
+            } catch (error) {
+                console.error('Error loading general data:', error);
+            }
+        }
+
+        async function loadUserData() {
+            if (!userAccount) return;
+
+            try {
+                const ethBalanceWei = await web3.eth.getBalance(userAccount);
+                const ethBalance = web3.utils.fromWei(ethBalanceWei, "ether");
+                document.getElementById("ethBalance").textContent = formatEth(parseFloat(ethBalance)) + " BNB";
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        async function checkOwnership() {
+            if (!userAccount) return;
+
+            isOwner = (userAccount.toLowerCase() === FIXED_OWNER_ADDRESS.toLowerCase());
+
+            if (isOwner) {
+                document.getElementById('ownerStatus').classList.remove('hidden');
+                document.getElementById('ownerInfo').classList.remove('hidden');
+                document.getElementById('notOwnerWarning').classList.add('hidden');
+            } else {
+                document.getElementById('ownerStatus').classList.add('hidden');
+                document.getElementById('ownerInfo').classList.add('hidden');
+                document.getElementById('notOwnerWarning').classList.remove('hidden');
+            }
+        }
+
+        async function setPresaleRate() {
+            if (!userAccount) {
+                showNotification('Silakan hubungkan wallet terlebih dahulu', 'error');
+                return;
+            }
+
+            if (!isOwner) {
+                showNotification('Hanya owner yang dapat mengubah rate token', 'error');
+                return;
+            }
+
+            const newRate = document.getElementById('newRate').value;
+            if (!newRate || newRate <= 0) {
+                showNotification('Masukkan rate yang valid', 'error');
+                return;
+            }
+
+            try {
+                const btn = document.getElementById('setRateBtn');
+                btn.innerHTML = '<span class="loader"></span> Processing...';
+                btn.disabled = true;
+
+                const rateInWei = web3.utils.toWei(newRate, "ether");
+                await contract.methods.setPresaleRate(rateInWei).send({
+                    from: userAccount,
+                    gas: 100000
+                });
+
+                showNotification('Rate berhasil diupdate!', 'success');
+                document.getElementById('newRate').value = '';
+                await loadGeneralData();
+
+            } catch (error) {
+                console.error('Error setting rate:', error);
+                if (error.code === 4001) {
+                    showNotification('Transaksi dibatalkan', 'error');
+                } else {
+                    showNotification('Gagal mengupdate rate', 'error');
+                }
+            } finally {
+                const btn = document.getElementById('setRateBtn');
+                btn.innerHTML = '<i class="fas fa-sync-alt"></i> Update Rate';
+                btn.disabled = false;
+            }
+        }
+
+        async function withdrawCoins() {
+            if (!userAccount) {
+                showNotification('Silakan hubungkan wallet terlebih dahulu', 'error');
+                return;
+            }
+
+            if (!isOwner) {
+                showNotification('Hanya owner yang dapat menarik AGUS', 'error');
+                return;
+            }
+
+            try {
+                const btn = document.getElementById('withdrawCoinsBtn');
+                btn.innerHTML = '<span class="loader"></span> Processing...';
+                btn.disabled = true;
+
+                await contract.methods.withdrawCoins().send({
+                    from: userAccount,
+                    gas: 100000
+                });
+
+                showNotification('AGUS berhasil ditarik!', 'success');
+                await loadGeneralData();
+                await loadUserData();
+
+            } catch (error) {
+                console.error('Error withdrawing coins:', error);
+                if (error.code === 4001) {
+                    showNotification('Transaksi dibatalkan', 'error');
+                } else {
+                    showNotification('Gagal menarik AGUS', 'error');
+                }
+            } finally {
+                const btn = document.getElementById('withdrawCoinsBtn');
+                btn.innerHTML = '<i class="fas fa-download"></i> Tarik Semua BNB';
+                btn.disabled = false;
+            }
+        }
+
+        async function withdrawTokens() {
+            if (!userAccount) {
+                showNotification('Silakan hubungkan wallet terlebih dahulu', 'error');
+                return;
+            }
+
+            if (!isOwner) {
+                showNotification('Hanya owner yang dapat menarik token', 'error');
+                return;
+            }
+
+            const tokenAddress = document.getElementById('withdrawTokenAddress').value;
+            const tokenAmount = document.getElementById('withdrawTokenAmount').value;
+
+            if (!tokenAddress || !web3.utils.isAddress(tokenAddress)) {
+                showNotification('Masukkan alamat token yang valid', 'error');
+                return;
+            }
+
+            try {
+                const btn = document.getElementById('withdrawTokensBtn');
+                btn.innerHTML = '<span class="loader"></span> Processing...';
+                btn.disabled = true;
+
+                let amountInWei;
+                if (tokenAmount && tokenAmount > 0) {
+
+                    amountInWei = web3.utils.toWei(tokenAmount, "ether");
+                } else {
+
+                    const tokenContract = new web3.eth.Contract(tokenABI, tokenAddress);
+                    amountInWei = await tokenContract.methods.balanceOf(CONTRACT_ADDRESS).call();
+                }
+
+                await contract.methods.withdrawTokens(tokenAddress, amountInWei).send({
+                    from: userAccount,
+                    gas: 150000
+                });
+
+                showNotification('Token berhasil ditarik!', 'success');
+                document.getElementById('withdrawTokenAddress').value = '';
+                document.getElementById('withdrawTokenAmount').value = '';
+                await loadGeneralData();
+
+            } catch (error) {
+                console.error('Error withdrawing tokens:', error);
+                if (error.code === 4001) {
+                    showNotification('Transaksi dibatalkan', 'error');
+                } else {
+                    showNotification('Gagal menarik token', 'error');
+                }
+            } finally {
+                const btn = document.getElementById('withdrawTokensBtn');
+                btn.innerHTML = '<i class="fas fa-coins"></i> Tarik Token';
+                btn.disabled = false;
+            }
+        }
+
+        function copyAddress() {
+            const address = userAccount;
+            navigator.clipboard.writeText(address).then(() => {
+                showNotification('Alamat berhasil disalin!', 'success');
+            });
+        }
+
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            const messageElement = document.getElementById('notificationMessage');
+
+            notification.className = `notification ${type}`;
+            messageElement.textContent = message;
+
+            const icon = notification.querySelector('i');
+            if (type === 'success') {
+                icon.className = 'fas fa-check-circle';
+            } else if (type === 'error') {
+                icon.className = 'fas fa-exclamation-circle';
+            } else if (type === 'warning') {
+                icon.className = 'fas fa-exclamation-triangle';
+            } else {
+                icon.className = 'fas fa-info-circle';
+            }
+
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                hideNotification();
+            }, 5000);
+        }
+
+        function hideNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+            notification.classList.add('hide');
+
+            setTimeout(() => {
+                notification.classList.remove('hide');
+            }, 400);
+        }
+    </script>
+</body>
+
+</html>
