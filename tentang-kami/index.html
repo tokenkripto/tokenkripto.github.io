@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="https://tokenkripto.github.io/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tentang Kami - Platform Pembuat Token Kripto ERC20/BEP20 Tanpa Kode</title>
+    <meta name="description"
+        content="Kenali lebih dekat platform pembuatan token kripto BEP20 (BSC) & ERC20 (EVM) tanpa coding. Pelajari visi, misi, dan tim di balik layanan kami.">
+    <meta name="keywords"
+        content="tentang kami, platform token, pembuat token kripto, visi misi, tim pengembang, sejarah token kripto">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tokenkripto.github.io/tentang-kami/">
+    <meta property="twitter:title" content="Tentang Kami - Platform Pembuat Token Kripto">
+    <meta property="twitter:description"
+        content="Kenali lebih dekat platform pembuatan token kripto tanpa coding. Pelajari visi, misi, dan tim di balik layanan kami.">
+    <meta property="twitter:image" content="https://tokenkripto.github.io/favicon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Tentang Kami - Platform Pembuat Token Kripto",
+      "description": "Halaman tentang kami yang menjelaskan visi, misi, dan tim di balik platform pembuatan token kripto tanpa coding.",
+      "url": "https://tokenkripto.github.io/tentang-kami/",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Token Kripto",
+        "description": "Platform pembuatan token kripto BEP20 & ERC20 tanpa coding",
+        "url": "https://tokenkripto.github.io",
+        "foundingDate": "2024",
+        "areaServed": "Worldwide"
+      }
+    }
+    </script>
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#00f3ff">
+    <link rel="canonical" href="https://tokenkripto.github.io/tentang-kami/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --primary-glow: #00d4ff66;
+            --primary-dark: #00a8cc;
+            --secondary: #0f0f23;
+            --accent: #1a1a2e;
+            --text: #ffffff;
+            --text-secondary: #b8c2cc;
+            --background: #050510;
+            --card-bg: rgba(20, 20, 40, 0.8);
+            --card-border: rgba(0, 212, 255, 0.3);
+            --success: #00ff9d;
+            --success-glow: #00ff9d66;
+            --warning: #ffbd00;
+            --error: #ff2e63;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-hover: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            --success-gradient: linear-gradient(135deg, var(--success), #00cc88);
+            --neon-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            touch-action: pan-y;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            scroll-behavior: smooth;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 46, 99, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 157, 0.03) 0%, transparent 30%);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(5, 5, 16, 0.9);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        header.scrolled {
+            background: rgba(5, 5, 16, 0.95);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            border-bottom-color: var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 15px var(--primary-glow), 0 0 25px var(--primary-glow);
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 5px var(--primary-glow));
+        }
+
+        .logo:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+            box-shadow: 0 0 5px var(--primary-glow);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: rgba(5, 5, 16, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 80px 2rem 2rem;
+            border-left: 1px solid var(--card-border);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--primary);
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--card-border);
+            transform: translateX(10px);
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-close:hover {
+            background: rgba(255, 46, 99, 0.1);
+            color: var(--error);
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--secondary);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--gradient-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .about-hero {
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 168, 204, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 40% 80%, rgba(255, 46, 99, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, var(--background) 0%, #0a0a1a 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: var(--gradient);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .about-content {
+            padding: 120px 0;
+        }
+
+        .about-section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 10px rgba(0, 212, 255, 0.2);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .section-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .section-title:hover .section-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.6);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .about-card {
+            background: linear-gradient(145deg, var(--card-bg) 0%, #1c1c3c 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .about-card:hover .card-icon {
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.7);
+        }
+
+        .about-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .team-member {
+            background: linear-gradient(145deg, var(--card-bg) 0%, #1c1c3c 100%);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            overflow: hidden;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .member-role {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .member-bio {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--gradient);
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: linear-gradient(145deg, var(--card-bg) 0%, #1c1c3c 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: calc(50% - 40px);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 40px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 40px;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            left: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            right: -60px;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 30px;
+            background: var(--gradient);
+            color: var(--secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -120px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -120px;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .value-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover .value-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.7);
+        }
+
+        .value-item h3 {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .value-item p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            animation: floatShape 20s infinite linear;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-duration: 25s;
+        }
+
+        .shape-2 {
+            top: 70%;
+            left: 80%;
+            width: 150px;
+            height: 150px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation-duration: 30s;
+        }
+
+        .shape-3 {
+            top: 30%;
+            left: 85%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            animation-duration: 20s;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -50px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        footer {
+            background: linear-gradient(180deg, var(--secondary) 0%, #0a0a1a 100%);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.5rem 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(145deg, var(--card-bg), #1a1a2a);
+            border-radius: 50%;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-hero {
+                padding: 140px 0 80px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-grid,
+            .team-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-card,
+            .team-member {
+                padding: 2rem 1.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                margin-bottom: 3rem;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-content::after {
+                left: -60px !important;
+                right: auto !important;
+            }
+
+            .timeline-year {
+                left: -80px !important;
+                right: auto !important;
+            }
+
+            .footer-content {
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-card,
+            .team-member {
+                padding: 1.5rem 1rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cyber-grid"></div>
+
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="https://tokenkripto.github.io" class="logo">
+                <img src="https://tokenkripto.github.io/favicon.png" alt="Logo Platform Kreasi Token Multi-Blockchain">
+                <span>Token Kripto</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="https://tokenkripto.github.io"><i class="fas fa-home"></i> Beranda</a>
+                <a href="https://tokenkripto.github.io/tentang-kami/" class="active"><i class="fas fa-info-circle"></i>
+                    Tentang Kami</a>
+                <a href="https://tokenkripto.github.io/#guide"><i class="fas fa-book"></i> Panduan</a>
+                <a href="https://tokenkripto.github.io/#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="https://tokenkripto.github.io"><i class="fas fa-home"></i> Beranda</a>
+            <a href="https://tokenkripto.github.io/tentang-kami/" class="active"><i class="fas fa-info-circle"></i>
+                Tentang Kami</a>
+            <a href="https://tokenkripto.github.io/#guide"><i class="fas fa-book"></i> Panduan</a>
+            <a href="https://tokenkripto.github.io/#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="https://tokenkripto.github.io/#token-creator"><i class="fas fa-rocket"></i> Buat Token</a>
+        </nav>
+    </div>
+
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Tentang Kami</h1>
+                <p class="hero-subtitle">Mengenal lebih dekat platform pembuatan token kripto tanpa coding yang
+                    memudahkan siapa saja untuk meluncurkan aset digital mereka di berbagai blockchain.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-section">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2>Visi & Misi Kami</h2>
+                    <p>Mendorong adopsi teknologi blockchain dengan menyediakan solusi yang mudah diakses oleh semua
+                        orang</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Visi Kami</h3>
+                        <p>Menjadi platform pembuatan token terdepan yang memungkinkan siapa saja, dari pemula hingga
+                            profesional, untuk dengan mudah membuat dan meluncurkan token kripto mereka sendiri tanpa
+                            hambatan teknis.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Misi Kami</h3>
+                        <p>Menyederhanakan proses pembuatan token dengan menghilangkan kebutuhan akan pengetahuan
+                            coding, sambil memastikan keamanan, transparansi, dan kepatuhan terhadap standar industri.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Komitmen Kami</h3>
+                        <p>Kami berkomitmen untuk terus berinovasi dalam menyediakan solusi yang aman, terjangkau, dan
+                            mudah digunakan bagi komunitas blockchain yang terus berkembang.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h2>Sejarah Kami</h2>
+                    <p>Perjalanan platform Token Kripto dari awal hingga sekarang</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <h3>Peluncuran Platform</h3>
+                            <p>Token Kripto diluncurkan dengan fokus pada pembuatan token BEP20 di BNB Smart Chain.
+                                Platform awal menawarkan pembuatan token sederhana tanpa coding dengan biaya yang
+                                terjangkau.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <h3>Ekspansi ke Core Chain</h3>
+                            <p>Kami memperluas dukungan ke Core Chain, menawarkan alternatif blockchain dengan keamanan
+                                tinggi dan biaya transaksi yang kompetitif untuk pembuatan token ERC20.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2025</div>
+                            <h3>Integrasi Matahari Chain</h3>
+                            <p>Menambahkan dukungan untuk Matahari Smart Chain, memberikan pilihan blockchain dengan
+                                biaya sangat rendah yang khusus fokus pada pasar Asia Tenggara.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2025</div>
+                            <h3>Peningkatan Fitur & Keamanan</h3>
+                            <p>Meluncurkan peningkatan besar pada antarmuka pengguna, menambahkan fitur verifikasi
+                                kontrak otomatis, dan meningkatkan keamanan platform dengan audit kontrak yang lebih
+                                ketat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h2>Tim Kami</h2>
+                    <p>Orang-orang di balik platform Token Kripto</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="member-name">Alex Chen</h3>
+                        <p class="member-role">Founder & Blockchain Developer</p>
+                        <p class="member-bio">Memiliki pengalaman lebih dari 5 tahun dalam pengembangan blockchain dan
+                            smart contract. Fokus pada keamanan dan inovasi teknologi.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="member-name">Sarah Williams</h3>
+                        <p class="member-role">Head of Product</p>
+                        <p class="member-bio">Bertanggung jawab atas pengalaman pengguna dan pengembangan produk.
+                            Memastikan platform tetap mudah digunakan namun powerful.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="member-name">Michael Rodriguez</h3>
+                        <p class="member-role">Security Specialist</p>
+                        <p class="member-bio">Ahli keamanan blockchain dengan spesialisasi dalam audit smart contract
+                            dan implementasi praktik keamanan terbaik.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h2>Nilai-Nilai Kami</h2>
+                    <p>Prinsip-prinsip yang memandu setiap keputusan dan inovasi kami</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Keamanan</h3>
+                        <p>Keamanan pengguna dan aset digital adalah prioritas utama kami. Semua kontrak pintar melalui
+                            proses audit ketat sebelum diluncurkan.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lock-open"></i>
+                        </div>
+                        <h3>Aksesibilitas</h3>
+                        <p>Kami percaya teknologi blockchain harus dapat diakses oleh semua orang, tanpa memandang latar
+                            belakang teknis.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Inovasi</h3>
+                        <p>Terus berinovasi untuk menyediakan solusi yang lebih baik, lebih cepat, dan lebih efisien
+                            bagi komunitas blockchain.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Transparansi</h3>
+                        <p>Kami beroperasi dengan transparansi penuh. Semua kode kontrak pintar dapat diverifikasi di
+                            explorer blockchain.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Komunitas</h3>
+                        <p>Membangun dan mendukung komunitas yang kuat adalah inti dari misi kami untuk mendorong adopsi
+                            blockchain.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Edukasi</h3>
+                        <p>Kami berkomitmen untuk mendidik pengguna tentang blockchain dan teknologi cryptocurrency
+                            melalui konten yang mudah dipahami.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <div class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2>Pencapaian Kami</h2>
+                    <p>Beberapa tonggak penting dalam perjalanan kami</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>1,000+ Token</h3>
+                        <p>Lebih dari 1,000 token telah berhasil dibuat melalui platform kami oleh pengguna dari
+                            berbagai belahan dunia.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>10+ Negara</h3>
+                        <p>Pengguna kami tersebar di lebih dari 10 negara, menunjukkan daya tarik global platform
+                            pembuatan token tanpa coding.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h3>0 Insiden Keamanan</h3>
+                        <p>Tidak ada insiden keamanan yang dilaporkan sejak platform diluncurkan, berkat fokus kami pada
+                            audit dan pengujian ketat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section" style="text-align: center;">
+                <div class="section-title">
+                    <h2>Siap Memulai Perjalanan Token Anda?</h2>
+                    <p>Bergabunglah dengan ribuan pengguna yang telah berhasil membuat token mereka sendiri</p>
+                </div>
+                <a href="https://tokenkripto.github.io/#token-creator" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Buat Token Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Token Kripto</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Platform Pembuatan Token
+                        Multi-Blockchain</p>
+                    <div class="social-icons">
+                        <a href="https://x.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://t.me/" target="_blank" title="Telegram" rel="nofollow"><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="mailto:tokenkripto6@gmail.com" target="_blank" title="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://tokenkripto.github.io/tentang-kami/"><i class="fas fa-chevron-right"></i>
+                                Tentang Kami</a></li>
+                        <li><a href="https://tokenkripto.github.io/kontak/"><i class="fas fa-chevron-right"></i>
+                                Kontak</a></li>
+                        <li><a href="https://tokenkripto.github.io/penafian/"><i class="fas fa-chevron-right"></i>
+                                Penafian</a></li>
+                        <li><a href="https://tokenkripto.github.io/ketentuan-layanan/"><i
+                                    class="fas fa-chevron-right"></i> Ketentuan Layanan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Supported</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://bscscan.com/"><i class="fa-brands fa-btc"></i> BscScan</a></li>
+                        <li><a href="https://scan.coredao.org/" rel="nofollow"><i class="fa-brands fa-ethereum"></i>
+                                CoreScan</a></li>
+                        <li><a href="/penjualan-token/"><i class="fas fa-cart-arrow-down"></i> Penjualan Token</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Token Kripto. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavClose = document.getElementById('mobileNavClose');
+
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', () => mobileNav.classList.add('active'));
+                mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('active'));
+            }
+
+            window.addEventListener('scroll', function () {
+                const header = document.querySelector('header');
+                if (header) {
+                    if (window.scrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
