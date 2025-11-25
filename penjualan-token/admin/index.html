@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" type="image/png" href="https://tokenkripto.github.io/favicon.png" />
-    <title>DApp Web3 Admin - AGUS</title>
+    <link rel="shortcut icon" type="image/png" href="https://cryptoreceh.com/favicon.png" />
+    <title>DApp Web3 Admin - Danacoin (DANA)</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <style>
         :root {
@@ -547,10 +547,10 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/cryptorecehcom/images/refs/heads/main/tokenlogo/AGUS.png"
-                    width="100" height="100" alt="agus token">
+                <img src="https://raw.githubusercontent.com/cryptorecehcom/images/refs/heads/main/tokenlogo/DANA.png"
+                    width="100" height="100" alt="Danacoin">
             </div>
-            <h1>AGUS TokenSale Admin</h1>
+            <h1>DANA TokenSale Admin</h1>
             <p class="subtitle">Panel Admin untuk Mengelola Penjualan Token</p>
         </div>
 
@@ -573,10 +573,10 @@
                 <span>Jaringan Salah!</span>
             </div>
             <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">
-                Wallet tidak terhubung ke jaringan BNB Chain.
+                Wallet tidak terhubung ke jaringan Matahari Chain.
             </p>
             <button id="switchNetworkBtn" class="btn btn-warning">
-                <i class="fas fa-exchange-alt"></i> Ganti ke BNB Chain
+                <i class="fas fa-exchange-alt"></i> Ganti ke MatahariChain
             </button>
         </div>
 
@@ -600,7 +600,7 @@
                     </button>
                 </div>
                 <div class="wallet-balance">
-                    <div class="balance-label">Saldo BNB:</div>
+                    <div class="balance-label">Saldo MTHR:</div>
                     <div class="balance-value" id="ethBalance">-</div>
                 </div>
                 <div class="wallet-balance">
@@ -652,11 +652,11 @@
             <div id="notOwnerWarning" class="admin-warning hidden">
                 <i class="fas fa-exclamation-triangle"></i>
                 Wallet Anda bukan owner kontrak. Hanya wallet
-                <strong>0x17cFA36C5d845585226da765739D0e71e5dE6798</strong> yang dapat menggunakan fungsi admin.
+                <strong>0x4a3a2CDa6B5296fD1A69149F4838244558e42B50</strong> yang dapat menggunakan fungsi admin.
             </div>
 
             <div class="form-group">
-                <label for="newRate">Set Rate (AGUS per BNB):</label>
+                <label for="newRate">Set Rate (DANA per MTHR):</label>
                 <div class="input-container">
                     <input type="number" id="newRate" placeholder="Contoh: 1000" step="1" min="1">
                 </div>
@@ -666,12 +666,12 @@
             </div>
 
             <div class="form-group">
-                <label>Tarik BNB dari Kontrak:</label>
+                <label>Tarik MTHR dari Kontrak:</label>
                 <button id="withdrawCoinsBtn" class="btn btn-admin" style="margin-top: 10px;">
-                    <i class="fas fa-download"></i> Tarik Semua BNB
+                    <i class="fas fa-download"></i> Tarik Semua MTHR
                 </button>
                 <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-top: 8px;">
-                    Menarik semua BNB yang terkumpul di kontrak
+                    Menarik semua MTHR yang terkumpul di kontrak
                 </p>
             </div>
 
@@ -710,11 +710,11 @@
     </div>
 
     <script>
-        const TARGET_CHAIN_ID = '0x38';
-        const TARGET_CHAIN_NAME = 'BNB Chain';
-        const CONTRACT_ADDRESS = '0x3097dF37e6F0FFc34Dcf6ce2bdc90F0984e4Ebb6';
-        const TOKEN_ADDRESS = '0x334eD8117A7cd5EfA17681093C3e66af61F877c1';
-        const FIXED_OWNER_ADDRESS = '0x17cFA36C5d845585226da765739D0e71e5dE6798';
+        const TARGET_CHAIN_ID = '0x7C4';
+        const TARGET_CHAIN_NAME = 'Matahari Chain';
+        const CONTRACT_ADDRESS = '0x00a0fB1C21E6FEE79e6a743D4DEFaAa55d27639F';
+        const TOKEN_ADDRESS = '0xE8677b70d788c3a5304adEf806A8F953122C5779';
+        const FIXED_OWNER_ADDRESS = '0x4a3a2CDa6B5296fD1A69149F4838244558e42B50';
 
         let web3;
         let contract;
@@ -772,14 +772,14 @@
             },
             {
                 inputs: [{ internalType: "address", name: "_beneficiary", type: "address" }],
-                name: "maxBnb",
+                name: "maxMthr",
                 outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
                 stateMutability: "view",
                 type: "function"
             },
             {
                 inputs: [{ internalType: "address", name: "", type: "address" }],
-                name: "purchasedBnb",
+                name: "purchasedMthr",
                 outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
                 stateMutability: "view",
                 type: "function"
@@ -807,7 +807,7 @@
             },
             {
                 inputs: [],
-                name: "weiMaxPurchaseBnb",
+                name: "weiMaxPurchaseMthr",
                 outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
                 stateMutability: "view",
                 type: "function"
@@ -1064,13 +1064,13 @@
                         {
                             chainId: TARGET_CHAIN_ID,
                             chainName: TARGET_CHAIN_NAME,
-                            rpcUrls: ['https://binance.llamarpc.com'],
+                            rpcUrls: ['https://rpcmataharichain.cloud'],
                             nativeCurrency: {
-                                name: 'AGUS',
-                                symbol: 'AGUS',
+                                name: 'DANA',
+                                symbol: 'DANA',
                                 decimals: 18
                             },
-                            blockExplorerUrls: ['https://bscscan.com']
+                            blockExplorerUrls: ['https://mataharichain.com']
                         },
                     ],
                 });
@@ -1087,7 +1087,7 @@
             if (window.ethereum) {
                 web3 = new Web3(window.ethereum);
             } else {
-                web3 = new Web3('https://binance.llamarpc.com');
+                web3 = new Web3('https://rpcmataharichain.cloud');
             }
 
             try {
@@ -1107,19 +1107,19 @@
 
                 const weiRaisedWei = await contract.methods.weiRaised().call();
                 const weiRaised = web3.utils.fromWei(weiRaisedWei, "ether");
-                document.getElementById("weiRaised").textContent = formatNumber(parseFloat(weiRaised)) + " BNB";
+                document.getElementById("weiRaised").textContent = formatNumber(parseFloat(weiRaised)) + " MTHR";
 
                 const tokensSold = parseFloat(weiRaised) * presaleRate;
-                document.getElementById("tokensSold").textContent = formatNumber(tokensSold) + " AGUS";
+                document.getElementById("tokensSold").textContent = formatNumber(tokensSold) + " DANA";
 
                 const contractBalanceWei = await web3.eth.getBalance(CONTRACT_ADDRESS);
                 const contractBalance = web3.utils.fromWei(contractBalanceWei, "ether");
-                document.getElementById("contractBalance").textContent = formatEth(parseFloat(contractBalance)) + " BNB";
+                document.getElementById("contractBalance").textContent = formatEth(parseFloat(contractBalance)) + " MTHR";
 
                 const tokenContract = new web3.eth.Contract(tokenABI, TOKEN_ADDRESS);
                 const tokenBalanceWei = await tokenContract.methods.balanceOf(CONTRACT_ADDRESS).call();
                 const tokenBalance = web3.utils.fromWei(tokenBalanceWei, "ether");
-                document.getElementById("tokenBalance").textContent = formatNumber(tokenBalance) + " AGUS";
+                document.getElementById("tokenBalance").textContent = formatNumber(tokenBalance) + " DANA";
 
             } catch (error) {
                 console.error('Error loading general data:', error);
@@ -1132,7 +1132,7 @@
             try {
                 const ethBalanceWei = await web3.eth.getBalance(userAccount);
                 const ethBalance = web3.utils.fromWei(ethBalanceWei, "ether");
-                document.getElementById("ethBalance").textContent = formatEth(parseFloat(ethBalance)) + " BNB";
+                document.getElementById("ethBalance").textContent = formatEth(parseFloat(ethBalance)) + " MTHR";
             } catch (error) {
                 console.error('Error loading user data:', error);
             }
@@ -1207,7 +1207,7 @@
             }
 
             if (!isOwner) {
-                showNotification('Hanya owner yang dapat menarik AGUS', 'error');
+                showNotification('Hanya owner yang dapat menarik dana', 'error');
                 return;
             }
 
@@ -1221,7 +1221,7 @@
                     gas: 100000
                 });
 
-                showNotification('AGUS berhasil ditarik!', 'success');
+                showNotification('Dana berhasil ditarik!', 'success');
                 await loadGeneralData();
                 await loadUserData();
 
@@ -1230,11 +1230,11 @@
                 if (error.code === 4001) {
                     showNotification('Transaksi dibatalkan', 'error');
                 } else {
-                    showNotification('Gagal menarik AGUS', 'error');
+                    showNotification('Gagal menarik dana', 'error');
                 }
             } finally {
                 const btn = document.getElementById('withdrawCoinsBtn');
-                btn.innerHTML = '<i class="fas fa-download"></i> Tarik Semua BNB';
+                btn.innerHTML = '<i class="fas fa-download"></i> Tarik Semua MTHR';
                 btn.disabled = false;
             }
         }
