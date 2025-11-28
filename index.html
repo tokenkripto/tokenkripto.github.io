@@ -3781,13 +3781,7 @@
                     supply: supply.toString(),
                     address: tokenAddr
                 },
-                [
-                    {
-                        text: 'Tutup',
-                        className: 'btn-secondary',
-                        onclick: hidePopup
-                    }
-                ]
+                []
             );
 
             createConfetti();
@@ -3812,13 +3806,7 @@
         }
 
         function showError(message) {
-            showPopup('error', 'Error', message, null, null, [
-                {
-                    text: 'Tutup',
-                    className: 'btn-secondary',
-                    onclick: hidePopup
-                }
-            ]);
+            showPopup('error', 'Error', message, null, null, []);
         }
 
         function showLoading() {
