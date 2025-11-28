@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Buat Token Kripto | Generator ERC20 & BEP20 Tanpa Coding</title>
     <meta name="description"
         content="Buat token kripto dengan cepat tanpa coding. Generator ERC20 & BEP20 yang mudah, aman, dan murah cocok untuk pemula yang ingin belajar crypto dan langsung deploy ke blockchain.">
@@ -122,12 +122,6 @@
             --glow-strong: 0 0 30px rgba(255, 107, 53, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         html,
         body {
             font-family: 'Poppins', sans-serif;
@@ -137,6 +131,49 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             min-height: 100vh;
+
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            overflow: hidden;
+            height: 100%;
+            position: fixed;
+            width: 100%;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            overscroll-behavior: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .main-content {
+            height: 100vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+
+        .mobile-modal,
+        .popup-overlay,
+        .mobile-nav {
+            position: fixed;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ===== CSS ASAL TETAP DIBAWAH INI ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         h1,
@@ -211,7 +248,6 @@
             transition: all 0.3s ease;
             white-space: nowrap;
             flex-shrink: 0;
-
         }
 
         .logo:hover {
@@ -243,7 +279,6 @@
         @media (min-width: 1024px) and (max-width: 1200px) {
             .nav-links {
                 gap: 1.2rem;
-
             }
         }
 
@@ -2276,7 +2311,7 @@
         </nav>
     </div>
 
-    <main id="main-content">
+    <main id="main-content" class="main-content">
 
         <section class="hero" id="home">
             <div class="container">
