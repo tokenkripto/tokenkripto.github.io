@@ -28,15 +28,7 @@
     <meta name="twitter:description"
         content="Buat token kripto dengan mudah dan cepat tanpa coding! Gunakan generator ERC20 & BEP20 yang aman dan terjangkau, ideal untuk pemula yang ingin belajar crypto.">
     <meta name="twitter:image" content="https://tokenkripto.github.io/favicon.png">
-    <!--
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; 
-                   script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com/ajax/libs;
-                   style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/ajax/libs https://fonts.googleapis.com; 
-                   font-src 'self' https://cdnjs.cloudflare.com/ajax/libs https://fonts.gstatic.com; 
-                   img-src 'self' https: data:; 
-                   connect-src 'self' https://binance.llamarpc.com https://rpc.coredao.org https://rpcmataharichain.cloud;">
--->
+
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -113,13 +105,19 @@
             --success-gradient: linear-gradient(135deg, var(--success), var(--success-dark));
             --warning-gradient: linear-gradient(135deg, var(--warning), var(--warning-dark));
             --error-gradient: linear-gradient(135deg, var(--error), var(--error-dark));
-            --cyan: #06B6D4;
             --section-bg: rgba(26, 31, 54, 0.7);
             --section-border: rgba(255, 107, 53, 0.2);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.3);
             --glow: 0 0 20px rgba(255, 107, 53, 0.3);
             --glow-strong: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html,
@@ -131,7 +129,6 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             min-height: 100vh;
-
             touch-action: manipulation;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -139,14 +136,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            overflow: hidden;
-            height: 100%;
-            position: fixed;
-            width: 100%;
-        }
-
-        * {
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -155,25 +144,7 @@
         }
 
         .main-content {
-            height: 100vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
             position: relative;
-        }
-
-        .mobile-modal,
-        .popup-overlay,
-        .mobile-nav {
-            position: fixed;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* ===== CSS ASAL TETAP DIBAWAH INI ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         h1,
@@ -632,20 +603,6 @@
                 margin-bottom: 1rem;
                 border-radius: 10px;
             }
-
-            .form-group {
-                margin-bottom: 1rem;
-            }
-
-            .form-control {
-                padding: 12px 14px;
-                font-size: 0.95rem;
-            }
-
-            .btn {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
         }
 
         .section-header {
@@ -656,13 +613,6 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary);
-        }
-
-        @media (max-width: 480px) {
-            .section-header {
-                font-size: 1.1rem;
-                margin-bottom: 1.25rem;
-            }
         }
 
         .blockchain-dropdown {
@@ -820,21 +770,6 @@
             .wallet-info-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 1.5rem;
-            }
-
-            .wallet-info-item {
-                padding-bottom: 1rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .wallet-info-item:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .wallet-address-value {
-                grid-column: 1 / -1;
-                margin-top: 0.5rem;
             }
         }
 
@@ -2296,23 +2231,7 @@
         </div>
     </header>
 
-    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu navigasi mobile" aria-hidden="true">
-        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu mobile">
-            <i class="fas fa-times"></i>
-        </button>
-        <nav class="mobile-nav-links" aria-label="Navigasi mobile">
-            <a href="#home"><i class="fas fa-home"></i> Beranda</a>
-            <a href="#creator"><i class="fas fa-coins"></i> Buat Token</a>
-            <a href="#features"><i class="fas fa-star"></i> Fitur</a>
-            <a href="#blockchains"><i class="fas fa-link"></i> Blockchain</a>
-            <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Hubungi Kami</a>
-            <a href="https://tokenkripto.github.io/penjualan-token/"><i class="fas fa-rocket"></i> Token Sale</a>
-        </nav>
-    </div>
-
     <main id="main-content" class="main-content">
-
         <section class="hero" id="home">
             <div class="container">
                 <div class="hero-content">
@@ -2936,6 +2855,7 @@
             </div>
         </footer>
     </main>
+
     <script>
         const blockchainConfig = {
             bnb: {
