@@ -9,11 +9,13 @@
         content="Buat token kripto dengan mudah dan cepat tanpa coding! Gunakan generator ERC20 & BEP20 yang aman dan terjangkau, ideal untuk pemula yang ingin belajar crypto.">
     <meta name="keywords"
         content="buat token kripto, buat token erc20, buat token bep20, generator token, pembuat token kripto, cara membuat token kripto, token creator indonesia, deploy token evm">
-    <meta name="author" content="Token Kripto Indonesia">
+    <meta name="author" content="Token Kripto Indonesia - Tim Developer Blockchain">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Indonesian">
     <meta name="theme-color" content="#FF6B35">
+    <link rel="author" href="https://tokenkripto.github.io/tentang-kami/">
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Buat Token Kripto | Generator ERC20 & BEP20 Tanpa Coding">
     <meta property="og:description"
         content="Buat token kripto dengan mudah dan cepat tanpa coding! Gunakan generator ERC20 & BEP20 yang aman dan terjangkau, ideal untuk pemula yang ingin belajar crypto.">
@@ -23,18 +25,20 @@
     <meta property="og:site_name" content="Token Kripto Indonesia">
     <meta property="og:locale" content="id_ID">
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Buat Token Kripto | Generator ERC20 & BEP20 Tanpa Coding">
     <meta name="twitter:description"
         content="Buat token kripto dengan mudah dan cepat tanpa coding! Gunakan generator ERC20 & BEP20 yang aman dan terjangkau, ideal untuk pemula yang ingin belajar crypto.">
     <meta name="twitter:image" content="https://tokenkripto.github.io/favicon.png">
 
+    <!-- Preload Resources -->
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
+        as="style">
+    <link rel="preload" href="https://tokenkripto.github.io/favicon.png" as="image">
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -51,15 +55,6 @@
         "price": "500",
         "priceCurrency": "IDR"
       },
-      "keywords": [
-        "buat token kripto",
-        "buat token erc20",
-        "buat token bep20",
-        "generator token",
-        "pembuat token kripto",
-        "token creator indonesia",
-        "deploy token evm"
-      ],
       "author": {
         "@type": "Organization",
         "name": "Token Kripto Indonesia",
@@ -69,13 +64,11 @@
     </script>
 
     <link rel="shortcut icon" type="image/png" href="https://tokenkripto.github.io/favicon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://tokenkripto.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://tokenkripto.github.io/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://tokenkripto.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://tokenkripto.github.io/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://tokenkripto.github.io/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tokenkripto.github.io/favicon.png">
     <link rel="canonical" href="https://tokenkripto.github.io/">
 
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap"
@@ -2245,7 +2238,7 @@
         </nav>
     </div>
 
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" role="main" aria-label="Konten utama pembuat token kripto">
         <section class="hero" id="home">
             <div class="container">
                 <div class="hero-content">
@@ -2869,6 +2862,9 @@
             </div>
         </footer>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
 
     <script>
         // Konfigurasi Blockchain
@@ -3975,18 +3971,19 @@
         function disconnectWallet() {
             const connectButton = safeGetElementById('connectButton');
             const switchNetworkBtn = safeGetElementById('switchNetworkBtn');
+            const walletInfo = safeGetElementById('walletInfo');
             const statusDiv = safeGetElementById('status');
 
             if (connectButton) connectButton.style.display = 'block';
             if (switchNetworkBtn) switchNetworkBtn.style.display = 'none';
+            if (walletInfo) walletInfo.classList.remove('active');
+            if (statusDiv) statusDiv.innerHTML = "";
 
             provider = null;
             signer = null;
             factoryContract = null;
             isConnected = false;
             isCorrectNetwork = false;
-
-            if (statusDiv) statusDiv.innerHTML = "";
 
             updateNetworkStatus();
             stopGasPriceUpdates();
@@ -4112,11 +4109,32 @@
             });
         }
 
+        // ==================== PERFORMANCE TRACKING ====================
+
+        function trackPerformance() {
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        const navStart = performance.getEntriesByType('navigation')[0];
+                        if (navStart) {
+                            const loadTime = navStart.loadEventEnd - navStart.navigationStart;
+                            console.log('Page Load Time:', loadTime + 'ms');
+                        }
+                    }, 0);
+                });
+            }
+        }
+
         // ==================== APP INITIALIZATION ====================
 
         function initializeApp() {
             try {
                 console.log('Initializing Token Creator App...');
+
+                // Check required APIs
+                if (typeof ethers === 'undefined') {
+                    throw new Error('Ethers.js library failed to load');
+                }
 
                 // Initialize all components
                 initEventListeners();
@@ -4128,8 +4146,10 @@
                 autoConnectWallet();
                 updateNetworkStatus();
                 setupGlobalErrorHandling();
+                trackPerformance();
 
                 console.log('Token Creator App initialized successfully');
+
             } catch (error) {
                 console.error('Error initializing app:', error);
                 showToast('Terjadi kesalahan dalam memuat aplikasi', 'error');
@@ -4151,17 +4171,6 @@
         }
 
         window.addEventListener('beforeunload', cleanup);
-
-        // Export for module systems (if needed)
-        if (typeof module !== 'undefined' && module.exports) {
-            module.exports = {
-                blockchainConfig,
-                initializeApp,
-                connectWallet,
-                createToken,
-                cleanup
-            };
-        }
     </script>
 </body>
 
