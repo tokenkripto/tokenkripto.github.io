@@ -2231,6 +2231,20 @@
         </div>
     </header>
 
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu mobile">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="#home"><i class="fas fa-home"></i> Beranda</a>
+            <a href="#creator"><i class="fas fa-coins"></i> Buat Token</a>
+            <a href="#features"><i class="fas fa-star"></i> Fitur</a>
+            <a href="#blockchains"><i class="fas fa-link"></i> Blockchain</a>
+            <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+        </nav>
+    </div>
+
     <main id="main-content" class="main-content">
         <section class="hero" id="home">
             <div class="container">
@@ -2857,6 +2871,7 @@
     </main>
 
     <script>
+        // Konfigurasi Blockchain
         const blockchainConfig = {
             bnb: {
                 chainId: "0x38",
@@ -2899,6 +2914,7 @@
             "function withdraw() external"
         ];
 
+        // Variabel Global
         let selectedBlockchain = 'bnb';
         let provider, signer, factoryContract;
         let gasPriceInterval = null;
@@ -2907,48 +2923,8 @@
         let currentTokenAddress = '';
         let currentTokenSymbol = '';
         let currentTokenDecimals = 18;
-        let cleanupRegistry = [];
-        let timeoutIds = [];
 
-        const connectButton = document.getElementById('connectButton');
-        const createButton = document.getElementById('createButton');
-        const switchNetworkBtn = document.getElementById('switchNetworkBtn');
-        const statusDiv = document.getElementById('status');
-        const loading = document.getElementById('loading');
-        const currentNetworkIndicator = document.getElementById('currentNetworkIndicator');
-        const currentNetworkText = document.getElementById('currentNetworkText');
-        const blockchainSelect = document.getElementById('blockchainSelect');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavClose = document.getElementById('mobileNavClose');
-        const walletInfo = document.getElementById('walletInfo');
-        const walletAddressText = document.getElementById('walletAddressText');
-        const walletBalanceText = document.getElementById('walletBalanceText');
-        const balanceCheckText = document.getElementById('balanceCheckText');
-        const walletStatusBadge = document.getElementById('walletStatusBadge');
-        const walletStatusText = document.getElementById('walletStatusText');
-        const popupOverlay = document.getElementById('popupOverlay');
-        const popup = document.getElementById('popup');
-        const popupIcon = document.getElementById('popupIcon');
-        const popupTitle = document.getElementById('popupTitle');
-        const popupMessage = document.getElementById('popupMessage');
-        const popupActions = document.getElementById('popupActions');
-        const popupClose = document.getElementById('popupClose');
-        const mobileModal = document.getElementById('mobileModal');
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        const closeMobileModal = document.getElementById('closeMobileModal');
-        const transactionDetails = document.getElementById('transactionDetails');
-        const transactionHash = document.getElementById('transactionHash');
-        const tokenDetailsContainer = document.getElementById('tokenDetailsContainer');
-        const tokenDetailName = document.getElementById('tokenDetailName');
-        const tokenDetailSymbol = document.getElementById('tokenDetailSymbol');
-        const tokenDetailDecimals = document.getElementById('tokenDetailDecimals');
-        const tokenDetailSupply = document.getElementById('tokenDetailSupply');
-        const tokenAddressContainer = document.getElementById('tokenAddressContainer');
-        const tokenAddressInput = document.getElementById('tokenAddressInput');
-        const copyTokenAddressBtn = document.getElementById('copyTokenAddressBtn');
-        const addTokenToWalletBtn = document.getElementById('addTokenToWalletBtn');
-        const viewExplorerBtn = document.getElementById('viewExplorerBtn');
+        // ==================== UTILITY FUNCTIONS ====================
 
         function sanitizeInput(input) {
             if (typeof input !== 'string') return input;
@@ -2960,19 +2936,290 @@
             return !xssPattern.test(input);
         }
 
-        function safeAddEventListener(element, event, handler) {
-            if (!element) return;
-            element.addEventListener(event, handler);
-            cleanupRegistry.push(() => {
-                element.removeEventListener(event, handler);
-            });
+        function safeQuerySelector(selector) {
+            try {
+                const element = document.querySelector(selector);
+                if (!element) {
+                    console.warn(`Element not found: ${selector}`);
+                }
+                return element;
+            } catch (error) {
+                console.error(`Error querying selector ${selector}:`, error);
+                return null;
+            }
         }
 
-        function createTimeout(callback, delay) {
-            const id = setTimeout(callback, delay);
-            timeoutIds.push(id);
-            return id;
+        function safeGetElementById(id) {
+            try {
+                const element = document.getElementById(id);
+                if (!element) {
+                    console.warn(`Element with id '${id}' not found`);
+                }
+                return element;
+            } catch (error) {
+                console.error(`Error getting element by id ${id}:`, error);
+                return null;
+            }
         }
+
+        // ==================== MOBILE MENU FUNCTIONS ====================
+
+        function initMobileMenu() {
+            console.log('Initializing mobile menu...');
+
+            const mobileMenuBtn = safeGetElementById('mobileMenuBtn');
+            const mobileNav = safeGetElementById('mobileNav');
+            const mobileNavClose = safeGetElementById('mobileNavClose');
+
+            if (!mobileMenuBtn || !mobileNav || !mobileNavClose) {
+                console.warn('Mobile menu elements not found');
+                return;
+            }
+
+            // Mobile menu open
+            mobileMenuBtn.addEventListener('click', () => {
+                console.log('Opening mobile menu');
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Mobile menu close
+            mobileNavClose.addEventListener('click', () => {
+                console.log('Closing mobile menu');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Close mobile menu when clicking on links
+            const mobileNavLinks = mobileNav.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            mobileNav.addEventListener('click', (e) => {
+                if (e.target === mobileNav) {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            console.log('Mobile menu initialized successfully');
+        }
+
+        // ==================== MOBILE MODAL FUNCTIONS ====================
+
+        function initMobileModal() {
+            console.log('Initializing mobile modal...');
+
+            const copyUrlBtn = safeGetElementById('copyUrlBtn');
+            const closeMobileModal = safeGetElementById('closeMobileModal');
+            const mobileModal = safeGetElementById('mobileModal');
+
+            if (!copyUrlBtn || !closeMobileModal || !mobileModal) {
+                console.warn('Mobile modal elements not found');
+                return;
+            }
+
+            copyUrlBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast('URL berhasil disalin! Buka di DApp Browser wallet Anda.', 'success');
+                }).catch(() => {
+                    showToast('Gagal menyalin URL', 'error');
+                });
+            });
+
+            closeMobileModal.addEventListener('click', () => {
+                mobileModal.classList.remove('active');
+            });
+
+            mobileModal.addEventListener('click', (e) => {
+                if (e.target === mobileModal) {
+                    mobileModal.classList.remove('active');
+                }
+            });
+
+            console.log('Mobile modal initialized successfully');
+        }
+
+        // ==================== POPUP FUNCTIONS ====================
+
+        function initPopup() {
+            console.log('Initializing popup...');
+
+            const popupClose = safeGetElementById('popupClose');
+            const popupOverlay = safeGetElementById('popupOverlay');
+            const copyTokenAddressBtn = safeGetElementById('copyTokenAddressBtn');
+            const addTokenToWalletBtn = safeGetElementById('addTokenToWalletBtn');
+            const viewExplorerBtn = safeGetElementById('viewExplorerBtn');
+
+            if (!popupClose || !popupOverlay) {
+                console.warn('Popup elements not found');
+                return;
+            }
+
+            popupClose.addEventListener('click', hidePopup);
+
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    hidePopup();
+                }
+            });
+
+            // Token action buttons
+            if (copyTokenAddressBtn) {
+                copyTokenAddressBtn.addEventListener('click', () => {
+                    copyToClipboard(currentTokenAddress);
+                });
+            }
+
+            if (addTokenToWalletBtn) {
+                addTokenToWalletBtn.addEventListener('click', () => {
+                    addTokenToWallet(currentTokenAddress, currentTokenSymbol, currentTokenDecimals);
+                });
+            }
+
+            if (viewExplorerBtn) {
+                viewExplorerBtn.addEventListener('click', () => {
+                    const config = blockchainConfig[selectedBlockchain];
+                    if (currentTokenAddress && config) {
+                        window.open(`${config.blockExplorer}/token/${currentTokenAddress}`, '_blank');
+                    }
+                });
+            }
+
+            console.log('Popup initialized successfully');
+        }
+
+        function showPopup(type, title, message, txHash = null, tokenDetails = null, actions = []) {
+            const popup = safeGetElementById('popup');
+            const popupIcon = safeGetElementById('popupIcon');
+            const popupTitle = safeGetElementById('popupTitle');
+            const popupMessage = safeGetElementById('popupMessage');
+            const popupActions = safeGetElementById('popupActions');
+            const transactionDetails = safeGetElementById('transactionDetails');
+            const transactionHash = safeGetElementById('transactionHash');
+            const tokenDetailsContainer = safeGetElementById('tokenDetailsContainer');
+            const tokenDetailName = safeGetElementById('tokenDetailName');
+            const tokenDetailSymbol = safeGetElementById('tokenDetailSymbol');
+            const tokenDetailDecimals = safeGetElementById('tokenDetailDecimals');
+            const tokenDetailSupply = safeGetElementById('tokenDetailSupply');
+            const tokenAddressContainer = safeGetElementById('tokenAddressContainer');
+            const tokenAddressInput = safeGetElementById('tokenAddressInput');
+            const popupOverlay = safeGetElementById('popupOverlay');
+
+            if (!popup || !popupTitle || !popupMessage || !popupOverlay) return;
+
+            // Reset popup state
+            popup.className = 'popup';
+            if (popupIcon) popupIcon.innerHTML = '';
+            popupTitle.textContent = title;
+            popupMessage.textContent = message;
+            if (popupActions) popupActions.innerHTML = '';
+            if (transactionDetails) transactionDetails.style.display = 'none';
+            if (tokenDetailsContainer) tokenDetailsContainer.style.display = 'none';
+            if (tokenAddressContainer) tokenAddressContainer.style.display = 'none';
+
+            // Set popup type and icon
+            if (type === 'success') {
+                popup.classList.add('success');
+                if (popupIcon) {
+                    popupIcon.innerHTML = '<i class="fas fa-check"></i>';
+                }
+
+                if (tokenDetails) {
+                    if (tokenDetailsContainer) {
+                        tokenDetailsContainer.style.display = 'block';
+                        if (tokenDetailName) tokenDetailName.textContent = tokenDetails.name;
+                        if (tokenDetailSymbol) tokenDetailSymbol.textContent = tokenDetails.symbol;
+                        if (tokenDetailDecimals) tokenDetailDecimals.textContent = tokenDetails.decimals;
+                        if (tokenDetailSupply) tokenDetailSupply.textContent = tokenDetails.supply;
+
+                        if (tokenDetails.address) {
+                            if (tokenAddressContainer) tokenAddressContainer.style.display = 'block';
+                            if (tokenAddressInput) tokenAddressInput.value = tokenDetails.address;
+                            currentTokenAddress = tokenDetails.address;
+                            currentTokenSymbol = tokenDetails.symbol;
+                            currentTokenDecimals = tokenDetails.decimals;
+                        }
+                    }
+                }
+            } else if (type === 'error') {
+                popup.classList.add('error');
+                if (popupIcon) {
+                    popupIcon.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+                }
+            } else if (type === 'pending') {
+                popup.classList.add('pending');
+                if (popupIcon) {
+                    popupIcon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                }
+
+                if (txHash && transactionDetails) {
+                    transactionDetails.style.display = 'block';
+                    if (transactionHash) transactionHash.textContent = txHash;
+                }
+            }
+
+            // Add action buttons
+            if (type !== 'pending' && actions.length > 0 && popupActions) {
+                actions.forEach(action => {
+                    const button = document.createElement('button');
+                    button.className = `btn ${action.className || 'btn-secondary'}`;
+                    button.innerHTML = action.icon ? `<i class="${action.icon}"></i> ${action.text}` : action.text;
+                    button.onclick = action.onclick;
+                    popupActions.appendChild(button);
+                });
+            }
+
+            // Show popup
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Focus close button for accessibility
+            setTimeout(() => {
+                const popupClose = safeGetElementById('popupClose');
+                if (popupClose) popupClose.focus();
+            }, 100);
+        }
+
+        function hidePopup() {
+            const popupOverlay = safeGetElementById('popupOverlay');
+            if (popupOverlay) {
+                popupOverlay.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+        }
+
+        // ==================== TOAST FUNCTIONS ====================
+
+        function showToast(message, type = 'info', duration = 5000) {
+            const toastContainer = safeGetElementById('toastContainer');
+            if (!toastContainer) return;
+
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'polite');
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => toast.classList.add('show'), 100);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 300);
+            }, duration);
+        }
+
+        // ==================== WALLET FUNCTIONS ====================
 
         async function refreshProvider() {
             if (window.ethereum) {
@@ -3047,25 +3294,31 @@
         }
 
         function updateNetworkStatus() {
-            if (!walletStatusBadge || !walletStatusText || !connectButton || !switchNetworkBtn || !walletInfo) return;
+            const walletStatusBadge = safeGetElementById('walletStatusBadge');
+            const walletStatusText = safeGetElementById('walletStatusText');
+            const connectButton = safeGetElementById('connectButton');
+            const switchNetworkBtn = safeGetElementById('switchNetworkBtn');
+            const walletInfo = safeGetElementById('walletInfo');
+
+            if (!walletStatusBadge || !walletStatusText || !connectButton || !walletInfo) return;
 
             if (!isConnected) {
                 walletStatusBadge.className = 'wallet-status-badge';
                 walletStatusText.innerHTML = '<i class="fas fa-times-circle"></i> Wallet Tidak Terhubung';
                 connectButton.style.display = 'block';
-                switchNetworkBtn.style.display = 'none';
+                if (switchNetworkBtn) switchNetworkBtn.style.display = 'none';
                 walletInfo.classList.remove('active');
             } else if (!isCorrectNetwork) {
                 walletStatusBadge.className = 'wallet-status-badge wrong-network';
                 walletStatusText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Jaringan Salah';
                 connectButton.style.display = 'none';
-                switchNetworkBtn.style.display = 'block';
+                if (switchNetworkBtn) switchNetworkBtn.style.display = 'block';
                 walletInfo.classList.remove('active');
             } else {
                 walletStatusBadge.className = 'wallet-status-badge connected';
                 walletStatusText.innerHTML = '<i class="fas fa-check-circle"></i> Terhubung';
                 connectButton.style.display = 'none';
-                switchNetworkBtn.style.display = 'none';
+                if (switchNetworkBtn) switchNetworkBtn.style.display = 'none';
                 walletInfo.classList.add('active');
             }
         }
@@ -3078,6 +3331,10 @@
                 const balance = await provider.getBalance(address);
                 const formattedBalance = ethers.formatEther(balance);
 
+                const walletAddressText = safeGetElementById('walletAddressText');
+                const walletBalanceText = safeGetElementById('walletBalanceText');
+                const balanceCheckText = safeGetElementById('balanceCheckText');
+
                 if (walletAddressText) {
                     walletAddressText.textContent = `${address.slice(0, 6)}...${address.slice(-4)}`;
                 }
@@ -3085,17 +3342,18 @@
                     walletBalanceText.textContent = `${parseFloat(formattedBalance).toFixed(4)} ${blockchainConfig[selectedBlockchain].symbol}`;
                 }
 
-                await checkBalanceSufficiency(balance);
+                await checkBalanceSufficiency(balance, balanceCheckText);
 
             } catch (error) {
                 console.error("Error updating wallet balance:", error);
+                const balanceCheckText = safeGetElementById('balanceCheckText');
                 if (balanceCheckText) {
                     balanceCheckText.innerHTML = '<span style="color: var(--error)">❌ Gagal memuat informasi saldo</span>';
                 }
             }
         }
 
-        async function checkBalanceSufficiency(balance) {
+        async function checkBalanceSufficiency(balance, balanceCheckText) {
             if (!factoryContract || !balanceCheckText) return;
 
             try {
@@ -3109,7 +3367,9 @@
                 }
             } catch (error) {
                 console.error("Error checking balance sufficiency:", error);
-                balanceCheckText.innerHTML = '<span style="color: var(--error)">❌ Gagal memeriksa kecukupan saldo</span>';
+                if (balanceCheckText) {
+                    balanceCheckText.innerHTML = '<span style="color: var(--error)">❌ Gagal memeriksa kecukupan saldo</span>';
+                }
             }
         }
 
@@ -3117,9 +3377,12 @@
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             const isInApp = window.ethereum || window.web3;
 
-            if (isMobile && !isInApp && mobileModal) {
-                mobileModal.classList.add('active');
-                return;
+            if (isMobile && !isInApp) {
+                const mobileModal = safeGetElementById('mobileModal');
+                if (mobileModal) {
+                    mobileModal.classList.add('active');
+                    return;
+                }
             }
 
             if (typeof window.ethereum === 'undefined') {
@@ -3226,28 +3489,13 @@
             }
         }
 
-        function disconnectWallet() {
-            if (connectButton) connectButton.style.display = 'block';
-            if (switchNetworkBtn) switchNetworkBtn.style.display = 'none';
-
-            provider = null;
-            signer = null;
-            factoryContract = null;
-            isConnected = false;
-            isCorrectNetwork = false;
-
-            if (statusDiv) statusDiv.innerHTML = "";
-
-            updateNetworkStatus();
-            stopGasPriceUpdates();
-            showToast('Wallet terputus', 'info');
-        }
+        // ==================== TOKEN CREATION FUNCTIONS ====================
 
         async function updateCreationFee() {
             try {
                 let fee;
                 const config = blockchainConfig[selectedBlockchain];
-                const feeElement = document.getElementById('tokenCreationFee');
+                const feeElement = safeGetElementById('tokenCreationFee');
 
                 if (!config || !feeElement) return;
 
@@ -3265,7 +3513,7 @@
 
             } catch (error) {
                 console.error("Gagal membaca biaya pembuatan:", error);
-                const feeElement = document.getElementById('tokenCreationFee');
+                const feeElement = safeGetElementById('tokenCreationFee');
                 if (feeElement) {
                     feeElement.textContent = 'Error';
                 }
@@ -3274,7 +3522,7 @@
 
         async function updateGasPrice() {
             if (!provider) {
-                const gasPriceElement = document.getElementById('gasPriceGwei');
+                const gasPriceElement = safeGetElementById('gasPriceGwei');
                 if (gasPriceElement) gasPriceElement.textContent = '-';
                 return;
             }
@@ -3284,7 +3532,7 @@
 
                 if (feeData.gasPrice) {
                     const currentGasPrice = parseFloat(ethers.formatUnits(feeData.gasPrice, 'gwei'));
-                    const gasPriceElement = document.getElementById('gasPriceGwei');
+                    const gasPriceElement = safeGetElementById('gasPriceGwei');
                     if (gasPriceElement) {
                         gasPriceElement.textContent = `${currentGasPrice.toFixed(2)} Gwei`;
                     }
@@ -3293,26 +3541,26 @@
                     const gasFeeInWei = feeData.gasPrice * BigInt(estimatedGasLimit);
                     const gasFeeInNative = parseFloat(ethers.formatEther(gasFeeInWei));
 
-                    const gasFeeElement = document.getElementById('estimatedGasFee');
+                    const gasFeeElement = safeGetElementById('estimatedGasFee');
                     if (gasFeeElement) {
                         gasFeeElement.textContent = `${gasFeeInNative.toFixed(5)} ${blockchainConfig[selectedBlockchain].symbol}`;
                     }
                     updateTotalEstimate();
                 } else {
-                    const gasPriceElement = document.getElementById('gasPriceGwei');
+                    const gasPriceElement = safeGetElementById('gasPriceGwei');
                     if (gasPriceElement) gasPriceElement.textContent = 'No Data';
                 }
             } catch (error) {
                 console.error("Error fetching gas price:", error);
-                const gasPriceElement = document.getElementById('gasPriceGwei');
+                const gasPriceElement = safeGetElementById('gasPriceGwei');
                 if (gasPriceElement) gasPriceElement.textContent = 'Error';
             }
         }
 
         function updateTotalEstimate() {
-            const tokenCreationFee = document.getElementById('tokenCreationFee');
-            const estimatedGasFee = document.getElementById('estimatedGasFee');
-            const totalEstimatedFee = document.getElementById('totalEstimatedFee');
+            const tokenCreationFee = safeGetElementById('tokenCreationFee');
+            const estimatedGasFee = safeGetElementById('estimatedGasFee');
+            const totalEstimatedFee = safeGetElementById('totalEstimatedFee');
 
             if (!tokenCreationFee || !estimatedGasFee || !totalEstimatedFee) return;
 
@@ -3355,8 +3603,8 @@
         }
 
         function showFieldError(fieldId, message) {
-            const field = document.getElementById(fieldId);
-            const errorElement = document.getElementById(fieldId + 'Error');
+            const field = safeGetElementById(fieldId);
+            const errorElement = safeGetElementById(fieldId + 'Error');
 
             if (field && errorElement) {
                 field.classList.add('error');
@@ -3367,8 +3615,8 @@
         }
 
         function clearFieldError(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorElement = document.getElementById(fieldId + 'Error');
+            const field = safeGetElementById(fieldId);
+            const errorElement = safeGetElementById(fieldId + 'Error');
 
             if (field && errorElement) {
                 field.classList.remove('error');
@@ -3508,6 +3756,7 @@
             let tokenAddr = extractTokenAddress(receipt);
             const config = blockchainConfig[selectedBlockchain];
 
+            const statusDiv = safeGetElementById('status');
             if (statusDiv) {
                 statusDiv.innerHTML = "";
             }
@@ -3553,6 +3802,9 @@
         }
 
         function showLoading() {
+            const loading = safeGetElementById('loading');
+            const createButton = safeGetElementById('createButton');
+
             if (loading) {
                 loading.style.display = 'block';
             }
@@ -3563,6 +3815,9 @@
         }
 
         function hideLoading() {
+            const loading = safeGetElementById('loading');
+            const createButton = safeGetElementById('createButton');
+
             if (loading) {
                 loading.style.display = 'none';
             }
@@ -3572,106 +3827,7 @@
             }
         }
 
-        function showToast(message, type = 'info', duration = 5000) {
-            const toastContainer = document.getElementById('toastContainer');
-            if (!toastContainer) return;
-
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.textContent = message;
-            toast.setAttribute('role', 'alert');
-            toast.setAttribute('aria-live', 'polite');
-            toastContainer.appendChild(toast);
-
-            createTimeout(() => toast.classList.add('show'), 100);
-            createTimeout(() => {
-                toast.classList.remove('show');
-                createTimeout(() => {
-                    if (toast.parentNode) {
-                        toast.parentNode.removeChild(toast);
-                    }
-                }, 300);
-            }, duration);
-        }
-
-        function showPopup(type, title, message, txHash = null, tokenDetails = null, actions = []) {
-            if (!popup || !popupTitle || !popupMessage) return;
-
-            popup.className = 'popup';
-            if (popupIcon) popupIcon.innerHTML = '';
-            popupTitle.textContent = title;
-            popupMessage.textContent = message;
-            if (popupActions) popupActions.innerHTML = '';
-            if (transactionDetails) transactionDetails.style.display = 'none';
-            if (tokenDetailsContainer) tokenDetailsContainer.style.display = 'none';
-            if (tokenAddressContainer) tokenAddressContainer.style.display = 'none';
-
-            if (type === 'success') {
-                popup.classList.add('success');
-                if (popupIcon) {
-                    popupIcon.innerHTML = '<i class="fas fa-check"></i>';
-                }
-
-                if (tokenDetails) {
-                    if (tokenDetailsContainer) {
-                        tokenDetailsContainer.style.display = 'block';
-                        if (tokenDetailName) tokenDetailName.textContent = tokenDetails.name;
-                        if (tokenDetailSymbol) tokenDetailSymbol.textContent = tokenDetails.symbol;
-                        if (tokenDetailDecimals) tokenDetailDecimals.textContent = tokenDetails.decimals;
-                        if (tokenDetailSupply) tokenDetailSupply.textContent = tokenDetails.supply;
-
-                        if (tokenDetails.address) {
-                            if (tokenAddressContainer) tokenAddressContainer.style.display = 'block';
-                            if (tokenAddressInput) tokenAddressInput.value = tokenDetails.address;
-                            currentTokenAddress = tokenDetails.address;
-                            currentTokenSymbol = tokenDetails.symbol;
-                            currentTokenDecimals = tokenDetails.decimals;
-                        }
-                    }
-                }
-            } else if (type === 'error') {
-                popup.classList.add('error');
-                if (popupIcon) {
-                    popupIcon.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-                }
-            } else if (type === 'pending') {
-                popup.classList.add('pending');
-                if (popupIcon) {
-                    popupIcon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                }
-
-                if (txHash && transactionDetails) {
-                    transactionDetails.style.display = 'block';
-                    if (transactionHash) transactionHash.textContent = txHash;
-                }
-            }
-
-            if (type !== 'pending' && actions.length > 0 && popupActions) {
-                actions.forEach(action => {
-                    const button = document.createElement('button');
-                    button.className = `btn ${action.className || 'btn-secondary'}`;
-                    button.innerHTML = action.icon ? `<i class="${action.icon}"></i> ${action.text}` : action.text;
-                    button.onclick = action.onclick;
-                    popupActions.appendChild(button);
-                });
-            }
-
-            if (popupOverlay) {
-                popupOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            createTimeout(() => {
-                if (popupClose) popupClose.focus();
-            }, 100);
-        }
-
-        function hidePopup() {
-            if (popupOverlay) {
-                popupOverlay.classList.remove('active');
-            }
-            document.body.style.overflow = '';
-        }
+        // ==================== UTILITY FUNCTIONS ====================
 
         function copyToClipboard(text) {
             if (!text) {
@@ -3725,39 +3881,14 @@
                 confettiContainer.appendChild(confetti);
             }
 
-            createTimeout(() => {
+            setTimeout(() => {
                 if (confettiContainer.parentNode) {
                     confettiContainer.parentNode.removeChild(confettiContainer);
                 }
             }, 3000);
         }
 
-        function setupFormValidation() {
-            const tokenNameInput = document.getElementById('tokenName');
-            const tokenSymbolInput = document.getElementById('tokenSymbol');
-
-            if (tokenNameInput) {
-                safeAddEventListener(tokenNameInput, 'input', (e) => {
-                    const value = sanitizeInput(e.target.value);
-                    if (!validateXSS(value)) {
-                        showFieldError('tokenName', 'Nama mengandung karakter tidak valid');
-                    } else {
-                        clearFieldError('tokenName');
-                    }
-                });
-            }
-
-            if (tokenSymbolInput) {
-                safeAddEventListener(tokenSymbolInput, 'input', (e) => {
-                    const value = sanitizeInput(e.target.value.toUpperCase());
-                    if (!validateXSS(value)) {
-                        showFieldError('tokenSymbol', 'Simbol mengandung karakter tidak valid');
-                    } else {
-                        clearFieldError('tokenSymbol');
-                    }
-                });
-            }
-        }
+        // ==================== FAQ FUNCTIONS ====================
 
         function initFAQ() {
             const faqItems = document.querySelectorAll('.faq-item');
@@ -3765,7 +3896,7 @@
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 if (question) {
-                    safeAddEventListener(question, 'click', () => {
+                    question.addEventListener('click', () => {
                         faqItems.forEach(otherItem => {
                             if (otherItem !== item) {
                                 otherItem.classList.remove('active');
@@ -3777,10 +3908,18 @@
             });
         }
 
+        // ==================== BLOCKCHAIN SELECTOR ====================
+
         function initBlockchainSelector() {
-            safeAddEventListener(blockchainSelect, 'change', function () {
+            const blockchainSelect = safeGetElementById('blockchainSelect');
+            const currentNetworkIndicator = safeGetElementById('currentNetworkIndicator');
+            const currentNetworkText = safeGetElementById('currentNetworkText');
+
+            if (!blockchainSelect) return;
+
+            blockchainSelect.addEventListener('change', function () {
                 selectedBlockchain = this.value;
-                if (currentNetworkIndicator) {
+                if (currentNetworkIndicator && currentNetworkText) {
                     currentNetworkIndicator.style.display = 'flex';
                     currentNetworkText.textContent = `Anda pilih: ${blockchainConfig[selectedBlockchain]?.chainName || 'Unknown'}`;
                 }
@@ -3793,16 +3932,17 @@
                 updateNetworkStatus();
             });
 
-            if (blockchainSelect) {
-                blockchainSelect.value = 'bnb';
-                selectedBlockchain = 'bnb';
-                if (currentNetworkIndicator) {
-                    currentNetworkIndicator.style.display = 'flex';
-                    currentNetworkText.textContent = `Anda pilih: ${blockchainConfig[selectedBlockchain].chainName}`;
-                }
-                updateCreationFee();
+            // Set initial value
+            blockchainSelect.value = 'bnb';
+            selectedBlockchain = 'bnb';
+            if (currentNetworkIndicator && currentNetworkText) {
+                currentNetworkIndicator.style.display = 'flex';
+                currentNetworkText.textContent = `Anda pilih: ${blockchainConfig[selectedBlockchain].chainName}`;
             }
+            updateCreationFee();
         }
+
+        // ==================== NETWORK LISTENERS ====================
 
         function setupNetworkListeners() {
             if (window.ethereum) {
@@ -3831,6 +3971,29 @@
                 });
             }
         }
+
+        function disconnectWallet() {
+            const connectButton = safeGetElementById('connectButton');
+            const switchNetworkBtn = safeGetElementById('switchNetworkBtn');
+            const statusDiv = safeGetElementById('status');
+
+            if (connectButton) connectButton.style.display = 'block';
+            if (switchNetworkBtn) switchNetworkBtn.style.display = 'none';
+
+            provider = null;
+            signer = null;
+            factoryContract = null;
+            isConnected = false;
+            isCorrectNetwork = false;
+
+            if (statusDiv) statusDiv.innerHTML = "";
+
+            updateNetworkStatus();
+            stopGasPriceUpdates();
+            showToast('Wallet terputus', 'info');
+        }
+
+        // ==================== AUTO CONNECT ====================
 
         async function autoConnectWallet() {
             if (typeof window.ethereum === 'undefined') {
@@ -3861,93 +4024,107 @@
             }
         }
 
-        function setupGlobalErrorHandling() {
-            safeAddEventListener(window, 'error', (event) => {
-                console.error('Global error:', event.error);
-                showToast('Terjadi kesalahan sistem', 'error');
-            });
+        // ==================== FORM VALIDATION ====================
 
-            safeAddEventListener(window, 'unhandledrejection', (event) => {
-                console.error('Unhandled promise rejection:', event.reason);
-                showToast('Terjadi kesalahan dalam proses', 'error');
-                event.preventDefault();
-            });
-        }
+        function setupFormValidation() {
+            const tokenNameInput = safeGetElementById('tokenName');
+            const tokenSymbolInput = safeGetElementById('tokenSymbol');
 
-        function initEventListeners() {
-            safeAddEventListener(mobileMenuBtn, 'click', () => {
-                mobileNav.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            safeAddEventListener(mobileNavClose, 'click', () => {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            safeAddEventListener(copyUrlBtn, 'click', () => {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    showToast('URL berhasil disalin! Buka di DApp Browser wallet Anda.', 'success');
-                }).catch(() => {
-                    showToast('Gagal menyalin URL', 'error');
+            if (tokenNameInput) {
+                tokenNameInput.addEventListener('input', (e) => {
+                    const value = sanitizeInput(e.target.value);
+                    if (!validateXSS(value)) {
+                        showFieldError('tokenName', 'Nama mengandung karakter tidak valid');
+                    } else {
+                        clearFieldError('tokenName');
+                    }
                 });
-            });
+            }
 
-            safeAddEventListener(closeMobileModal, 'click', () => {
-                mobileModal.classList.remove('active');
-            });
+            if (tokenSymbolInput) {
+                tokenSymbolInput.addEventListener('input', (e) => {
+                    const value = sanitizeInput(e.target.value.toUpperCase());
+                    if (!validateXSS(value)) {
+                        showFieldError('tokenSymbol', 'Simbol mengandung karakter tidak valid');
+                    } else {
+                        clearFieldError('tokenSymbol');
+                    }
+                });
+            }
 
-            safeAddEventListener(mobileModal, 'click', (e) => {
-                if (e.target === mobileModal) {
-                    mobileModal.classList.remove('active');
-                }
-            });
-
-            safeAddEventListener(popupClose, 'click', hidePopup);
-            safeAddEventListener(popupOverlay, 'click', (e) => {
-                if (e.target === popupOverlay) {
-                    hidePopup();
-                }
-            });
-
-            safeAddEventListener(copyTokenAddressBtn, 'click', () => {
-                copyToClipboard(currentTokenAddress);
-            });
-
-            safeAddEventListener(addTokenToWalletBtn, 'click', () => {
-                addTokenToWallet(currentTokenAddress, currentTokenSymbol, currentTokenDecimals);
-            });
-
-            safeAddEventListener(viewExplorerBtn, 'click', () => {
-                const config = blockchainConfig[selectedBlockchain];
-                if (currentTokenAddress && config) {
-                    window.open(`${config.blockExplorer}/token/${currentTokenAddress}`, '_blank');
-                }
-            });
-
-            safeAddEventListener(connectButton, 'click', connectWallet);
-            safeAddEventListener(switchNetworkBtn, 'click', switchToCorrectNetwork);
-            safeAddEventListener(createButton, 'click', createToken);
-
+            // Tooltips
             const tooltipIcons = document.querySelectorAll('.tooltip-icon');
             tooltipIcons.forEach(icon => {
-                safeAddEventListener(icon, 'mouseenter', (e) => {
+                icon.addEventListener('mouseenter', (e) => {
                     const tooltipText = e.target.getAttribute('data-tooltip');
                     if (tooltipText) {
                         showToast(tooltipText, 'info', 3000);
                     }
                 });
             });
-
-            setupFormValidation();
         }
+
+        // ==================== EVENT LISTENERS ====================
+
+        function initEventListeners() {
+            console.log('Initializing event listeners...');
+
+            // Initialize components
+            initMobileMenu();
+            initMobileModal();
+            initPopup();
+
+            // Wallet and token creation buttons
+            const connectButton = safeGetElementById('connectButton');
+            const switchNetworkBtn = safeGetElementById('switchNetworkBtn');
+            const createButton = safeGetElementById('createButton');
+
+            if (connectButton) {
+                connectButton.addEventListener('click', connectWallet);
+            }
+
+            if (switchNetworkBtn) {
+                switchNetworkBtn.addEventListener('click', switchToCorrectNetwork);
+            }
+
+            if (createButton) {
+                createButton.addEventListener('click', createToken);
+            }
+
+            // Form validation
+            setupFormValidation();
+
+            console.log('Event listeners initialized successfully');
+        }
+
+        // ==================== GLOBAL ERROR HANDLING ====================
+
+        function setupGlobalErrorHandling() {
+            window.addEventListener('error', (event) => {
+                console.error('Global error:', event.error);
+                showToast('Terjadi kesalahan sistem', 'error');
+            });
+
+            window.addEventListener('unhandledrejection', (event) => {
+                console.error('Unhandled promise rejection:', event.reason);
+                showToast('Terjadi kesalahan dalam proses', 'error');
+                event.preventDefault();
+            });
+        }
+
+        // ==================== APP INITIALIZATION ====================
 
         function initializeApp() {
             try {
+                console.log('Initializing Token Creator App...');
+
+                // Initialize all components
                 initEventListeners();
                 initBlockchainSelector();
                 setupNetworkListeners();
                 initFAQ();
+
+                // Auto connect wallet and update status
                 autoConnectWallet();
                 updateNetworkStatus();
                 setupGlobalErrorHandling();
@@ -3961,16 +4138,12 @@
 
         function cleanup() {
             stopGasPriceUpdates();
-
-            cleanupRegistry.forEach(cleanup => cleanup());
-            cleanupRegistry = [];
-
-            timeoutIds.forEach(id => clearTimeout(id));
-            timeoutIds = [];
-
             console.log('App cleanup completed');
         }
 
+        // ==================== MAIN EXECUTION ====================
+
+        // Initialize app when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializeApp);
         } else {
@@ -3979,6 +4152,7 @@
 
         window.addEventListener('beforeunload', cleanup);
 
+        // Export for module systems (if needed)
         if (typeof module !== 'undefined' && module.exports) {
             module.exports = {
                 blockchainConfig,
