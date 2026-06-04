@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="https://tokenkripto.github.io/favicon.png" />
+    <title>Token Kripto Indonesia | Generator Token Crypto ERC20 & BEP20 Instan</title>
+    <meta name="description"
+        content="Buat Token Kripto Indonesia sendiri tanpa coding. Platform zero-code untuk membuat token ERC-20 dan BEP-20 dalam hitungan detik. Antar muka Web3 sederhana dan cepat.">
+    <meta name="keywords"
+        content="Token Kripto Indonesia, pembuat token crypto, generator token ERC20, creator token BEP20, alat token blockchain, platform token no-code, deploy kontrak pintar, token kripto indonesia, Web3 token tool, multi-chain token">
+
+    <meta property="og:title" content="Token Kripto Indonesia - Buat Token Crypto Sendiri Tanpa Coding">
+    <meta property="og:description"
+        content="Deploy token ERC-20 dan BEP-20 instan di BNB Chain, Core Chain, dan jaringan lain. Platform tercepat dan termudah untuk proyek Web3 Anda.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tokenkripto.github.io/">
+    <meta property="og:image" content="https://tokenkripto.github.io/favicon.png">
+    <meta property="og:site_name" content="Token Kripto Indonesia">
+    <meta property="og:locale" content="id_ID">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Token Kripto Indonesia - Buat Token Crypto Sendiri Tanpa Coding">
+    <meta name="twitter:description"
+        content="Deploy token instan untuk proyek blockchain Anda. Buat token ERC-20 dan BEP-20 tanpa menulis kode.">
+    <meta name="twitter:image" content="https://tokenkripto.github.io/favicon.png">
+    <meta name="twitter:creator" content="@TokenMicin">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Token Kripto Indonesia - Creator Token",
+            "description": "Platform no-code untuk membuat token kripto standar seperti ERC-20 dan BEP-20 di berbagai blockchain.",
+            "url": "https://tokenkripto.github.io/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "offers": {
+                "@type": "Offer",
+                "price": "0.00",
+                "priceCurrency": "USD"
+            },
+            "creator": {
+                "@type": "Organization",
+                "name": "Token Kripto Indonesia",
+                "url": "https://tokenkripto.github.io/"
+            },
+            "inLanguage": "id"
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="hologram-loader">
+            <div class="hologram-ring"></div>
+            <div class="hologram-ring"></div>
+            <div class="hologram-ring"></div>
+        </div>
+        <div class="logo-explosion">TokenKripto</div>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Wujudkan Ide Kripto Anda Menjadi
+            Nyata</p>
+    </div>
+
+    <div class="lightning-background">
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+    </div>
+
+    <div class="grid-overlay"></div>
+
+    <div class="confetti-container" id="confettiContainer"></div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+            <button class="popup-close" id="popupClose" aria-label="Tutup popup">&times;</button>
+            <div class="popup-icon" id="popupIcon">
+                <i class="fas fa-check" aria-hidden="true"></i>
+            </div>
+            <h3 class="popup-title" id="popupTitle">Judul</h3>
+
+            <div class="popup-content">
+                <div class="popup-message" id="popupMessage">Pesan</div>
+
+                <div class="popup-details" id="popupDetails" style="display: none;">
+                    <h4>Detail Transaksi</h4>
+                    <div class="popup-tx-hash" id="popupTxHash"></div>
+                </div>
+
+                <div class="token-address-container" id="tokenAddressContainer" style="display: none;">
+                    <div class="token-address-label">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span>Alamat Kontrak Token Anda:</span>
+                    </div>
+                    <input type="text" class="token-address-input" id="tokenAddressInput" readonly
+                        aria-label="Alamat token yang berhasil dibuat">
+                    <div class="token-actions">
+                        <button class="btn copy-address-btn" id="copyTokenAddressBtn">
+                            <i class="fas fa-copy" aria-hidden="true"></i> Salin Alamat
+                        </button>
+                        <button class="btn btn-success" id="addTokenToWalletBtn">
+                            <i class="fas fa-wallet" aria-hidden="true"></i> Tambah ke Dompet
+                        </button>
+                        <button class="btn view-explorer-btn" id="viewExplorerBtn">
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i> Lihat di Explorer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup-actions" id="popupActions"></div>
+        </div>
+    </div>
+
+    <div class="mobile-modal" id="mobileModal">
+        <div class="mobile-modal-content">
+            <h3><i class="fas fa-mobile-alt" aria-hidden="true"></i> Gunakan DApp Browser</h3>
+            <p>Halaman ini menggunakan Web3 dan berfungsi penuh hanya jika diakses dari desktop dengan ekstensi dompet
+                seperti MetaMask. Jika Anda di ponsel, salin URL ini dan buka melalui DApp Browser di aplikasi dompet
+                Anda (MetaMask, Trust Wallet, Bitget, dll.) untuk mengaktifkan fitur pembuatan token.</p>
+            <div class="mobile-modal-buttons">
+                <button class="btn btn-primary" onclick="copyUrlAndClose()">
+                    <i class="fas fa-copy" aria-hidden="true"></i> Salin URL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header role="banner">
+        <div class="container nav-container">
+            <a href="https://tokenkripto.github.io/" class="logo"
+                aria-label="Token Kripto Indonesia - Platform Creator Token">
+                <img src="https://tokenkripto.github.io/favicon.png" alt="Logo Token Kripto Indonesia">
+                <span>Token Kripto</span>
+            </a>
+
+            <nav class="nav-links" role="navigation" aria-label="Navigasi utama">
+                <a href="https://tokenkripto.github.io/"><i class="fas fa-home" aria-hidden="true"></i> Beranda</a>
+                <a href="https://tokenkripto.github.io/jasa-pembuatan-token-kripto/"><i class="fas fa-rocket"
+                        aria-hidden="true"></i> Jasa Buat Token</a>
+                <a href="https://tokenkripto.github.io/tentang-kami/"><i class="fa-brands fa-blogger"></i> Tentang
+                    Kami</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka menu navigasi" aria-expanded="false"
+                aria-controls="mobileNav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="sticky-step-indicator" id="stickyStepIndicator">
+        <div class="step-indicator" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4"
+            aria-label="Proses pembuatan token">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Pilih Jaringan</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Hubungkan Dompet</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Detail Token</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Deploy</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Navigasi mobile">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu navigasi">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="https://tokenkripto.github.io/"><i class="fas fa-home" aria-hidden="true"></i> Beranda</a>
+            <a href="https://tokenkripto.github.io/jasa-pembuatan-token-kripto/"><i class="fas fa-rocket"
+                    aria-hidden="true"></i> Jasa Buat Token</a>
+            <a href="https://tokenkripto.github.io/tentang-kami/"><i class="fa-brands fa-blogger"></i> Tentang Kami</a>
+        </nav>
+    </div>
+
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="https://tokenkripto.github.io/favicon.png" alt="Logo Token Kripto Indonesia">
+                </div>
+
+                <h1 class="animate__animated animate__fadeInUp">PEMBUAT TOKEN KRIPTO INDONESIA INSTAN</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Platform Web3 canggih untuk deploy
+                    token kripto kustom di berbagai blockchain. Buat token ERC-20 atau BEP-20 instan dengan antarmuka
+                    no-code intuitif kami, dirancang untuk pemula maupun profesional blockchain di Indonesia.</p>
+
+                <div class="hero-badges animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="badge">
+                        <i class="fas fa-bolt"></i>
+                        <span>Tanpa Coding</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Aman & Teraudit</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>Deploy 60 Detik</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-coins"></i>
+                        <span>Multi-Rantai</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
+                    <a href="#token-creator" class="hero-btn hero-btn-primary">
+                        <i class="fas fa-play" aria-hidden="true"></i> Buat Sekarang
+                    </a>
+                    <a href="#about" class="hero-btn hero-btn-secondary">
+                        <i class="fas fa-info-circle" aria-hidden="true"></i> Pelajari Lebih
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="token-creator" id="token-creator">
+        <div class="container">
+            <div class="creator-container">
+                <div class="creator-header">
+                    <h2>Buat Token Kripto Indonesia Anda dalam 4 Langkah Mudah</h2>
+                    <p>Platform deploy token no-code canggih untuk proyek blockchain Anda</p>
+                </div>
+
+                <div class="section-container">
+                    <div class="section-header">
+                        <i class="fas fa-network-wired" aria-hidden="true"></i>
+                        <span>1. Pilih Jaringan Blockchain</span>
+                    </div>
+                    <select id="blockchainSelect" class="blockchain-dropdown">
+                        <option value="bnb">BNB Chain (BEP20)</option>
+                        <option value="core">Core Chain (ERC20)</option>
+                        <option value="eth" disabled>Ethereum (Pemeliharaan)</option>
+                        <option value="ric">Riche Chain (ERC20)</option>
+                        <option value="sol" disabled>Solana (Segera Hadir)</option>
+                        <option value="matic" disabled>Polygon (Ditangguhkan)</option>
+                    </select>
+
+                    <div id="currentNetworkIndicator" class="current-network-indicator" style="display: none;">
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        <span id="currentNetworkText">Terpilih: BNB Smart Chain</span>
+                    </div>
+                </div>
+
+                <div class="section-container">
+                    <div class="section-header">
+                        <i class="fas fa-wallet" aria-hidden="true"></i>
+                        <span>2. Hubungkan Dompet Web3 Anda</span>
+                    </div>
+                    <div class="wallet-actions">
+                        <div class="connection-row">
+                            <button id="connectButton" class="btn btn-primary blinking">
+                                <i class="fas fa-plug" aria-hidden="true"></i> Hubungkan Dompet
+                            </button>
+
+                            <button id="switchNetworkBtn" class="btn btn-error" style="display:none;">
+                                <i class="fas fa-exchange-alt" aria-hidden="true"></i> Ganti Jaringan
+                            </button>
+
+                            <div class="wallet-status-badge disconnected" id="walletStatusBadge">
+                                <div class="status-dot"></div>
+                                <span id="walletStatusText">Dompet Belum Terhubung</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wallet-info-container" id="walletInfo">
+                        <div class="wallet-info-header">
+                            <i class="fas fa-wallet" aria-hidden="true"></i>
+                            <span>Informasi Dompet Anda</span>
+                        </div>
+                        <div class="wallet-info-grid">
+                            <div class="wallet-info-item">
+                                <div class="wallet-info-label">
+                                    <i class="fas fa-address-card" aria-hidden="true"></i>
+                                    <span>Alamat Dompet:</span>
+                                </div>
+                                <div class="wallet-info-value wallet-address-value" id="walletAddressText">-</div>
+                            </div>
+                            <div class="wallet-info-item">
+                                <div class="wallet-info-label">
+                                    <i class="fas fa-coins" aria-hidden="true"></i>
+                                    <span>Saldo Anda:</span>
+                                </div>
+                                <div class="wallet-info-value" id="walletBalanceText">-</div>
+                            </div>
+                            <div class="wallet-info-item">
+                                <div class="wallet-info-label">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                    <span>Status Biaya:</span>
+                                </div>
+                                <div class="wallet-info-value" id="balanceCheckText">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-container">
+                    <div class="section-header">
+                        <i class="fas fa-edit" aria-hidden="true"></i>
+                        <span>3. Masukkan Spesifikasi Token</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="tokenName">
+                            <i class="fas fa-tag" aria-hidden="true"></i> Nama Token
+                            <span class="tooltip-icon"
+                                data-tooltip="Nama lengkap token Anda, misalnya Token Kripto Indonesia">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            </span>
+                        </label>
+                        <input type="text" id="tokenName" class="form-control" placeholder="Misal: Token Indonesia"
+                            required aria-describedby="tokenNameError">
+                        <div id="tokenNameError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tokenSymbol">
+                            <i class="fas fa-code" aria-hidden="true"></i> Simbol Token
+                            <span class="tooltip-icon" data-tooltip="Simbol pendek token (3-10 karakter), misal: IDT">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            </span>
+                        </label>
+                        <input type="text" id="tokenSymbol" class="form-control" placeholder="Misal: IDT" required
+                            aria-describedby="tokenSymbolError">
+                        <div id="tokenSymbolError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tokenDecimals">
+                            <i class="fas fa-divide" aria-hidden="true"></i> Angka Desimal
+                            <span class="tooltip-icon"
+                                data-tooltip="Jumlah digit desimal (biasanya 18 untuk token kripto)">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            </span>
+                        </label>
+                        <input type="number" id="tokenDecimals" class="form-control" placeholder="Desimal (default 18)"
+                            value="18" min="0" max="18" aria-describedby="tokenDecimalsError">
+                        <div id="tokenDecimalsError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tokenSupply">
+                            <i class="fas fa-layer-group" aria-hidden="true"></i> Total Pasokan
+                            <span class="tooltip-icon"
+                                data-tooltip="Jumlah total token yang akan dibuat (tanpa desimal). Maks: 1.000.000.000.000">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            </span>
+                        </label>
+                        <input type="number" id="tokenSupply" class="form-control"
+                            placeholder="Misal: 1000000 (1 juta token)" required min="1" max="1000000000000"
+                            aria-describedby="tokenSupplyError">
+                        <div id="tokenSupplyError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="section-container">
+                    <div class="section-header">
+                        <i class="fas fa-calculator" aria-hidden="true"></i>
+                        <span>4. Estimasi Biaya Deployment</span>
+                    </div>
+                    <div class="cost-breakdown" id="costBreakdown">
+                        <div class="cost-item">
+                            <span><i class="fa-brands fa-cc-amazon-pay" aria-hidden="true"></i> Biaya Platform:</span>
+                            <span id="tokenCreationFee">Memuat..</span>
+                        </div>
+                        <div class="gas-fee-row">
+                            <div class="gas-fee-label">
+                                <i class="fas fa-bolt" aria-hidden="true"></i>
+                                <span>Biaya Jaringan:</span>
+                            </div>
+                            <div class="gas-fee-value">
+                                <span id="estimatedGasFee">Memuat..</span>
+                            </div>
+                        </div>
+                        <div class="gas-gwei-row">
+                            <div class="gas-gwei-label">
+                                <i class="fas fa-fire" aria-hidden="true"></i>
+                                <span>Harga Gas:</span>
+                            </div>
+                            <div class="gas-gwei-value" id="gasPriceGwei">-</div>
+                        </div>
+                        <div class="cost-item">
+                            <span><i class="fa-solid fa-calculator" aria-hidden="true"></i> Total Biaya:</span>
+                            <span id="totalEstimatedFee">Memuat..</span>
+                        </div>
+                    </div>
+                    <button id="createButton" class="btn btn-success btn-block">
+                        <i class="fas fa-rocket" aria-hidden="true"></i> Buat Token
+                    </button>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="tech-spinner" aria-hidden="true"></div>
+                    <p>Memproses transaksi blockchain...</p>
+                </div>
+
+                <div id="status" role="status" aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-web" id="about">
+        <div class="container">
+            <div class="about-web-content">
+                <h2>Tentang Platform Pembuat Token Kripto Indonesia</h2>
+
+                <div class="about-web-text">
+                    <p><strong>Token Kripto Indonesia</strong> adalah platform sederhana dan efisien yang memungkinkan
+                        siapa pun membuat token kripto standar tanpa menulis kode. Dibangun untuk kejelasan dan
+                        keandalan, platform ini menawarkan alat praktis untuk meluncurkan token bagi proyek blockchain,
+                        komunitas, bisnis, atau penggunaan edukasi di Indonesia.</p>
+                </div>
+
+                <div class="about-web-features">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-cogs" style="color: var(--primary);"></i> Kemampuan Platform:</h4>
+                        <ul>
+                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Pembuatan Token
+                                    Instan</strong> - Deploy token standar ERC-20/BEP-20 dalam hitungan detik</li>
+                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Dukungan
+                                    Multi-Blockchain</strong> - Bekerja dengan BNB Smart Chain, Core Chain, dan jaringan
+                                lainnya</li>
+                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Tanpa Biaya
+                                    Platform</strong> - Gratis digunakan; hanya biaya gas jaringan yang berlaku</li>
+                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Kontrak Pintar
+                                    Aman</strong> - Arsitektur kontrak terverifikasi dan transparan</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-star" style="color: var(--warning);"></i> Keunggulan & Manfaat:</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i>
+                                <strong>Ramah Pemula</strong> - Deploy token tanpa perlu coding
+                            </li>
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> <strong>Siap
+                                    Proyek</strong> - Cocok untuk komunitas, bisnis, dan kebutuhan token utilitas</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> <strong>Deploy
+                                    Cepat</strong> - Buat token kurang dari satu menit</li>
+                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> <strong>Efektif
+                                    Biaya</strong> - Penggunaan gas rendah di BSC, Core, dan jaringan sejenis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15);">
+                    <h3 style="color: var(--text); margin-bottom: 1rem; font-size: 1.3rem;">Butuh Bantuan Membuat Token
+                        Kripto Indonesia?</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                        Jika Anda memerlukan bantuan selama proses pembuatan token atau ingin dukungan untuk
+                        pengembangan kripto yang lebih canggih, tim kami siap memandu Anda.
+                    </p>
+                    <button class="btn btn-primary contact-support-btn" onclick="contactSupport()">
+                        <i class="fas fa-headset" aria-hidden="true"></i> Konsultasi Gratis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://tokenkripto.github.io/ketentuan-layanan/"><i class="fa-solid fa-book"></i>
+                        Ketentuan Layanan</a>
+                    <a href="https://tokenkripto.github.io/penafian/"><i class="fa-solid fa-file-circle-question"></i>
+                        Penafian</a>
+                    <a href="https://tokenkripto.github.io/faq/"><i class="fa-solid fa-scale-balanced"></i>FAQ</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Token Kripto Indonesia</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-secondary);">Platform Generator Token
+                    Kripto Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/security.js"></script>
+    <script src="js/blockchain.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
