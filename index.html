@@ -6,76 +6,3303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/png" href="https://tokenkripto.github.io/favicon.png" />
-    <title>Token Kripto Indonesia | Generator Token Crypto ERC20 & BEP20 Instan</title>
-    <meta name="description"
-        content="Buat Token Kripto Indonesia sendiri tanpa coding. Platform zero-code untuk membuat token ERC-20 dan BEP-20 dalam hitungan detik. Antar muka Web3 sederhana dan cepat.">
-    <meta name="keywords"
-        content="Token Kripto Indonesia, pembuat token crypto, generator token ERC20, creator token BEP20, alat token blockchain, platform token no-code, deploy kontrak pintar, token kripto indonesia, Web3 token tool, multi-chain token">
 
-    <meta property="og:title" content="Token Kripto Indonesia - Buat Token Crypto Sendiri Tanpa Coding">
+    <!-- ===== PRIMARY TITLE & META ===== -->
+    <title>Pembuat Token Kripto Indonesia - Buat Token Crypto Tanpa Coding</title>
+    <meta name="description"
+        content="Platform pembuat token kripto Indonesia. Buat token ERC-20/BEP-20 sendiri tanpa coding dalam 60 detik. Dukung BSC, Core Chain & lainnya. Gratis!">
+    <meta name="keywords"
+        content="pembuat token kripto, buat token crypto, token indonesia, generator token, ERC-20, BEP-20, no-code token, buat token sendiri">
+
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://tokenkripto.github.io">
+
+    <!-- ===== ROBOTS ===== -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="Pembuat Token Kripto Indonesia - Buat Token Crypto Tanpa Coding">
     <meta property="og:description"
-        content="Deploy token ERC-20 dan BEP-20 instan di BNB Chain, Core Chain, dan jaringan lain. Platform tercepat dan termudah untuk proyek Web3 Anda.">
+        content="Buat token kripto sendiri tanpa coding. Deploy ERC-20/BEP-20 di BSC, Core Chain & lainnya. Gratis!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tokenkripto.github.io/">
-    <meta property="og:image" content="https://tokenkripto.github.io/favicon.png">
+    <meta property="og:url" content="https://tokenkripto.github.io">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/tokenkripto/tokenkripto.github.io/refs/heads/main/images/token-kripto-indonesia.png">
     <meta property="og:site_name" content="Token Kripto Indonesia">
     <meta property="og:locale" content="id_ID">
 
+    <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Token Kripto Indonesia - Buat Token Crypto Sendiri Tanpa Coding">
+    <meta name="twitter:title" content="Pembuat Token Kripto Indonesia - Buat Token Crypto Tanpa Coding">
     <meta name="twitter:description"
-        content="Deploy token instan untuk proyek blockchain Anda. Buat token ERC-20 dan BEP-20 tanpa menulis kode.">
-    <meta name="twitter:image" content="https://tokenkripto.github.io/favicon.png">
-    <meta name="twitter:creator" content="@TokenMicin">
+        content="Buat token kripto sendiri tanpa coding. Deploy ERC-20/BEP-20 di berbagai blockchain. Gratis!">
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/tokenkripto/tokenkripto.github.io/refs/heads/main/images/token-kripto-indonesia.png">
 
+    <!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Token Kripto Indonesia - Creator Token",
-            "description": "Platform no-code untuk membuat token kripto standar seperti ERC-20 dan BEP-20 di berbagai blockchain.",
-            "url": "https://tokenkripto.github.io/",
+            "name": "Pembuat Token Kripto Indonesia",
+            "description": "Platform no-code untuk membuat token kripto sendiri di berbagai blockchain. Cocok untuk pemula dan profesional.",
+            "url": "https://tokenkripto.github.io",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "Web",
+            "browserRequirements": "Web3 wallet seperti MetaMask",
             "offers": {
                 "@type": "Offer",
                 "price": "0.00",
-                "priceCurrency": "USD"
+                "priceCurrency": "USD",
+                "description": "Platform gratis, hanya biaya gas jaringan"
             },
             "creator": {
                 "@type": "Organization",
                 "name": "Token Kripto Indonesia",
-                "url": "https://tokenkripto.github.io/"
-            },
-            "inLanguage": "id"
+                "url": "https://tokenkripto.github.io"
+            }
         }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js" defer></script>
+    <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* ========================================
+   TOKEN KRIPTO - CYBERPUNK ORANGE THEME
+   ======================================== */
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+        :root {
+            --primary: #FF6B00;
+            --primary-dark: #CC5500;
+            --primary-light: #FF8C33;
+            --primary-gradient: linear-gradient(135deg, #FF6B00, #FF8C33);
+            --primary-gradient-hover: linear-gradient(135deg, #CC5500, #FF6B00);
+            --secondary: #7B2FBE;
+            --secondary-light: #9B59DB;
+            --accent: #FF2D95;
+            --success: #00E676;
+            --warning: #FFD700;
+            --error: #FF1744;
+            --text: #FFFFFF;
+            --text-secondary: #B0B8C8;
+            --text-muted: #6A7280;
+            --background: #0A0A12;
+            --background-light: #12121E;
+            --surface: #141420;
+            --card-bg: rgba(20, 20, 32, 0.92);
+            --card-border: rgba(255, 107, 0, 0.3);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            --shadow-light: 0 5px 20px rgba(0, 0, 0, 0.4);
+            --glow: 0 0 30px rgba(255, 107, 0, 0.3);
+            --glow-strong: 0 0 50px rgba(255, 107, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Orbitron', sans-serif;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --container-max: 1140px;
+            --content-max: 900px;
+            --creator-max: 800px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: var(--font-primary);
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--text);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-gradient-hover);
+        }
+
+        /* ===== CONTAINER KONSISTEN ===== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+        }
+
+        /* ========================================
+   BACKGROUND EFFECTS
+   ======================================== */
+        .lightning-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 0%, #1A0A2E 0%, #0A0A12 70%);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 107, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .lightning {
+            position: absolute;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255, 107, 0, 0.6), rgba(255, 45, 149, 0.6), transparent);
+            opacity: 0;
+            animation: lightningFlash 10s infinite;
+            filter: blur(1px);
+        }
+
+        .lightning:nth-child(1) {
+            left: 15%;
+            top: 0;
+            animation-delay: 0s;
+        }
+
+        .lightning:nth-child(2) {
+            left: 35%;
+            top: 0;
+            animation-delay: 2s;
+        }
+
+        .lightning:nth-child(3) {
+            left: 55%;
+            top: 0;
+            animation-delay: 4s;
+        }
+
+        .lightning:nth-child(4) {
+            left: 75%;
+            top: 0;
+            animation-delay: 6s;
+        }
+
+        .lightning:nth-child(5) {
+            left: 90%;
+            top: 0;
+            animation-delay: 8s;
+        }
+
+        @keyframes lightningFlash {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+
+            1% {
+                height: 80px;
+                opacity: 0.8;
+            }
+
+            2% {
+                height: 120px;
+                opacity: 1;
+            }
+
+            3% {
+                height: 200px;
+                opacity: 0.8;
+            }
+
+            4% {
+                height: 0;
+                opacity: 0;
+            }
+
+            100% {
+                height: 0;
+                opacity: 0;
+            }
+        }
+
+        /* ========================================
+   LOADING SCREEN
+   ======================================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.8s ease-out;
+            text-align: center;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .hologram-loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .hologram-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            animation: rotate 2s linear infinite;
+        }
+
+        .hologram-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            border-top: 3px solid var(--primary);
+            border-right: 3px solid transparent;
+            animation-duration: 2s;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.5));
+        }
+
+        .hologram-ring:nth-child(2) {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            border-top: 3px solid var(--secondary);
+            border-left: 3px solid transparent;
+            animation-duration: 1.5s;
+            animation-direction: reverse;
+            filter: drop-shadow(0 0 10px rgba(123, 47, 190, 0.5));
+        }
+
+        .hologram-ring:nth-child(3) {
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            border-bottom: 3px solid var(--accent);
+            border-right: 3px solid transparent;
+            animation-duration: 1s;
+            filter: drop-shadow(0 0 10px rgba(255, 45, 149, 0.5));
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo-explosion {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: hologramReveal 1.5s ease-out;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+        }
+
+        @keyframes hologramReveal {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+        header {
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow);
+            height: 60px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            height: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            font-family: var(--font-display);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: var(--primary);
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.5));
+        }
+
+        .logo span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            font-size: 0.85rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--radius-sm);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: all var(--transition-normal);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 80%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--text);
+            background: rgba(255, 107, 0, 0.08);
+            outline: none;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            width: 80%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .mobile-menu-btn:hover,
+        .mobile-menu-btn:focus {
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--primary);
+            outline: none;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: rgba(10, 10, 18, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 80px 2rem 2rem;
+            border-left: 1px solid rgba(255, 107, 0, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            border: 1px solid transparent;
+            font-family: var(--font-display);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-nav-links a.active {
+            color: var(--primary);
+            border-color: rgba(255, 107, 0, 0.2);
+            background: rgba(255, 107, 0, 0.08);
+        }
+
+        .mobile-nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a:focus {
+            color: var(--text);
+            background: rgba(255, 107, 0, 0.08);
+            border-color: rgba(255, 107, 0, 0.2);
+            transform: translateX(8px);
+            outline: none;
+        }
+
+        .mobile-nav-links a:hover::before,
+        .mobile-nav-links a:focus::before {
+            left: 100%;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .mobile-nav-close:hover,
+        .mobile-nav-close:focus {
+            background: rgba(255, 23, 68, 0.1);
+            color: var(--error);
+            outline: none;
+        }
+
+        /* ========================================
+   STEP INDICATOR
+   ======================================== */
+        .sticky-step-indicator {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            border-bottom: 1px solid rgba(255, 107, 0, 0.15);
+            padding: 0.8rem 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .sticky-step-indicator.visible {
+            transform: translateY(0);
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            position: relative;
+            max-width: var(--container-max);
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .step-indicator {
+                padding: 0 16px;
+            }
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.08);
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            transition: all var(--transition-normal);
+            font-size: 0.85rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            font-family: var(--font-display);
+        }
+
+        .step.active .step-number {
+            background: var(--primary-gradient);
+            box-shadow: var(--glow);
+            border-color: var(--primary);
+            animation: pulseStep 2s infinite;
+            color: var(--text);
+        }
+
+        @keyframes pulseStep {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(255, 107, 0, 0.7);
+            }
+        }
+
+        .step-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ========================================
+   HERO SECTION
+   ======================================== */
+        .hero {
+            padding: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 0%, rgba(123, 47, 190, 0.15), transparent 70%);
+            border-bottom: 1px solid rgba(255, 107, 0, 0.15);
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 60px);
+            padding: 80px 0 40px;
+        }
+
+        @media (min-width: 768px) {
+            .hero .container {
+                padding: 100px 0 60px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero .container {
+                padding: 120px 0 80px;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), var(--glow);
+            border: 1px solid rgba(255, 107, 0, 0.15);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+
+        .hero-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), var(--glow-strong);
+            border-color: rgba(255, 107, 0, 0.3);
+        }
+
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform var(--transition-slow);
+        }
+
+        .hero-banner:hover .banner-image {
+            transform: scale(1.02);
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                    rgba(255, 107, 0, 0.05) 0%,
+                    transparent 50%,
+                    rgba(123, 47, 190, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(255, 107, 0, 0.2);
+            letter-spacing: 2px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            padding: 0 10px;
+        }
+
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 1.05rem;
+                padding: 0;
+            }
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .badge {
+            background: rgba(255, 107, 0, 0.08);
+            border: 1px solid rgba(255, 107, 0, 0.15);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        .badge:hover {
+            background: rgba(255, 107, 0, 0.15);
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+            color: var(--text);
+        }
+
+        .badge i {
+            color: var(--primary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-display);
+            border: none;
+            min-width: 160px;
+            height: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-btn {
+                padding: 14px 28px;
+                font-size: 0.9rem;
+                min-width: 180px;
+                height: 52px;
+            }
+        }
+
+        .hero-btn-primary {
+            background: var(--primary-gradient);
+            color: var(--text);
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+        }
+
+        .hero-btn-primary:hover {
+            background: var(--primary-gradient-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.5);
+        }
+
+        .hero-btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid rgba(255, 107, 0, 0.4);
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 107, 0, 0.08);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.2);
+        }
+
+        /* ========================================
+   TOKEN CREATOR SECTION
+   ======================================== */
+        .token-creator {
+            padding: 40px 0 20px;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .token-creator {
+                padding: 50px 0 30px;
+            }
+        }
+
+        .token-creator .container {
+            max-width: var(--creator-max);
+        }
+
+        .creator-container {
+            background: linear-gradient(145deg, var(--card-bg) 0%, var(--surface) 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow), var(--glow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            width: 100%;
+            animation: containerSlide 0.8s ease-out;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 767px) {
+            .creator-container {
+                padding: 1.2rem;
+                border-radius: var(--radius-md);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .creator-container {
+                padding: 2rem;
+                border-radius: var(--radius-xl);
+            }
+        }
+
+        @keyframes containerSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .creator-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .creator-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.03), transparent 70%);
+            pointer-events: none;
+        }
+
+        .creator-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .creator-header h2 {
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+        }
+
+        .creator-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-gradient);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @media (min-width: 768px) {
+            .creator-header h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        .creator-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (min-width: 768px) {
+            .creator-header p {
+                font-size: 0.95rem;
+            }
+        }
+
+        .section-container {
+            background: var(--background-light);
+            border: 1px solid rgba(255, 107, 0, 0.08);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .section-container {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-radius: var(--radius-lg);
+            }
+        }
+
+        .section-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.03), transparent);
+            transition: left 0.6s ease;
+            pointer-events: none;
+        }
+
+        .section-container:hover::before {
+            left: 100%;
+        }
+
+        .section-container:hover {
+            border-color: rgba(255, 107, 0, 0.2);
+            box-shadow: var(--glow), var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: var(--font-display);
+        }
+
+        @media (min-width: 768px) {
+            .section-header {
+                font-size: 1.05rem;
+                margin-bottom: 1.2rem;
+            }
+        }
+
+        .section-header i {
+            font-size: 1.1rem;
+            filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.3));
+        }
+
+        @media (min-width: 768px) {
+            .section-header i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ===== FORM STYLES ===== */
+        .form-group {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .form-group {
+                margin-bottom: 1.2rem;
+            }
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-group label {
+                font-size: 0.9rem;
+                margin-bottom: 0.6rem;
+            }
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-sm);
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+            font-family: var(--font-primary);
+        }
+
+        @media (min-width: 768px) {
+            .form-control {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1), var(--glow);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-control.error {
+            border-color: var(--error);
+            box-shadow: 0 0 0 3px rgba(255, 23, 68, 0.1);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.75rem;
+            margin-top: 0.4rem;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .error-message {
+                font-size: 0.8rem;
+            }
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-5px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .tooltip-icon {
+            color: var(--text-muted);
+            cursor: help;
+            margin-left: 4px;
+            transition: color var(--transition-fast);
+        }
+
+        .tooltip-icon:hover {
+            color: var(--primary);
+        }
+
+        /* ===== DROPDOWN ===== */
+        .blockchain-dropdown {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-sm);
+            background: rgba(0, 0, 0, 0.4);
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF6B00' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        @media (min-width: 768px) {
+            .blockchain-dropdown {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .blockchain-dropdown:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1), var(--glow);
+        }
+
+        .blockchain-dropdown option {
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        .blockchain-dropdown option:disabled {
+            color: var(--text-muted);
+        }
+
+        .current-network-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+            padding: 0.7rem;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 230, 118, 0.08);
+            border: 1px solid rgba(0, 230, 118, 0.15);
+            color: var(--success);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .current-network-indicator {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+        }
+
+        .current-network-indicator i {
+            animation: pulse 2s infinite;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-display);
+            letter-spacing: 0.5px;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--text);
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-gradient-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #00C853);
+            color: var(--text);
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #00C853, var(--success));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 107, 0, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .btn-error {
+            background: rgba(255, 23, 68, 0.15);
+            color: var(--error);
+            border: 2px solid var(--error);
+            animation: blinkError 1.5s infinite;
+        }
+
+        .btn-error:hover {
+            animation: none;
+            background: var(--error);
+            color: var(--text);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 23, 68, 0.4);
+        }
+
+        @keyframes blinkError {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .btn-block {
+            width: 100%;
+            max-width: 280px;
+            padding: 12px;
+            font-size: 0.9rem;
+            margin: 1.2rem auto;
+            display: block;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .btn-block {
+                padding: 14px;
+                font-size: 0.95rem;
+                max-width: 300px;
+            }
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        #connectButton.blinking {
+            animation: connectPulse 3s infinite;
+        }
+
+        @keyframes connectPulse {
+
+            0%,
+            100% {
+                background: var(--primary-gradient);
+            }
+
+            25% {
+                background: var(--success-gradient);
+            }
+
+            50% {
+                background: var(--primary-gradient);
+            }
+
+            75% {
+                background: var(--success-gradient);
+            }
+        }
+
+        /* ===== WALLET ===== */
+        .wallet-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 0;
+            align-items: center;
+            width: 100%;
+        }
+
+        .connection-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .wallet-status-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: all var(--transition-normal);
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .wallet-status-badge {
+                max-width: 320px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .wallet-status-badge.connected {
+            background: rgba(0, 230, 118, 0.12);
+            border: 1px solid rgba(0, 230, 118, 0.2);
+            color: var(--success);
+        }
+
+        .wallet-status-badge.disconnected {
+            background: rgba(255, 23, 68, 0.12);
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            color: var(--error);
+        }
+
+        .wallet-status-badge.wrong-network {
+            background: rgba(255, 215, 0, 0.12);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--warning);
+        }
+
+        .wallet-info-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+            box-shadow: var(--shadow-light);
+            animation: slideDown 0.3s ease;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .wallet-info-container {
+                padding: 1.2rem;
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wallet-info-container.active {
+            display: block;
+        }
+
+        .wallet-info-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+        }
+
+        @media (min-width: 768px) {
+            .wallet-info-header {
+                font-size: 0.9rem;
+            }
+        }
+
+        .wallet-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+
+        .wallet-info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .wallet-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .wallet-info-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            min-width: 100px;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (min-width: 768px) {
+            .wallet-info-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        .wallet-info-value {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-align: right;
+            flex-grow: 1;
+            margin-left: 8px;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .wallet-info-value {
+                font-size: 0.8rem;
+            }
+        }
+
+        .wallet-address-value {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 0.65rem;
+            word-break: break-all;
+            display: block;
+            width: 100%;
+            margin-top: 0.3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (min-width: 768px) {
+            .wallet-address-value {
+                font-size: 0.7rem;
+            }
+        }
+
+        .balance-sufficient {
+            color: var(--success);
+            text-align: right !important;
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        .balance-insufficient {
+            color: var(--error);
+            text-align: right !important;
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        /* ===== COST BREAKDOWN ===== */
+        .cost-breakdown {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 107, 0, 0.1);
+            display: block;
+            animation: fadeIn 0.3s ease;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .cost-breakdown {
+                padding: 1.2rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .cost-item {
+                font-size: 0.9rem;
+                padding: 0.6rem 0;
+            }
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .cost-item:last-child {
+                font-size: 1rem;
+            }
+        }
+
+        .gas-fee-row,
+        .gas-gwei-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+
+            .gas-fee-row,
+            .gas-gwei-row {
+                font-size: 0.9rem;
+                padding: 0.6rem 0;
+            }
+        }
+
+        .gas-fee-label,
+        .gas-gwei-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-align: left;
+            flex: 1;
+        }
+
+        .gas-fee-value,
+        .gas-gwei-value {
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .gas-gwei-value {
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        /* ===== LOADING & STATUS ===== */
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 1.2rem 0;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .tech-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.06);
+            border-top: 3px solid var(--primary);
+            border-right: 3px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 0.8rem;
+            box-shadow: var(--glow);
+        }
+
+        @media (min-width: 768px) {
+            .tech-spinner {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 1rem;
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #status {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            color: var(--text-secondary);
+        }
+
+        @media (min-width: 768px) {
+            #status {
+                padding: 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        .transaction-hash {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            margin: 8px 0;
+            word-break: break-all;
+            font-size: 0.7rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text);
+        }
+
+        /* ========================================
+   TOAST NOTIFICATIONS
+   ======================================== */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 90vw;
+        }
+
+        .toast {
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            box-shadow: var(--shadow);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid;
+            word-wrap: break-word;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+            .toast {
+                font-size: 0.9rem;
+            }
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: rgba(0, 230, 118, 0.9);
+            border-left-color: var(--success);
+        }
+
+        .toast.error {
+            background: rgba(255, 23, 68, 0.9);
+            border-left-color: var(--error);
+        }
+
+        .toast.warning {
+            background: rgba(255, 215, 0, 0.9);
+            border-left-color: var(--warning);
+        }
+
+        .toast.info {
+            background: rgba(255, 107, 0, 0.9);
+            border-left-color: var(--primary);
+        }
+
+        /* ========================================
+   POPUP MODAL
+   ======================================== */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 18, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+            opacity: 1;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup {
+            background: linear-gradient(145deg, var(--card-bg) 0%, var(--surface) 100%);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--card-border);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .popup-overlay.active .popup {
+            transform: scale(1);
+        }
+
+        .popup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .popup.success::before {
+            background: linear-gradient(135deg, var(--success), #00C853);
+        }
+
+        .popup.error::before {
+            background: linear-gradient(90deg, var(--error), var(--warning));
+        }
+
+        .popup.pending::before {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            animation: gradientShift 3s infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .popup.warning::before {
+            background: linear-gradient(90deg, var(--warning), var(--primary));
+        }
+
+        .popup-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popup.success .popup-icon {
+            background: linear-gradient(135deg, var(--success), #00C853);
+            color: var(--text);
+        }
+
+        .popup.error .popup-icon {
+            background: linear-gradient(135deg, var(--error), var(--error-dark));
+            color: var(--text);
+        }
+
+        .popup.pending .popup-icon {
+            background: var(--primary-gradient);
+            color: var(--text);
+            animation: pulse 2s infinite;
+        }
+
+        .popup.warning .popup-icon {
+            background: linear-gradient(135deg, var(--warning), var(--warning-dark));
+            color: var(--text);
+        }
+
+        .popup-title {
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: var(--font-display);
+        }
+
+        .popup.success .popup-title {
+            color: var(--success);
+        }
+
+        .popup.error .popup-title {
+            color: var(--error);
+        }
+
+        .popup.pending .popup-title {
+            color: var(--primary);
+        }
+
+        .popup.warning .popup-title {
+            color: var(--warning);
+        }
+
+        .popup-message {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .popup-details {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-sm);
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .popup-details h4 {
+            color: var(--text);
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+        }
+
+        .popup-tx-hash {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px;
+            border-radius: var(--radius-sm);
+            margin: 6px 0;
+            word-break: break-all;
+            font-size: 0.7rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .token-address-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            margin: 0.8rem 0;
+            border: 1px solid rgba(255, 107, 0, 0.1);
+        }
+
+        .token-address-label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+        }
+
+        .token-address-input {
+            width: 100%;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 0, 0.15);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            margin-bottom: 0.6rem;
+            word-break: break-all;
+        }
+
+        .token-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .token-actions .btn {
+            padding: 8px 12px;
+            font-size: 0.75rem;
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .popup-actions {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.2rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            z-index: 2;
+        }
+
+        .popup-close:hover,
+        .popup-close:focus {
+            background: rgba(255, 23, 68, 0.1);
+            color: var(--error);
+            outline: none;
+        }
+
+        .popup-content {
+            max-height: calc(85vh - 120px);
+            overflow-y: auto;
+            padding: 0 0.3rem;
+        }
+
+        .view-explorer-btn {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+        }
+
+        .view-explorer-btn:hover {
+            background: linear-gradient(135deg, #0d47a1, #1a73e8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+        }
+
+        .copy-address-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            color: white;
+        }
+
+        .copy-address-btn:hover {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 47, 190, 0.4);
+        }
+
+        .popup.pending .popup-actions {
+            display: none;
+        }
+
+        /* ===== DOWNLOAD BUTTON ===== */
+        .btn-download {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            border: none;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--accent));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 45, 149, 0.4);
+        }
+
+        .btn-download:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes downloadPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(255, 45, 149, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(255, 45, 149, 0.6);
+            }
+        }
+
+        .btn-download {
+            animation: downloadPulse 2s infinite;
+        }
+
+        /* ===== MOBILE MODAL ===== */
+        .mobile-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 18, 0.95);
+            z-index: 10000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .mobile-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-modal-content {
+            background: linear-gradient(145deg, var(--card-bg) 0%, var(--surface) 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            text-align: center;
+            max-width: 400px;
+            margin: 1.5rem;
+            width: calc(100% - 3rem);
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-modal h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-family: var(--font-display);
+        }
+
+        .mobile-modal p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .mobile-modal-buttons {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        /* ===== CONFETTI ===== */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            opacity: 0;
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        .confetti:nth-child(2n) {
+            background: var(--success);
+        }
+
+        .confetti:nth-child(3n) {
+            background: var(--warning);
+        }
+
+        .confetti:nth-child(4n) {
+            background: var(--accent);
+        }
+
+        .confetti:nth-child(5n) {
+            background: var(--secondary);
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* ========================================
+   CONTENT SECTIONS (Edukatif) - KONSISTEN
+   ======================================== */
+        .content-section {
+            padding: 30px 0 40px;
+            background: rgba(10, 10, 18, 0.6);
+            position: relative;
+        }
+
+        .content-section .container {
+            max-width: var(--content-max);
+        }
+
+        @media (min-width: 768px) {
+            .content-section {
+                padding: 40px 0 50px;
+            }
+        }
+
+        .content-card {
+            background: linear-gradient(145deg, var(--card-bg) 0%, var(--surface) 100%);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .content-card {
+                padding: 2rem;
+            }
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+        }
+
+        .content-card h2 {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-family: var(--font-display);
+        }
+
+        .content-card h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-gradient);
+            margin: 0.6rem auto 0;
+            border-radius: 2px;
+        }
+
+        @media (min-width: 768px) {
+            .content-card h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        .content-card .content-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            text-align: left;
+            font-size: 0.92rem;
+        }
+
+        @media (min-width: 768px) {
+            .content-card .content-text {
+                font-size: 0.98rem;
+            }
+        }
+
+        .content-card .content-text p {
+            margin-bottom: 1rem;
+        }
+
+        .content-card .content-text ul,
+        .content-card .content-text ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-card .content-text ul li,
+        .content-card .content-text ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-card .content-text ul li::marker {
+            color: var(--primary);
+        }
+
+        .content-card .content-text strong {
+            color: var(--text);
+        }
+
+        .content-card .content-text .highlight-box {
+            background: rgba(255, 107, 0, 0.05);
+            border-left: 3px solid var(--primary);
+            padding: 1rem 1.2rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1rem 0;
+        }
+
+        .content-card .content-text .highlight-box.warning {
+            border-left-color: var(--warning);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .content-card .content-text .highlight-box.success {
+            border-left-color: var(--success);
+            background: rgba(0, 230, 118, 0.05);
+        }
+
+        .content-card .content-text .highlight-box.error {
+            border-left-color: var(--error);
+            background: rgba(255, 23, 68, 0.05);
+        }
+
+        /* ===== FEATURE GRID ===== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+            width: 100%;
+        }
+
+        @media (max-width: 991px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            text-align: center;
+            transition: all var(--transition-fast);
+        }
+
+        .feature-item:hover {
+            border-color: rgba(255, 107, 0, 0.15);
+            background: rgba(255, 107, 0, 0.03);
+            transform: translateY(-3px);
+        }
+
+        .feature-item .fi-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item h4 {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* ===== TUTORIAL GRID ===== */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .tutorial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tutorial-step {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .tutorial-step:hover {
+            border-color: rgba(255, 107, 0, 0.15);
+            background: rgba(255, 107, 0, 0.03);
+        }
+
+        .tutorial-step .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: var(--font-display);
+            margin-bottom: 0.5rem;
+            box-shadow: var(--glow);
+        }
+
+        .tutorial-step h4 {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .tutorial-step p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* ========================================
+   FAQ SECTION
+   ======================================== */
+        .faq-section {
+            padding: 30px 0 40px;
+        }
+
+        .faq-section .container {
+            max-width: var(--content-max);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius-md);
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+            transition: all var(--transition-fast);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 107, 0, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-primary);
+            transition: all var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question .faq-toggle {
+            color: var(--text-muted);
+            transition: transform var(--transition-fast);
+            font-size: 0.9rem;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.2rem;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 1.2rem 1.2rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+   CTA SECTION
+   ======================================== */
+        .cta-section-bottom {
+            padding: 40px 0 50px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.03), rgba(123, 47, 190, 0.03));
+            border-top: 1px solid rgba(255, 107, 0, 0.05);
+        }
+
+        .cta-section-bottom .container {
+            max-width: var(--content-max);
+        }
+
+        .cta-section-bottom h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-display);
+        }
+
+        .cta-section-bottom p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--primary-gradient);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--primary-gradient-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.5);
+        }
+
+        .cta-btn-secondary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            border: 2px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .cta-btn-secondary:hover {
+            background: rgba(255, 107, 0, 0.08);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================
+   FOOTER
+   ======================================== */
+        footer {
+            background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+            padding: 30px 0 20px;
+            border-top: 1px solid rgba(255, 107, 0, 0.1);
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: var(--container-max);
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                padding: 40px 0 20px;
+            }
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all var(--transition-fast);
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links a {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: all var(--transition-normal);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .footer-links a:hover::after,
+        .footer-links a:focus::after {
+            width: 60%;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--text);
+            background: rgba(255, 107, 0, 0.06);
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                padding-top: 2rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .footer-bottom p:last-child {
+            margin-top: 0.3rem;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        /* ========================================
+   RESPONSIVE OVERRIDES
+   ======================================== */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero .container {
+                padding: 70px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+                padding: 0 8px;
+            }
+
+            .hero-badges {
+                gap: 0.5rem;
+            }
+
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+            }
+
+            .hero-btn {
+                min-width: 130px;
+                padding: 10px 16px;
+                font-size: 0.75rem;
+                height: 42px;
+            }
+
+            .hero-buttons {
+                gap: 0.6rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+
+            .hero-banner {
+                max-width: 100%;
+                border-radius: var(--radius-md);
+                margin-bottom: 1rem;
+            }
+
+            .hero-banner:hover {
+                transform: translateY(-2px);
+            }
+
+            .hero-banner:hover .banner-image {
+                transform: none;
+            }
+
+            .token-creator {
+                padding: 20px 0 10px;
+            }
+
+            .creator-container {
+                padding: 1rem;
+                border-radius: var(--radius-md);
+            }
+
+            .creator-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .section-container {
+                padding: 0.8rem;
+                margin-bottom: 0.8rem;
+                border-radius: var(--radius-sm);
+            }
+
+            .section-header {
+                font-size: 0.85rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .form-group {
+                margin-bottom: 0.8rem;
+            }
+
+            .form-control {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .btn {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+
+            .btn-block {
+                padding: 10px;
+                font-size: 0.85rem;
+                max-width: 240px;
+            }
+
+            .wallet-status-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.7rem;
+                max-width: 220px;
+            }
+
+            .wallet-info-container {
+                padding: 0.8rem;
+            }
+
+            .content-card {
+                padding: 1rem;
+                margin-bottom: 0;
+            }
+
+            .content-card h2 {
+                font-size: 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .tutorial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .popup {
+                padding: 1.2rem;
+                max-height: 90vh;
+                margin: 10px;
+            }
+
+            .popup-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .popup-title {
+                font-size: 1rem;
+            }
+
+            .popup-message {
+                font-size: 0.85rem;
+            }
+
+            .footer-links {
+                gap: 0.6rem;
+            }
+
+            .footer-links a {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .mobile-modal-content {
+                padding: 1.2rem;
+                margin: 1rem;
+                width: calc(100% - 2rem);
+            }
+
+            .mobile-modal h3 {
+                font-size: 1.1rem;
+            }
+
+            .mobile-modal p {
+                font-size: 0.85rem;
+            }
+
+            .sticky-step-indicator {
+                top: 60px;
+                padding: 0.5rem 0;
+            }
+
+            .step-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+
+            .step-label {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .container {
+                padding: 60px 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero-buttons {
+                gap: 0.5rem;
+                max-width: 300px;
+            }
+
+            .hero-btn {
+                min-width: 110px;
+                padding: 8px 12px;
+                font-size: 0.7rem;
+                height: 38px;
+            }
+
+            .hero-banner {
+                border-radius: var(--radius-sm);
+                margin-bottom: 0.8rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .hero-banner:hover {
+                transform: none;
+            }
+
+            .step-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.7rem;
+            }
+
+            .step-label {
+                font-size: 0.55rem;
+            }
+
+            .creator-container {
+                padding: 0.8rem;
+                border-radius: var(--radius-sm);
+            }
+
+            .content-card {
+                padding: 0.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .popup-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .popup-actions .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+
+            .btn-download {
+                animation: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .hero-banner {
+                transition: none !important;
+            }
+
+            .hero-banner:hover {
+                transform: none !important;
+            }
+
+            .hero-banner:hover .banner-image {
+                transform: none !important;
+            }
+
+            .hero-banner::after {
+                display: none !important;
+            }
+        }
+
+        /* ========================================
+   PRINT STYLES
+   ======================================== */
+        @media print {
+
+            .lightning-background,
+            .grid-overlay,
+            .sticky-step-indicator,
+            .mobile-menu-btn,
+            .mobile-nav,
+            .confetti-container,
+            .toast-container,
+            .popup-overlay,
+            .mobile-modal {
+                display: none !important;
+            }
+
+            header {
+                position: relative;
+                background: white !important;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .logo span {
+                color: #333 !important;
+                -webkit-text-fill-color: #333 !important;
+            }
+
+            .hero {
+                min-height: auto !important;
+                background: white !important;
+                padding: 40px 0 !important;
+            }
+
+            .hero h1 {
+                color: #333 !important;
+                -webkit-text-fill-color: #333 !important;
+            }
+
+            .hero p {
+                color: #666 !important;
+            }
+
+            .badge {
+                border-color: #ddd !important;
+                background: #f5f5f5 !important;
+                color: #333 !important;
+            }
+
+            .creator-container {
+                border-color: #ddd !important;
+                background: white !important;
+                box-shadow: none !important;
+            }
+
+            .section-container {
+                background: #f9f9f9 !important;
+                border-color: #ddd !important;
+            }
+
+            .form-control {
+                border-color: #ddd !important;
+                background: white !important;
+                color: #333 !important;
+            }
+
+            .btn {
+                background: #f5f5f5 !important;
+                color: #333 !important;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+            }
+
+            .content-card {
+                border-color: #ddd !important;
+                background: white !important;
+            }
+
+            footer {
+                border-top-color: #ddd !important;
+                background: white !important;
+            }
+
+            .footer-links a {
+                color: #333 !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- ========================================
+    LOADING SCREEN
+    ======================================== -->
     <div class="loading-screen" id="loadingScreen">
         <div class="hologram-loader">
             <div class="hologram-ring"></div>
             <div class="hologram-ring"></div>
             <div class="hologram-ring"></div>
         </div>
-        <div class="logo-explosion">TokenKripto</div>
-        <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Wujudkan Ide Kripto Anda Menjadi
-            Nyata</p>
+        <div class="logo-explosion">Token Kripto</div>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Pembuat Token Kripto Indonesia
+        </p>
     </div>
 
+    <!-- ========================================
+    BACKGROUND EFFECTS
+    ======================================== -->
     <div class="lightning-background">
         <div class="lightning"></div>
         <div class="lightning"></div>
@@ -83,12 +3310,17 @@
         <div class="lightning"></div>
         <div class="lightning"></div>
     </div>
-
     <div class="grid-overlay"></div>
 
+    <!-- ========================================
+    CONFETTI & TOAST
+    ======================================== -->
     <div class="confetti-container" id="confettiContainer"></div>
     <div class="toast-container" id="toastContainer"></div>
 
+    <!-- ========================================
+    POPUP MODAL
+    ======================================== -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup" id="popup">
             <button class="popup-close" id="popupClose" aria-label="Tutup popup">&times;</button>
@@ -96,15 +3328,12 @@
                 <i class="fas fa-check" aria-hidden="true"></i>
             </div>
             <h3 class="popup-title" id="popupTitle">Judul</h3>
-
             <div class="popup-content">
                 <div class="popup-message" id="popupMessage">Pesan</div>
-
                 <div class="popup-details" id="popupDetails" style="display: none;">
                     <h4>Detail Transaksi</h4>
                     <div class="popup-tx-hash" id="popupTxHash"></div>
                 </div>
-
                 <div class="token-address-container" id="tokenAddressContainer" style="display: none;">
                     <div class="token-address-label">
                         <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
@@ -125,17 +3354,19 @@
                     </div>
                 </div>
             </div>
-
             <div class="popup-actions" id="popupActions"></div>
         </div>
     </div>
 
+    <!-- ========================================
+    MOBILE MODAL
+    ======================================== -->
     <div class="mobile-modal" id="mobileModal">
         <div class="mobile-modal-content">
             <h3><i class="fas fa-mobile-alt" aria-hidden="true"></i> Gunakan DApp Browser</h3>
-            <p>Halaman ini menggunakan Web3 dan berfungsi penuh hanya jika diakses dari desktop dengan ekstensi dompet
-                seperti MetaMask. Jika Anda di ponsel, salin URL ini dan buka melalui DApp Browser di aplikasi dompet
-                Anda (MetaMask, Trust Wallet, Bitget, dll.) untuk mengaktifkan fitur pembuatan token.</p>
+            <p>Halaman ini menggunakan Web3 dan berfungsi penuh jika diakses dari desktop dengan ekstensi dompet seperti
+                MetaMask. Jika di ponsel, salin URL ini dan buka melalui DApp Browser di aplikasi dompet Anda (MetaMask,
+                Trust Wallet, Bitget, dll.).</p>
             <div class="mobile-modal-buttons">
                 <button class="btn btn-primary" onclick="copyUrlAndClose()">
                     <i class="fas fa-copy" aria-hidden="true"></i> Salin URL
@@ -144,22 +3375,21 @@
         </div>
     </div>
 
+    <!-- ========================================
+    HEADER
+    ======================================== -->
     <header role="banner">
         <div class="container nav-container">
-            <a href="https://tokenkripto.github.io/" class="logo"
-                aria-label="Token Kripto Indonesia - Platform Creator Token">
-                <img src="https://tokenkripto.github.io/favicon.png" alt="Logo Token Kripto Indonesia">
+            <a href="https://tokenkripto.github.io" class="logo" aria-label="Token Kripto - Kembali ke beranda">
+                <img src="https://tokenkripto.github.io/favicon.png" alt="Logo Token Kripto" loading="lazy" width="36"
+                    height="36">
                 <span>Token Kripto</span>
             </a>
-
             <nav class="nav-links" role="navigation" aria-label="Navigasi utama">
-                <a href="https://tokenkripto.github.io/"><i class="fas fa-home" aria-hidden="true"></i> Beranda</a>
-                <a href="https://tokenkripto.github.io/jasa-pembuatan-token-kripto/"><i class="fas fa-rocket"
-                        aria-hidden="true"></i> Jasa Buat Token</a>
-                <a href="https://tokenkripto.github.io/tentang-kami/"><i class="fa-brands fa-blogger"></i> Tentang
-                    Kami</a>
+                <a href="https://tokenkripto.github.io"><i class="fas fa-home" aria-hidden="true"></i> Beranda</a>
+                <a href="#tutorial"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Tutorial</a>
+                <a href="#faq"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a>
             </nav>
-
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka menu navigasi" aria-expanded="false"
                 aria-controls="mobileNav">
                 <i class="fas fa-bars" aria-hidden="true"></i>
@@ -167,6 +3397,23 @@
         </div>
     </header>
 
+    <!-- ========================================
+    MOBILE NAV
+    ======================================== -->
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Navigasi mobile">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu navigasi">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+        <nav class="mobile-nav-links">
+            <a href="https://tokenkripto.github.io"><i class="fas fa-home" aria-hidden="true"></i> Beranda</a>
+            <a href="#tutorial"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Tutorial</a>
+            <a href="#faq"><i class="fas fa-question-circle" aria-hidden="true"></i> FAQ</a>
+        </nav>
+    </div>
+
+    <!-- ========================================
+    STICKY STEP INDICATOR
+    ======================================== -->
     <div class="sticky-step-indicator" id="stickyStepIndicator">
         <div class="step-indicator" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4"
             aria-label="Proses pembuatan token">
@@ -189,61 +3436,49 @@
         </div>
     </div>
 
-    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Navigasi mobile">
-        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu navigasi">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-        <nav class="mobile-nav-links">
-            <a href="https://tokenkripto.github.io/"><i class="fas fa-home" aria-hidden="true"></i> Beranda</a>
-            <a href="https://tokenkripto.github.io/jasa-pembuatan-token-kripto/"><i class="fas fa-rocket"
-                    aria-hidden="true"></i> Jasa Buat Token</a>
-            <a href="https://tokenkripto.github.io/tentang-kami/"><i class="fa-brands fa-blogger"></i> Tentang Kami</a>
-        </nav>
-    </div>
-
+    <!-- ========================================
+    HERO SECTION
+    ======================================== -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="https://tokenkripto.github.io/favicon.png" alt="Logo Token Kripto Indonesia">
+                <!-- ===== BANNER GAMBAR ===== -->
+                <div class="hero-banner animate__animated animate__fadeInUp">
+                    <img src="https://raw.githubusercontent.com/tokenkripto/tokenkripto.github.io/refs/heads/main/images/token-kripto-indonesia.png"
+                        alt="Banner Token Kripto - Buat Token Crypto Sendiri" loading="lazy" width="100%" height="auto"
+                        class="banner-image">
                 </div>
 
-                <h1 class="animate__animated animate__fadeInUp">PEMBUAT TOKEN KRIPTO INDONESIA INSTAN</h1>
+                <h1 class="animate__animated animate__fadeInUp">Pembuat Token Kripto Indonesia Instan</h1>
                 <p class="animate__animated animate__fadeInUp animate__delay-1s">Platform Web3 canggih untuk deploy
                     token kripto kustom di berbagai blockchain. Buat token ERC-20 atau BEP-20 instan dengan antarmuka
-                    no-code intuitif kami, dirancang untuk pemula maupun profesional blockchain di Indonesia.</p>
+                    <strong>no-code</strong> intuitif kami, dirancang untuk pemula maupun profesional blockchain di
+                    Indonesia.
+                </p>
 
                 <div class="hero-badges animate__animated animate__fadeInUp animate__delay-2s">
-                    <div class="badge">
-                        <i class="fas fa-bolt"></i>
-                        <span>Tanpa Coding</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Aman & Teraudit</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-rocket"></i>
-                        <span>Deploy 60 Detik</span>
-                    </div>
-                    <div class="badge">
-                        <i class="fas fa-coins"></i>
-                        <span>Multi-Rantai</span>
-                    </div>
+                    <div class="badge"><i class="fas fa-bolt"></i> Tanpa Coding</div>
+                    <div class="badge"><i class="fas fa-shield-alt"></i> Aman & Teraudit</div>
+                    <div class="badge"><i class="fas fa-rocket"></i> Deploy 60 Detik</div>
+                    <div class="badge"><i class="fas fa-coins"></i> Multi-Rantai</div>
+                    <div class="badge"><i class="fas fa-gem"></i> Tanpa Biaya Platform</div>
                 </div>
 
                 <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
-                    <a href="#token-creator" class="hero-btn hero-btn-primary">
-                        <i class="fas fa-play" aria-hidden="true"></i> Buat Sekarang
-                    </a>
-                    <a href="#about" class="hero-btn hero-btn-secondary">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i> Pelajari Lebih
-                    </a>
+                    <a href="#token-creator" class="hero-btn hero-btn-primary"><i class="fas fa-play"
+                            aria-hidden="true"></i> Buat Token Sekarang</a>
+                    <a href="#tutorial" class="hero-btn hero-btn-secondary"><i class="fas fa-graduation-cap"
+                            aria-hidden="true"></i> Lihat Tutorial</a>
+                    <a href="#biaya" class="hero-btn hero-btn-secondary"><i class="fas fa-tag" aria-hidden="true"></i>
+                        Biaya</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================
+    TOKEN CREATOR SECTION
+    ======================================== -->
     <section class="token-creator" id="token-creator">
         <div class="container">
             <div class="creator-container">
@@ -252,12 +3487,11 @@
                     <p>Platform deploy token no-code canggih untuk proyek blockchain Anda</p>
                 </div>
 
+                <!-- Step 1: Pilih Jaringan -->
                 <div class="section-container">
-                    <div class="section-header">
-                        <i class="fas fa-network-wired" aria-hidden="true"></i>
-                        <span>1. Pilih Jaringan Blockchain</span>
-                    </div>
-                    <select id="blockchainSelect" class="blockchain-dropdown">
+                    <div class="section-header"><i class="fas fa-network-wired" aria-hidden="true"></i> <span>1. Pilih
+                            Jaringan Blockchain</span></div>
+                    <select id="blockchainSelect" class="blockchain-dropdown" aria-label="Pilih jaringan blockchain">
                         <option value="bnb">BNB Chain (BEP20)</option>
                         <option value="core">Core Chain (ERC20)</option>
                         <option value="eth" disabled>Ethereum (Pemeliharaan)</option>
@@ -265,58 +3499,46 @@
                         <option value="sol" disabled>Solana (Segera Hadir)</option>
                         <option value="matic" disabled>Polygon (Ditangguhkan)</option>
                     </select>
-
                     <div id="currentNetworkIndicator" class="current-network-indicator" style="display: none;">
                         <i class="fas fa-check-circle" aria-hidden="true"></i>
-                        <span id="currentNetworkText">Terpilih: BNB Smart Chain</span>
+                        <span id="currentNetworkText">Dipilih: BNB Smart Chain</span>
                     </div>
                 </div>
 
+                <!-- Step 2: Hubungkan Dompet -->
                 <div class="section-container">
-                    <div class="section-header">
-                        <i class="fas fa-wallet" aria-hidden="true"></i>
-                        <span>2. Hubungkan Dompet Web3 Anda</span>
-                    </div>
+                    <div class="section-header"><i class="fas fa-wallet" aria-hidden="true"></i> <span>2. Hubungkan
+                            Dompet Web3 Anda</span></div>
                     <div class="wallet-actions">
                         <div class="connection-row">
-                            <button id="connectButton" class="btn btn-primary blinking">
-                                <i class="fas fa-plug" aria-hidden="true"></i> Hubungkan Dompet
-                            </button>
-
-                            <button id="switchNetworkBtn" class="btn btn-error" style="display:none;">
-                                <i class="fas fa-exchange-alt" aria-hidden="true"></i> Ganti Jaringan
-                            </button>
-
+                            <button id="connectButton" class="btn btn-primary blinking"><i class="fas fa-plug"
+                                    aria-hidden="true"></i> Hubungkan Dompet</button>
+                            <button id="switchNetworkBtn" class="btn btn-error" style="display:none;"><i
+                                    class="fas fa-exchange-alt" aria-hidden="true"></i> Ganti Jaringan</button>
                             <div class="wallet-status-badge disconnected" id="walletStatusBadge">
                                 <div class="status-dot"></div>
                                 <span id="walletStatusText">Dompet Belum Terhubung</span>
                             </div>
                         </div>
                     </div>
-
                     <div class="wallet-info-container" id="walletInfo">
-                        <div class="wallet-info-header">
-                            <i class="fas fa-wallet" aria-hidden="true"></i>
-                            <span>Informasi Dompet Anda</span>
-                        </div>
+                        <div class="wallet-info-header"><i class="fas fa-wallet" aria-hidden="true"></i> <span>Informasi
+                                Dompet Anda</span></div>
                         <div class="wallet-info-grid">
                             <div class="wallet-info-item">
-                                <div class="wallet-info-label">
-                                    <i class="fas fa-address-card" aria-hidden="true"></i>
+                                <div class="wallet-info-label"><i class="fas fa-address-card" aria-hidden="true"></i>
                                     <span>Alamat Dompet:</span>
                                 </div>
                                 <div class="wallet-info-value wallet-address-value" id="walletAddressText">-</div>
                             </div>
                             <div class="wallet-info-item">
-                                <div class="wallet-info-label">
-                                    <i class="fas fa-coins" aria-hidden="true"></i>
+                                <div class="wallet-info-label"><i class="fas fa-coins" aria-hidden="true"></i>
                                     <span>Saldo Anda:</span>
                                 </div>
                                 <div class="wallet-info-value" id="walletBalanceText">-</div>
                             </div>
                             <div class="wallet-info-item">
-                                <div class="wallet-info-label">
-                                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                <div class="wallet-info-label"><i class="fas fa-info-circle" aria-hidden="true"></i>
                                     <span>Status Biaya:</span>
                                 </div>
                                 <div class="wallet-info-value" id="balanceCheckText">-</div>
@@ -325,57 +3547,40 @@
                     </div>
                 </div>
 
+                <!-- Step 3: Detail Token -->
                 <div class="section-container">
-                    <div class="section-header">
-                        <i class="fas fa-edit" aria-hidden="true"></i>
-                        <span>3. Masukkan Spesifikasi Token</span>
-                    </div>
+                    <div class="section-header"><i class="fas fa-edit" aria-hidden="true"></i> <span>3. Masukkan
+                            Spesifikasi Token</span></div>
                     <div class="form-group">
-                        <label for="tokenName">
-                            <i class="fas fa-tag" aria-hidden="true"></i> Nama Token
-                            <span class="tooltip-icon"
-                                data-tooltip="Nama lengkap token Anda, misalnya Token Kripto Indonesia">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            </span>
-                        </label>
-                        <input type="text" id="tokenName" class="form-control" placeholder="Misal: Token Indonesia"
-                            required aria-describedby="tokenNameError">
+                        <label for="tokenName"><i class="fas fa-tag" aria-hidden="true"></i> Nama Token <span
+                                class="tooltip-icon" data-tooltip="Nama lengkap token Anda, misal: Bitcoin"><i
+                                    class="fas fa-info-circle" aria-hidden="true"></i></span></label>
+                        <input type="text" id="tokenName" class="form-control" placeholder="Misal: Bitcoin" required
+                            aria-describedby="tokenNameError" maxlength="30">
                         <div id="tokenNameError" class="error-message"></div>
                     </div>
-
                     <div class="form-group">
-                        <label for="tokenSymbol">
-                            <i class="fas fa-code" aria-hidden="true"></i> Simbol Token
-                            <span class="tooltip-icon" data-tooltip="Simbol pendek token (3-10 karakter), misal: IDT">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            </span>
-                        </label>
-                        <input type="text" id="tokenSymbol" class="form-control" placeholder="Misal: IDT" required
-                            aria-describedby="tokenSymbolError">
+                        <label for="tokenSymbol"><i class="fas fa-code" aria-hidden="true"></i> Simbol Token <span
+                                class="tooltip-icon" data-tooltip="Simbol pendek token (3-10 karakter), misal: BTC"><i
+                                    class="fas fa-info-circle" aria-hidden="true"></i></span></label>
+                        <input type="text" id="tokenSymbol" class="form-control" placeholder="Misal: BTC" required
+                            aria-describedby="tokenSymbolError" maxlength="10">
                         <div id="tokenSymbolError" class="error-message"></div>
                     </div>
-
                     <div class="form-group">
-                        <label for="tokenDecimals">
-                            <i class="fas fa-divide" aria-hidden="true"></i> Angka Desimal
-                            <span class="tooltip-icon"
-                                data-tooltip="Jumlah digit desimal (biasanya 18 untuk token kripto)">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            </span>
-                        </label>
+                        <label for="tokenDecimals"><i class="fas fa-divide" aria-hidden="true"></i> Desimal <span
+                                class="tooltip-icon"
+                                data-tooltip="Jumlah digit desimal (biasanya 18 untuk token kripto)"><i
+                                    class="fas fa-info-circle" aria-hidden="true"></i></span></label>
                         <input type="number" id="tokenDecimals" class="form-control" placeholder="Desimal (default 18)"
                             value="18" min="0" max="18" aria-describedby="tokenDecimalsError">
                         <div id="tokenDecimalsError" class="error-message"></div>
                     </div>
-
                     <div class="form-group">
-                        <label for="tokenSupply">
-                            <i class="fas fa-layer-group" aria-hidden="true"></i> Total Pasokan
+                        <label for="tokenSupply"><i class="fas fa-layer-group" aria-hidden="true"></i> Total Suplai
                             <span class="tooltip-icon"
-                                data-tooltip="Jumlah total token yang akan dibuat (tanpa desimal). Maks: 1.000.000.000.000">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i>
-                            </span>
-                        </label>
+                                data-tooltip="Jumlah total token yang dibuat (tanpa desimal). Maksimal: 1.000.000.000.000"><i
+                                    class="fas fa-info-circle" aria-hidden="true"></i></span></label>
                         <input type="number" id="tokenSupply" class="form-control"
                             placeholder="Misal: 1000000 (1 juta token)" required min="1" max="1000000000000"
                             aria-describedby="tokenSupplyError">
@@ -383,134 +3588,1318 @@
                     </div>
                 </div>
 
+                <!-- Step 4: Estimasi Biaya -->
                 <div class="section-container">
-                    <div class="section-header">
-                        <i class="fas fa-calculator" aria-hidden="true"></i>
-                        <span>4. Estimasi Biaya Deployment</span>
-                    </div>
+                    <div class="section-header"><i class="fas fa-calculator" aria-hidden="true"></i> <span>4. Estimasi
+                            Biaya Deployment</span></div>
                     <div class="cost-breakdown" id="costBreakdown">
-                        <div class="cost-item">
-                            <span><i class="fa-brands fa-cc-amazon-pay" aria-hidden="true"></i> Biaya Platform:</span>
-                            <span id="tokenCreationFee">Memuat..</span>
-                        </div>
+                        <div class="cost-item"><span><i class="fa-brands fa-cc-amazon-pay" aria-hidden="true"></i> Biaya
+                                Platform:</span> <span id="tokenCreationFee">Memuat..</span></div>
                         <div class="gas-fee-row">
-                            <div class="gas-fee-label">
-                                <i class="fas fa-bolt" aria-hidden="true"></i>
-                                <span>Biaya Jaringan:</span>
-                            </div>
-                            <div class="gas-fee-value">
-                                <span id="estimatedGasFee">Memuat..</span>
-                            </div>
+                            <div class="gas-fee-label"><i class="fas fa-bolt" aria-hidden="true"></i> <span>Biaya
+                                    Jaringan (Gas):</span></div>
+                            <div class="gas-fee-value"><span id="estimatedGasFee">Memuat..</span></div>
                         </div>
                         <div class="gas-gwei-row">
-                            <div class="gas-gwei-label">
-                                <i class="fas fa-fire" aria-hidden="true"></i>
-                                <span>Harga Gas:</span>
-                            </div>
+                            <div class="gas-gwei-label"><i class="fas fa-fire" aria-hidden="true"></i> <span>Harga
+                                    Gas:</span></div>
                             <div class="gas-gwei-value" id="gasPriceGwei">-</div>
                         </div>
-                        <div class="cost-item">
-                            <span><i class="fa-solid fa-calculator" aria-hidden="true"></i> Total Biaya:</span>
-                            <span id="totalEstimatedFee">Memuat..</span>
-                        </div>
+                        <div class="cost-item"><span><i class="fa-solid fa-calculator" aria-hidden="true"></i> Total
+                                Biaya:</span> <span id="totalEstimatedFee">Memuat..</span></div>
                     </div>
-                    <button id="createButton" class="btn btn-success btn-block">
-                        <i class="fas fa-rocket" aria-hidden="true"></i> Buat Token
-                    </button>
+                    <button id="createButton" class="btn btn-success btn-block"><i class="fas fa-rocket"
+                            aria-hidden="true"></i> Deploy Token Kripto</button>
                 </div>
 
                 <div class="loading" id="loading">
                     <div class="tech-spinner" aria-hidden="true"></div>
                     <p>Memproses transaksi blockchain...</p>
                 </div>
-
                 <div id="status" role="status" aria-live="polite"></div>
             </div>
         </div>
     </section>
 
-    <section class="about-web" id="about">
+    <!-- ========================================
+    KONTEN EDUKATIF: APA ITU TOKEN KRIPTO?
+    ======================================== -->
+    <section class="content-section" id="tentang">
         <div class="container">
-            <div class="about-web-content">
-                <h2>Tentang Platform Pembuat Token Kripto Indonesia</h2>
+            <div class="content-card">
+                <h2>Apa Itu Token Kripto dan Bagaimana Cara Kerjanya?</h2>
+                <div class="content-text">
+                    <p><strong>Token kripto</strong> adalah aset digital yang dibangun di atas blockchain yang sudah
+                        ada, seperti Ethereum atau BNB Chain. Berbeda dengan <strong>koin</strong> (seperti Bitcoin atau
+                        BNB) yang memiliki blockchain sendiri, token memanfaatkan infrastruktur blockchain yang sudah
+                        ada untuk beroperasi.</p>
 
-                <div class="about-web-text">
-                    <p><strong>Token Kripto Indonesia</strong> adalah platform sederhana dan efisien yang memungkinkan
-                        siapa pun membuat token kripto standar tanpa menulis kode. Dibangun untuk kejelasan dan
-                        keandalan, platform ini menawarkan alat praktis untuk meluncurkan token bagi proyek blockchain,
-                        komunitas, bisnis, atau penggunaan edukasi di Indonesia.</p>
-                </div>
+                    <p>Token kripto dapat memiliki berbagai fungsi, antara lain:</p>
+                    <ul>
+                        <li><strong>Token Utilitas</strong> - Memberikan akses ke produk atau layanan dalam ekosistem
+                            tertentu.</li>
+                        <li><strong>Token Keamanan</strong> - Mewakili kepemilikan aset di dunia nyata seperti saham
+                            atau properti.</li>
+                        <li><strong>Token Governance</strong> - Memberikan hak suara dalam pengambilan keputusan proyek
+                            DeFi.</li>
+                        <li><strong>Token Mata Uang</strong> - Digunakan sebagai alat pembayaran atau transfer nilai.
+                        </li>
+                        <li><strong>Token Non-Fungible (NFT)</strong> - Mewakili kepemilikan barang unik seperti karya
+                            seni digital.</li>
+                    </ul>
 
-                <div class="about-web-features">
-                    <div class="feature-item">
-                        <h4><i class="fas fa-cogs" style="color: var(--primary);"></i> Kemampuan Platform:</h4>
-                        <ul>
-                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Pembuatan Token
-                                    Instan</strong> - Deploy token standar ERC-20/BEP-20 dalam hitungan detik</li>
-                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Dukungan
-                                    Multi-Blockchain</strong> - Bekerja dengan BNB Smart Chain, Core Chain, dan jaringan
-                                lainnya</li>
-                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Tanpa Biaya
-                                    Platform</strong> - Gratis digunakan; hanya biaya gas jaringan yang berlaku</li>
-                            <li><i class="fas fa-check" style="color: var(--success);"></i> <strong>Kontrak Pintar
-                                    Aman</strong> - Arsitektur kontrak terverifikasi dan transparan</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-item">
-                        <h4><i class="fas fa-star" style="color: var(--warning);"></i> Keunggulan & Manfaat:</h4>
-                        <ul>
-                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i>
-                                <strong>Ramah Pemula</strong> - Deploy token tanpa perlu coding
-                            </li>
-                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> <strong>Siap
-                                    Proyek</strong> - Cocok untuk komunitas, bisnis, dan kebutuhan token utilitas</li>
-                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> <strong>Deploy
-                                    Cepat</strong> - Buat token kurang dari satu menit</li>
-                            <li><i class="fas fa-check-circle" style="color: var(--success);"></i> <strong>Efektif
-                                    Biaya</strong> - Penggunaan gas rendah di BSC, Core, dan jaringan sejenis</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div style="padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15);">
-                    <h3 style="color: var(--text); margin-bottom: 1rem; font-size: 1.3rem;">Butuh Bantuan Membuat Token
-                        Kripto Indonesia?</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                        Jika Anda memerlukan bantuan selama proses pembuatan token atau ingin dukungan untuk
-                        pengembangan kripto yang lebih canggih, tim kami siap memandu Anda.
+                    <p>Dengan platform <strong>Token Kripto Indonesia</strong>, Anda dapat membuat token standar
+                        <strong>ERC-20</strong> (Ethereum) atau <strong>BEP-20</strong> (BNB Chain) tanpa perlu menulis
+                        kode sama sekali. Prosesnya cepat, aman, dan transparan.
                     </p>
-                    <button class="btn btn-primary contact-support-btn" onclick="contactSupport()">
-                        <i class="fas fa-headset" aria-hidden="true"></i> Konsultasi Gratis
-                    </button>
+
+                    <div class="highlight-box success">
+                        <p><strong>💡 Fakta Menarik:</strong> Token pertama yang dibuat menggunakan standar ERC-20
+                            adalah token Golem (GNT) pada tahun 2016. Sekarang, ada lebih dari <strong>500.000
+                                token</strong> yang beredar di berbagai blockchain!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================
+    KONTEN EDUKATIF: KEUNGGULAN PLATFORM
+    ======================================== -->
+    <section class="content-section" style="background: rgba(10,10,18,0.3);">
+        <div class="container">
+            <div class="content-card">
+                <h2>Mengapa Memilih Platform Token Kripto Indonesia?</h2>
+                <div class="content-text">
+                    <p>Kami menghadirkan solusi pembuatan token yang <strong>sederhana, cepat, dan gratis</strong> untuk
+                        semua orang di Indonesia. Berikut keunggulan utama platform kami:</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="fi-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+                        <h4>Tanpa Coding</h4>
+                        <p>Buat token sendiri tanpa perlu kemampuan pemrograman. Cukup isi form dan deploy!</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="fi-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                        <h4>Keamanan Tingkat Tinggi</h4>
+                        <p>Smart contract kami telah teraudit dan menggunakan standar keamanan terbaik industri.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="fi-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
+                        <h4>Deploy 60 Detik</h4>
+                        <p>Proses pembuatan token hanya membutuhkan waktu kurang dari satu menit!</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="fi-icon"><i class="fas fa-coins" aria-hidden="true"></i></div>
+                        <h4>Multi-Blockchain</h4>
+                        <p>Dukung BNB Chain, Core Chain, dan jaringan lainnya dengan biaya gas rendah.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="fi-icon"><i class="fas fa-gem" aria-hidden="true"></i></div>
+                        <h4>Tanpa Biaya Platform</h4>
+                        <p>Gratis! Anda hanya membayar biaya gas jaringan yang diperlukan untuk deploy.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="fi-icon"><i class="fas fa-language" aria-hidden="true"></i></div>
+                        <h4>Bahasa Indonesia</h4>
+                        <p>Dirancang khusus untuk pengguna Indonesia dengan antarmuka dalam Bahasa Indonesia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    KONTEN EDUKATIF: BIAYA
+    ======================================== -->
+    <section class="content-section" id="biaya">
+        <div class="container">
+            <div class="content-card">
+                <h2>Berapa Biaya Membuat Token Kripto?</h2>
+                <div class="content-text">
+                    <p>Salah satu pertanyaan paling umum adalah <strong>"Berapa biaya membuat token kripto?"</strong>.
+                        Jawabannya: <strong>GRATIS</strong> untuk biaya platform, Anda hanya membayar biaya gas
+                        jaringan!</p>
+
+                    <div class="highlight-box"
+                        style="background: rgba(0,212,255,0.08); border-left-color: var(--primary);">
+                        <p><strong>💰 Biaya Platform: GRATIS</strong><br>Kami tidak memungut biaya apapun untuk
+                            menggunakan platform. Anda hanya perlu membayar biaya gas jaringan yang diperlukan untuk
+                            deploy smart contract.</p>
+                    </div>
+
+                    <p><strong>Estimasi Biaya Gas per Jaringan:</strong></p>
+                    <ul>
+                        <li><strong>BNB Chain (BSC):</strong> ~$0.20 - $0.50 (biaya rendah)</li>
+                        <li><strong>Core Chain:</strong> ~$0.05 - $0.15 (biaya sangat rendah)</li>
+                        <li><strong>Riche Chain:</strong> ~$0.02 - $0.08 (biaya ultra rendah)</li>
+                    </ul>
+
+                    <div class="highlight-box warning">
+                        <p><strong>⚠️ Perhatikan:</strong> Biaya gas dapat berfluktuasi tergantung pada lalu lintas
+                            jaringan. Kami menampilkan estimasi biaya <strong>real-time</strong> sebelum Anda
+                            mengonfirmasi transaksi.</p>
+                    </div>
+
+                    <p><strong>Rumus Perhitungan:</strong></p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--radius-sm); text-align: center; font-weight: 600; color: var(--primary);">
+                        Total Biaya = Biaya Platform (Gratis) + Biaya Gas Jaringan
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    KONTEN EDUKATIF: TUTORIAL
+    ======================================== -->
+    <section class="content-section" id="tutorial" style="background: rgba(10,10,18,0.3);">
+        <div class="container">
+            <div class="content-card">
+                <h2>Cara Membuat Token Kripto: Panduan Langkah demi Langkah</h2>
+                <div class="content-text">
+                    <p>Ikuti panduan sederhana ini untuk membuat token kripto Anda sendiri dalam hitungan menit.
+                        <strong>Tanpa coding, tanpa biaya platform!</strong>
+                    </p>
+
+                    <div class="tutorial-grid">
+                        <div class="tutorial-step">
+                            <div class="step-num">1</div>
+                            <h4>Pilih Jaringan Blockchain</h4>
+                            <p>Pilih jaringan yang sesuai dengan kebutuhan Anda. <strong>BNB Chain</strong> adalah
+                                pilihan terbaik untuk pemula karena biaya gas rendah dan komunitas besar di Indonesia.
+                            </p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-num">2</div>
+                            <h4>Hubungkan Dompet Web3</h4>
+                            <p>Klik tombol <strong>"Hubungkan Dompet"</strong> dan pilih dompet favorit Anda (MetaMask,
+                                Trust Wallet, dll.). Pastikan dompet Anda berada di jaringan yang sama dengan yang
+                                dipilih di Langkah 1.</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-num">3</div>
+                            <h4>Masukkan Spesifikasi Token</h4>
+                            <p>Isi <strong>Nama Token</strong> (misal: "Token Indonesia"), <strong>Simbol</strong>
+                                (misal: "TKN"), <strong>Desimal</strong> (biasanya 18), dan <strong>Total
+                                    Suplai</strong> (misal: 1.000.000).</p>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="step-num">4</div>
+                            <h4>Deploy Token</h4>
+                            <p>Periksa <strong>Estimasi Biaya</strong>, lalu klik <strong>"Deploy Token
+                                    Kripto"</strong>. Konfirmasi transaksi di dompet Anda. Setelah selesai, alamat
+                                kontrak token Anda akan muncul!</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box success">
+                        <p><strong>🎯 Pro Tip:</strong> Setelah deploy, tambahkan token ke dompet Anda menggunakan
+                            tombol <strong>"Tambah ke Dompet"</strong>, dan verifikasi kontrak di blockchain explorer
+                            seperti BscScan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    KONTEN EDUKATIF: MANFAAT TOKEN
+    ======================================== -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-card">
+                <h2>Manfaat Membuat Token Kripto untuk Proyek Anda</h2>
+                <div class="content-text">
+                    <p>Token kripto bukan hanya tren, tetapi <strong>alat revolusioner</strong> yang dapat mengubah cara
+                        Anda membangun komunitas, mengumpulkan dana, dan menciptakan nilai. Berikut manfaatnya:</p>
+
+                    <div class="feature-grid" style="text-align: left; margin-top: 0.5rem;">
+                        <div class="feature-item" style="text-align: left;">
+                            <div class="fi-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                            <h4>Bangun Komunitas</h4>
+                            <p>Token menciptakan insentif bagi pengguna untuk bergabung dan berkontribusi dalam
+                                ekosistem Anda.</p>
+                        </div>
+                        <div class="feature-item" style="text-align: left;">
+                            <div class="fi-icon"><i class="fas fa-hand-holding-usd" aria-hidden="true"></i></div>
+                            <h4>Penggalangan Dana</h4>
+                            <p>Token sale (ICO/IDO) adalah cara modern untuk mengumpulkan dana dari investor global.</p>
+                        </div>
+                        <div class="feature-item" style="text-align: left;">
+                            <div class="fi-icon"><i class="fas fa-vote-yea" aria-hidden="true"></i></div>
+                            <h4>Governance & Voting</h4>
+                            <p>Berikan hak suara kepada pemegang token untuk keputusan penting dalam proyek Anda.</p>
+                        </div>
+                        <div class="feature-item" style="text-align: left;">
+                            <div class="fi-icon"><i class="fas fa-gift" aria-hidden="true"></i></div>
+                            <h4>Loyalty & Reward</h4>
+                            <p>Token bisa digunakan sebagai sistem loyalitas atau reward untuk pelanggan setia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    FAQ
+    ======================================== -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="content-card">
+                <h2>Pertanyaan yang Sering Diajukan</h2>
+                <div class="faq-list" style="text-align: left;">
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Apakah platform ini benar-benar gratis?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ya! Platform kami <strong>100% gratis</strong>. Anda hanya membayar biaya gas jaringan
+                                blockchain yang diperlukan untuk deploy smart contract. Kami tidak memungut biaya
+                                platform apapun.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Blockchain apa saja yang didukung?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Saat ini kami mendukung <strong>BNB Chain (BEP-20)</strong>, <strong>Core Chain
+                                    (ERC-20)</strong>, dan <strong>Riche Chain (ERC-20)</strong>. Jaringan seperti
+                                Ethereum dan Solana akan segera hadir.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Apakah saya perlu bisa coding?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><strong>Tidak sama sekali!</strong> Platform kami adalah <strong>no-code tool</strong>.
+                                Anda cukup mengisi form dan kami yang menangani semua aspek teknis di balik layar.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Bisakah saya download kode sumber token?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ya! Setelah deploy berhasil, Anda dapat mengklik <strong>"Download Source Code"</strong>
+                                untuk mendapatkan kode Solidity lengkap token Anda.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Dompet apa yang harus saya gunakan?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Kami merekomendasikan <strong>MetaMask</strong> (desktop) atau <strong>Trust
+                                    Wallet</strong> (mobile). Dompet Web3 apa pun yang mendukung blockchain yang dipilih
+                                dapat digunakan.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Berapa lama proses pembuatan token?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Proses keseluruhan memakan waktu <strong>kurang dari 60 detik</strong>. Setelah Anda
+                                mengonfirmasi transaksi di dompet, token Anda akan deploy dalam hitungan detik di
+                                blockchain.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Apakah token yang dibuat aman?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ya! Smart contract yang dihasilkan mengikuti <strong>standar keamanan industri</strong>
+                                dan arsitektur yang transparan. Kami menggunakan kontrak yang telah teraudit dan
+                                terverifikasi.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Bagaimana cara menambahkan token ke dompet?
+                            <span class="faq-toggle"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Setelah deploy, gunakan tombol <strong>"Tambah ke Dompet"</strong> yang muncul di popup
+                                sukses. Atau salin alamat kontrak dan tambahkan secara manual di dompet Anda.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    CTA SECTION
+    ======================================== -->
+    <section class="cta-section-bottom">
+        <div class="container">
+            <h2>🚀 Wujudkan Ide Kripto Anda Menjadi Nyata</h2>
+            <p>Buat token kripto sendiri sekarang juga. Gratis, cepat, dan tanpa coding!</p>
+            <div class="cta-buttons">
+                <a href="#token-creator" class="cta-btn-primary"><i class="fas fa-play" aria-hidden="true"></i> Buat
+                    Token Sekarang</a>
+            </div>
+            <div style="margin-top: 1.5rem;">
+                <p style="color: var(--text-muted); font-size: 0.8rem;">
+                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Tanpa Coding &nbsp;|&nbsp;
+                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Tanpa Biaya Platform
+                    &nbsp;|&nbsp;
+                    <i class="fas fa-check-circle" style="color: var(--success);"></i> Deploy 60 Detik
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
     <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="https://tokenkripto.github.io/ketentuan-layanan/"><i class="fa-solid fa-book"></i>
+                    <a href="https://tokenkripto.github.io/tentang-kami/"><i class="fa-solid fa-user-tie"></i> Tentang
+                        Kami</a>
+                    <a href="https://tokenkripto.github.io/kontak/"><i class="fa-solid fa-headset"></i> Hubungi Kami</a>
+                    <a href="https://tokenkripto.github.io/jasa-pembuatan-token-kripto/"><i
+                            class="fa-solid fa-laptop-code"></i> Jasa Buat Token</a>
+                    <a href="https://tokenkripto.github.io/penafian/"><i class="fa-solid fa-handshake"></i> Penafian</a>
+                    <a href="https://tokenkripto.github.io/ketentuan-layanan/"><i class="fa-brands fa-readme"></i>
                         Ketentuan Layanan</a>
-                    <a href="https://tokenkripto.github.io/penafian/"><i class="fa-solid fa-file-circle-question"></i>
-                        Penafian</a>
-                    <a href="https://tokenkripto.github.io/faq/"><i class="fa-solid fa-scale-balanced"></i>FAQ</a>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>© 2026 Token Kripto Indonesia</p>
-                <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-secondary);">Platform Generator Token
-                    Kripto Indonesia.</p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-secondary);">Platform Pembuat Token
+                    Kripto No-Code untuk Indonesia</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/security.js"></script>
-    <script src="js/blockchain.js"></script>
-    <script src="js/main.js"></script>
+    <!-- ========================================
+    SCRIPTS
+    ======================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js" defer></script>
+
+    <script>
+        // ========================================
+        // SECURITY.JS - Minified Version
+        // ========================================
+        (function () {
+            'use strict';
+            const SECURITY_CONFIG = {
+                MAX_INPUT_LENGTH: { TOKEN_NAME: 30, TOKEN_SYMBOL: 10, WALLET_ADDRESS: 42 },
+                RATE_LIMIT: { REQUESTS_PER_MINUTE: 10, TIMEOUT: 60000, BLOCK_DURATION: 300000 },
+                VALIDATION: {
+                    TOKEN_NAME_REGEX: /^[a-zA-Z0-9\s]{1,30}$/,
+                    TOKEN_SYMBOL_REGEX: /^[A-Z0-9]{2,10}$/,
+                    WALLET_ADDRESS_REGEX: /^0x[a-fA-F0-9]{40}$/,
+                    DECIMALS_RANGE: { min: 0, max: 18 },
+                    SUPPLY_MIN: 1,
+                    SUPPLY_MAX: 1000000000000
+                },
+                BOT_PROTECTION: { ENABLED: true, MINIMUM_TIME_ON_PAGE: 3000, MAXIMUM_FORM_SUBMISSIONS: 5 }
+            };
+
+            class SecurityError extends Error {
+                constructor(message, code, field = null) {
+                    super(message);
+                    this.name = 'SecurityError';
+                    this.code = code;
+                    this.field = field;
+                    this.timestamp = new Date().toISOString();
+                }
+            }
+
+            class InputValidator {
+                static sanitizeInput(input) {
+                    if (typeof input !== 'string') return '';
+                    try {
+                        return DOMPurify.sanitize(input.trim(), {
+                            ALLOWED_TAGS: ['strong', 'em', 'b', 'i', 'u', 'p', 'br', 'span', 'div'],
+                            ALLOWED_ATTR: { 'a': ['href', 'target', 'rel'], 'span': ['class', 'style'] }
+                        });
+                    } catch (e) {
+                        return input.trim().replace(/[<>]/g, '');
+                    }
+                }
+                static validateTokenName(name) {
+                    const s = this.sanitizeInput(name);
+                    if (!s) throw new SecurityError('Nama token tidak boleh kosong', 'EMPTY_NAME', 'tokenName');
+                    if (s.length > 30) throw new SecurityError('Nama token maksimal 30 karakter', 'INVALID_NAME', 'tokenName');
+                    if (!SECURITY_CONFIG.VALIDATION.TOKEN_NAME_REGEX.test(s)) throw new SecurityError('Nama token hanya boleh huruf, angka, dan spasi', 'INVALID_NAME', 'tokenName');
+                    if (/<script|javascript:|onload=|onclick=/i.test(s)) throw new SecurityError('Karakter tidak valid terdeteksi', 'XSS_ATTEMPT', 'tokenName');
+                    return s;
+                }
+                static validateTokenSymbol(symbol) {
+                    const s = this.sanitizeInput(symbol).toUpperCase();
+                    if (!s) throw new SecurityError('Simbol token tidak boleh kosong', 'EMPTY_SYMBOL', 'tokenSymbol');
+                    if (s.length > 10) throw new SecurityError('Simbol token maksimal 10 karakter', 'INVALID_SYMBOL', 'tokenSymbol');
+                    if (!SECURITY_CONFIG.VALIDATION.TOKEN_SYMBOL_REGEX.test(s)) throw new SecurityError('Simbol token hanya boleh huruf besar dan angka (2-10 karakter)', 'INVALID_SYMBOL', 'tokenSymbol');
+                    const reserved = ['ETH', 'BTC', 'BNB', 'USDT', 'USDC', 'DAI', 'SOL', 'MATIC'];
+                    if (reserved.includes(s)) throw new SecurityError('Simbol "' + s + '" sudah digunakan, pilih simbol lain', 'RESERVED_SYMBOL', 'tokenSymbol');
+                    return s;
+                }
+                static validateDecimals(dec) {
+                    const d = parseInt(dec);
+                    if (isNaN(d) || !isFinite(d)) throw new SecurityError('Desimal harus berupa angka', 'INVALID_DECIMALS', 'tokenDecimals');
+                    if (d < 0 || d > 18) throw new SecurityError('Desimal harus antara 0-18', 'DECIMALS_OUT_OF_RANGE', 'tokenDecimals');
+                    return d;
+                }
+                static validateSupply(supply) {
+                    const clean = String(supply).replace(/[,\s]/g, '');
+                    if (!clean || !/^\d+$/.test(clean)) throw new SecurityError('Total suplai harus berupa angka valid', 'INVALID_SUPPLY', 'tokenSupply');
+                    const sup = BigInt(clean);
+                    if (sup < 1) throw new SecurityError('Total suplai minimal 1', 'SUPPLY_TOO_SMALL', 'tokenSupply');
+                    if (sup > 1000000000000) throw new SecurityError('Total suplai maksimal 1.000.000.000.000', 'SUPPLY_TOO_LARGE', 'tokenSupply');
+                    return sup;
+                }
+            }
+
+            class RateLimiter {
+                constructor() { this.requests = new Map(); this.blockedUsers = new Map(); }
+                checkLimit(identifier) {
+                    if (!identifier) throw new SecurityError('Identifikasi pengguna hilang', 'RATE_LIMIT_ERROR');
+                    if (this.isUserBlocked(identifier)) throw new SecurityError('Pengguna diblokir sementara', 'USER_BLOCKED');
+                    const now = Date.now();
+                    const userRequests = this.requests.get(identifier) || [];
+                    const recent = userRequests.filter(t => now - t < 60000);
+                    if (recent.length >= 10) { this.blockUser(identifier); throw new SecurityError('Terlalu banyak permintaan. Tunggu sebentar.', 'RATE_LIMIT_EXCEEDED'); }
+                    recent.push(now);
+                    this.requests.set(identifier, recent);
+                    return true;
+                }
+                blockUser(identifier) { this.blockedUsers.set(identifier, Date.now() + 300000); }
+                isUserBlocked(identifier) {
+                    const until = this.blockedUsers.get(identifier);
+                    if (!until) return false;
+                    if (Date.now() > until) { this.blockedUsers.delete(identifier); return false; }
+                    return true;
+                }
+                cleanup() {
+                    const now = Date.now();
+                    for (const [id, times] of this.requests.entries()) {
+                        const valid = times.filter(t => now - t < 3600000);
+                        if (valid.length === 0) this.requests.delete(id);
+                        else this.requests.set(id, valid);
+                    }
+                    for (const [id, until] of this.blockedUsers.entries()) {
+                        if (now > until) this.blockedUsers.delete(id);
+                    }
+                }
+            }
+
+            const rateLimiter = new RateLimiter();
+            window.SECURITY_CONFIG = SECURITY_CONFIG;
+            window.SecurityError = SecurityError;
+            window.InputValidator = InputValidator;
+            window.RateLimiter = RateLimiter;
+            window.rateLimiter = rateLimiter;
+            setInterval(() => rateLimiter.cleanup(), 3600000);
+            console.log('🔒 Security Module Loaded');
+        })();
+    </script>
+
+    <script>
+        // ========================================
+        // BLOCKCHAIN.JS - Minified Version
+        // ========================================
+        (function () {
+            const blockchainConfig = {
+                bnb: {
+                    chainId: "0x38",
+                    chainIdDecimal: "56",
+                    chainName: "BNB Chain",
+                    rpcUrl: "https://bsc-dataseed1.binance.org",
+                    factoryAddress: "0xbf03140Fe24b72a1049996A7AcDa0105321e1f71",
+                    nativeCurrency: "BNB",
+                    blockExplorer: "https://bscscan.com",
+                    symbol: "BNB"
+                },
+                core: {
+                    chainId: "0x45C",
+                    chainIdDecimal: "1116",
+                    chainName: "Core Chain",
+                    rpcUrl: "https://rpc.coredao.org",
+                    factoryAddress: "0xa46bE644029d60108641759eB7dc656bB17A2Da9",
+                    nativeCurrency: "CORE",
+                    blockExplorer: "https://scan.coredao.org",
+                    symbol: "CORE"
+                },
+                ric: {
+                    chainId: "0x203BA",
+                    chainIdDecimal: "132026",
+                    chainName: "Riche Chain",
+                    rpcUrl: "https://seed-richechain.com",
+                    factoryAddress: "0xbf03140Fe24b72a1049996A7AcDa0105321e1f71",
+                    nativeCurrency: "RIC",
+                    blockExplorer: "https://richescan.com",
+                    symbol: "RIC"
+                }
+            };
+            const factoryABI = [
+                "event TokenCreated(address indexed tokenAddress, address indexed creator, string name, string symbol, uint8 decimals, uint256 totalSupply)",
+                "function createToken(string memory name, string memory symbol, uint8 decimals, uint256 totalSupply) payable returns (address)",
+                "function creationFee() view returns (uint256)",
+                "function owner() view returns (address)",
+                "function setCreationFee(uint256 _fee) external",
+                "function withdraw() external"
+            ];
+            window.blockchainConfig = blockchainConfig;
+            window.factoryABI = factoryABI;
+            console.log('🔗 Blockchain Configurations Loaded');
+        })();
+    </script>
+
+    <script>
+        // ========================================
+        // MAIN.JS - Full Version
+        // ========================================
+        (function () {
+            'use strict';
+
+            let selectedBlockchain = "bnb";
+            let provider, signer, factoryContract;
+            let gasPriceInterval;
+            let isConnected = false;
+            let isCorrectNetwork = false;
+            let currentTokenAddress = "";
+            let currentTokenSymbol = "";
+            let currentTokenDecimals = 18;
+
+            const connectButton = document.getElementById("connectButton");
+            const createButton = document.getElementById("createButton");
+            const switchNetworkBtn = document.getElementById("switchNetworkBtn");
+            const statusDiv = document.getElementById("status");
+            const loading = document.getElementById("loading");
+            const currentNetworkIndicator = document.getElementById("currentNetworkIndicator");
+            const currentNetworkText = document.getElementById("currentNetworkText");
+            const blockchainSelect = document.getElementById("blockchainSelect");
+            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+            const mobileNav = document.getElementById("mobileNav");
+            const mobileNavClose = document.getElementById("mobileNavClose");
+            const stickyStepIndicator = document.getElementById("stickyStepIndicator");
+
+            const walletInfo = document.getElementById("walletInfo");
+            const walletAddressText = document.getElementById("walletAddressText");
+            const walletBalanceText = document.getElementById("walletBalanceText");
+            const balanceCheckText = document.getElementById("balanceCheckText");
+            const walletStatusBadge = document.getElementById("walletStatusBadge");
+            const walletStatusText = document.getElementById("walletStatusText");
+            const gasPriceGwei = document.getElementById("gasPriceGwei");
+
+            const popupOverlay = document.getElementById("popupOverlay");
+            const popup = document.getElementById("popup");
+            const popupIcon = document.getElementById("popupIcon");
+            const popupTitle = document.getElementById("popupTitle");
+            const popupMessage = document.getElementById("popupMessage");
+            const popupDetails = document.getElementById("popupDetails");
+            const popupTxHash = document.getElementById("popupTxHash");
+            const tokenAddressContainer = document.getElementById("tokenAddressContainer");
+            const tokenAddressInput = document.getElementById("tokenAddressInput");
+            const copyTokenAddressBtn = document.getElementById("copyTokenAddressBtn");
+            const addTokenToWalletBtn = document.getElementById("addTokenToWalletBtn");
+            const viewExplorerBtn = document.getElementById("viewExplorerBtn");
+            const popupActions = document.getElementById("popupActions");
+            const popupClose = document.getElementById("popupClose");
+
+            // ===== Toast =====
+            function showToast(message, type = "info", duration = 5000) {
+                const container = document.getElementById("toastContainer");
+                if (!container) return;
+                const toast = document.createElement("div");
+                toast.className = `toast ${type}`;
+                toast.textContent = message;
+                container.appendChild(toast);
+                setTimeout(() => toast.classList.add("show"), 100);
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                    setTimeout(() => toast.remove(), 300);
+                }, duration);
+            }
+
+            // ===== Confetti =====
+            function createConfetti() {
+                const container = document.getElementById("confettiContainer");
+                container.innerHTML = "";
+                for (let i = 0; i < 100; i++) {
+                    const c = document.createElement("div");
+                    c.className = "confetti";
+                    c.style.left = Math.random() * 100 + "%";
+                    c.style.animationDelay = Math.random() * 2 + "s";
+                    c.style.animationDuration = (2 + Math.random() * 2) + "s";
+                    container.appendChild(c);
+                    setTimeout(() => c.remove(), 5000);
+                }
+            }
+
+            // ===== Popup =====
+            function showPopup(type, title, message, txHash = null, tokenAddress = null, actions = []) {
+                popup.className = "popup";
+                popupIcon.innerHTML = "";
+                popupTitle.textContent = title;
+                popupMessage.textContent = message;
+                popupDetails.style.display = "none";
+                tokenAddressContainer.style.display = "none";
+                popupActions.innerHTML = "";
+                if (type === "success") {
+                    popup.classList.add("success");
+                    popupIcon.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+                    if (tokenAddress) {
+                        tokenAddressContainer.style.display = "block";
+                        tokenAddressInput.value = tokenAddress;
+                        currentTokenAddress = tokenAddress;
+                    }
+                } else if (type === "error") {
+                    popup.classList.add("error");
+                    popupIcon.innerHTML = '<i class="fas fa-exclamation-triangle" aria-hidden="true"></i>';
+                } else if (type === "pending") {
+                    popup.classList.add("pending");
+                    popupIcon.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>';
+                } else if (type === "warning") {
+                    popup.classList.add("warning");
+                    popupIcon.innerHTML = '<i class="fas fa-exclamation-circle" aria-hidden="true"></i>';
+                }
+                if (txHash) {
+                    popupDetails.style.display = "block";
+                    popupTxHash.textContent = txHash;
+                }
+                if (type !== "pending" && actions.length > 0) {
+                    actions.forEach(a => {
+                        const btn = document.createElement("button");
+                        btn.className = `btn ${a.className || "btn-secondary"}`;
+                        btn.innerHTML = a.icon ? `<i class="${a.icon}" aria-hidden="true"></i> ${a.text}` : a.text;
+                        btn.onclick = a.onclick;
+                        popupActions.appendChild(btn);
+                    });
+                }
+                popupOverlay.classList.add("active");
+                document.body.style.overflow = "hidden";
+                setTimeout(() => popupClose.focus(), 100);
+            }
+
+            function hidePopup() {
+                popupOverlay.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+
+            function copyToClipboardText(text) {
+                navigator.clipboard.writeText(text).then(() => showToast("Berhasil disalin!", "success"))
+                    .catch(() => showToast("Gagal menyalin", "error"));
+            }
+
+            function isInAppBrowser() {
+                const ua = navigator.userAgent.toLowerCase();
+                return /trustwallet|metamask|bitget|tokenpocket|safepal|walletconnect|dapp|web3|ethereum/i.test(ua) ||
+                    window.ethereum || window.web3;
+            }
+
+            function handleScroll() {
+                const scroll = window.pageYOffset || document.documentElement.scrollTop;
+                const section = document.getElementById("token-creator");
+                if (section && scroll > section.offsetTop - 80) stickyStepIndicator.classList.add("visible");
+                else stickyStepIndicator.classList.remove("visible");
+            }
+
+            function initLoadingScreen() {
+                const screen = document.getElementById("loadingScreen");
+                setTimeout(() => window.scrollTo(0, 0), 100);
+                setTimeout(() => {
+                    screen.classList.add("fade-out");
+                    setTimeout(() => screen.style.display = "none", 800);
+                }, 1500);
+            }
+
+            function initBlockchainSelector() {
+                blockchainSelect.addEventListener("change", function () {
+                    selectedBlockchain = this.value;
+                    if (this.options[this.selectedIndex].disabled) {
+                        showPopup("warning", "Fitur Dalam Pengembangan", "Jaringan ini sedang dalam pengembangan. Pilih jaringan lain.");
+                        this.value = "bnb";
+                        selectedBlockchain = "bnb";
+                    }
+                    currentNetworkIndicator.style.display = "flex";
+                    currentNetworkText.textContent = `Dipilih: ${blockchainConfig[selectedBlockchain].chainName}`;
+                    if (isConnected) disconnectWallet();
+                    updateCreationFee();
+                    updateStepIndicator(1);
+                });
+            }
+
+            function initTooltips() {
+                document.querySelectorAll(".tooltip-icon").forEach(icon => {
+                    icon.addEventListener("mouseenter", e => {
+                        const text = e.currentTarget.getAttribute("data-tooltip");
+                        if (text) showToast(text, "info", 3000);
+                    });
+                    icon.addEventListener("focus", e => {
+                        const text = e.currentTarget.getAttribute("data-tooltip");
+                        if (text) showToast(text, "info", 3000);
+                    });
+                });
+            }
+
+            function updateStepIndicator(num) {
+                document.querySelectorAll(".step").forEach((s, i) => { s.classList.toggle("active", i < num); });
+                const bar = document.querySelector(".step-indicator");
+                if (bar) bar.setAttribute("aria-valuenow", num);
+            }
+
+            function updateNetworkStatus() {
+                if (!isConnected) {
+                    walletStatusBadge.className = "wallet-status-badge disconnected";
+                    walletStatusText.textContent = "Dompet Belum Terhubung";
+                    connectButton.classList.add("blinking");
+                    connectButton.innerHTML = '<i class="fas fa-plug" aria-hidden="true"></i> Hubungkan Dompet';
+                    switchNetworkBtn.style.display = "none";
+                    walletInfo.classList.remove("active");
+                    updateStepIndicator(1);
+                } else if (!isCorrectNetwork) {
+                    walletStatusBadge.className = "wallet-status-badge wrong-network";
+                    walletStatusText.textContent = "Jaringan Salah";
+                    connectButton.classList.remove("blinking");
+                    connectButton.innerHTML = '<i class="fas fa-plug" aria-hidden="true"></i> Putuskan';
+                    switchNetworkBtn.style.display = "block";
+                    switchNetworkBtn.className = "btn btn-error";
+                    walletInfo.classList.remove("active");
+                    updateStepIndicator(1);
+                } else {
+                    walletStatusBadge.className = "wallet-status-badge connected";
+                    walletStatusText.textContent = `Terhubung ke ${blockchainConfig[selectedBlockchain].chainName}`;
+                    connectButton.classList.remove("blinking");
+                    connectButton.classList.add("btn-success");
+                    connectButton.innerHTML = '<i class="fas fa-plug" aria-hidden="true"></i> Putuskan';
+                    switchNetworkBtn.style.display = "none";
+                    walletInfo.classList.add("active");
+                    updateStepIndicator(2);
+                }
+            }
+
+            async function refreshProvider() {
+                if (window.ethereum) {
+                    provider = new ethers.BrowserProvider(window.ethereum);
+                    if (isConnected) {
+                        try {
+                            signer = await provider.getSigner();
+                            factoryContract = new ethers.Contract(blockchainConfig[selectedBlockchain].factoryAddress,
+                                factoryABI, signer);
+                        } catch (e) { console.log("Error refreshing provider:", e); }
+                    }
+                }
+            }
+
+            async function checkNetwork() {
+                if (!provider) return false;
+                try {
+                    const network = await provider.getNetwork();
+                    const hex = "0x" + network.chainId.toString(16);
+                    const dec = network.chainId.toString();
+                    isCorrectNetwork = hex === blockchainConfig[selectedBlockchain].chainId ||
+                        dec === blockchainConfig[selectedBlockchain].chainIdDecimal;
+                    updateNetworkStatus();
+                    if (isConnected && isCorrectNetwork) {
+                        await initializeContract();
+                        await updateWalletBalance();
+                        startGasPriceUpdates();
+                        updateStepIndicator(3);
+                    }
+                    return isCorrectNetwork;
+                } catch (e) {
+                    console.error("Error checking network:", e);
+                    isCorrectNetwork = false;
+                    updateNetworkStatus();
+                    return false;
+                }
+            }
+
+            async function updateWalletBalance() {
+                if (!provider || !signer) return;
+                try {
+                    const address = await signer.getAddress();
+                    const balance = await provider.getBalance(address);
+                    walletAddressText.textContent = `${address.slice(0, 6)}...${address.slice(-4)}`;
+                    walletBalanceText.textContent = `${parseFloat(ethers.formatEther(balance)).toFixed(4)} ${blockchainConfig[selectedBlockchain].symbol}`;
+                    await checkBalanceSufficiency(balance);
+                } catch (e) { console.error("Error updating wallet balance:", e); }
+            }
+
+            async function checkBalanceSufficiency(balance) {
+                try {
+                    const fee = await factoryContract.creationFee();
+                    const required = (fee * 110n) / 100n;
+                    balanceCheckText.innerHTML = balance >= required ?
+                        '<span class="balance-sufficient">✓ Saldo mencukupi untuk pembuatan token</span>' :
+                        '<span class="balance-insufficient">✗ Saldo tidak mencukupi untuk pembuatan token</span>';
+                } catch (e) {
+                    balanceCheckText.innerHTML = '<span class="balance-insufficient">✗ Gagal memeriksa saldo</span>';
+                }
+            }
+
+            async function switchToCorrectNetwork() {
+                if (!window.ethereum) { showToast("Dompet tidak terdeteksi!", "error"); return false; }
+                try {
+                    const config = blockchainConfig[selectedBlockchain];
+                    showToast(`Mengalihkan ke ${config.chainName}...`, "info");
+                    await window.ethereum.request({
+                        method: "wallet_switchEthereumChain", params: [{
+                            chainId: config
+                                .chainId
+                        }]
+                    });
+                    await new Promise(r => setTimeout(r, 2000));
+                    await refreshProvider();
+                    const ok = await checkNetwork();
+                    if (ok) showToast(`Berhasil beralih ke ${config.chainName}!`, "success");
+                    else showToast("Gagal beralih jaringan", "warning");
+                    return ok;
+                } catch (switchError) {
+                    if (switchError.code === 4902) {
+                        try {
+                            const config = blockchainConfig[selectedBlockchain];
+                            await window.ethereum.request({
+                                method: "wallet_addEthereumChain",
+                                params: [{
+                                    chainId: config.chainId,
+                                    chainName: config.chainName,
+                                    rpcUrls: [config.rpcUrl],
+                                    nativeCurrency: {
+                                        name: config.nativeCurrency, symbol: config.nativeCurrency,
+                                        decimals: 18
+                                    },
+                                    blockExplorerUrls: [config.blockExplorer]
+                                }]
+                            });
+                            await refreshProvider();
+                            await checkNetwork();
+                            return true;
+                        } catch (addError) { showToast(`Gagal menambahkan ${config.chainName}`, "error"); return false; }
+                    } else { showToast("Gagal beralih jaringan", "error"); return false; }
+                }
+            }
+
+            async function connectWallet() {
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                if (isMobile && !isInAppBrowser()) { document.getElementById("mobileModal").classList.add("active"); return; }
+                if (typeof window.ethereum === "undefined") { showToast("Pasang MetaMask atau dompet Web3!", "error"); return; }
+                try {
+                    connectButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menghubungkan...';
+                    connectButton.disabled = true;
+                    showToast("Menghubungkan ke dompet...", "info");
+                    await refreshProvider();
+                    const accounts = await provider.send("eth_requestAccounts", []);
+                    if (accounts.length === 0) throw new Error("Tidak ada akun");
+                    signer = await provider.getSigner();
+                    isConnected = true;
+                    connectButton.innerHTML = '<i class="fas fa-plug" aria-hidden="true"></i> Putuskan';
+                    connectButton.onclick = disconnectWallet;
+                    await checkNetwork();
+                    if (!isCorrectNetwork) showToast("Dompet terhubung! Tapi jaringan salah.", "warning");
+                    else showToast("Berhasil terhubung!", "success");
+                } catch (error) {
+                    console.error("Error connecting wallet:", error);
+                    if (error.code === 4001) showToast("Koneksi dompet ditolak", "warning");
+                    else showToast("Gagal menghubungkan dompet", "error");
+                } finally { connectButton.disabled = false; }
+            }
+
+            function disconnectWallet() {
+                try {
+                    if (window.ethereum && window.ethereum.removeListener) {
+                        window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+                        window.ethereum.removeListener("chainChanged", handleChainChanged);
+                    }
+                } catch (e) { console.log("Error removing listeners:", e); }
+                provider = null;
+                signer = null;
+                factoryContract = null;
+                isConnected = false;
+                isCorrectNetwork = false;
+                connectButton.innerHTML = '<i class="fas fa-plug" aria-hidden="true"></i> Hubungkan Dompet';
+                connectButton.onclick = connectWallet;
+                connectButton.classList.remove("btn-success");
+                connectButton.classList.add("blinking");
+                walletInfo.classList.remove("active");
+                walletStatusBadge.className = "wallet-status-badge disconnected";
+                walletStatusText.textContent = "Dompet Belum Terhubung";
+                stopGasPriceUpdates();
+                showToast("Dompet diputuskan", "info");
+                statusDiv.innerHTML = "";
+                updateStepIndicator(1);
+            }
+
+            async function initializeContract() {
+                try {
+                    factoryContract = new ethers.Contract(blockchainConfig[selectedBlockchain].factoryAddress, factoryABI,
+                        signer);
+                    await updateCreationFee();
+                } catch (e) { console.error("Error initializing contract:", e); }
+            }
+
+            async function updateCreationFee() {
+                try {
+                    const el = document.getElementById("tokenCreationFee");
+                    if (!el) return;
+                    const config = blockchainConfig[selectedBlockchain];
+                    let fee;
+                    if (factoryContract) fee = await factoryContract.creationFee();
+                    else {
+                        const rp = new ethers.JsonRpcProvider(config.rpcUrl);
+                        const fc = new ethers.Contract(config.factoryAddress, factoryABI, rp);
+                        fee = await fc.creationFee();
+                    }
+                    el.textContent = `${parseFloat(ethers.formatEther(fee)).toFixed(5)} ${config.symbol}`;
+                    updateTotalEstimate();
+                } catch (e) { document.getElementById("tokenCreationFee").textContent = "Error"; }
+            }
+
+            async function updateGasPrice() {
+                if (!provider) { gasPriceGwei.textContent = "-"; return; }
+                try {
+                    const feeData = await provider.getFeeData();
+                    if (feeData.gasPrice) {
+                        const gwei = parseFloat(ethers.formatUnits(feeData.gasPrice, "gwei"));
+                        gasPriceGwei.textContent = `${gwei.toFixed(2)} Gwei`;
+                        const gasFee = parseFloat(ethers.formatEther(feeData.gasPrice * BigInt(300000)));
+                        document.getElementById("estimatedGasFee").textContent =
+                            `${gasFee.toFixed(5)} ${blockchainConfig[selectedBlockchain].symbol}`;
+                        updateTotalEstimate();
+                    } else { gasPriceGwei.textContent = "Tidak Ada Data"; }
+                } catch (e) { gasPriceGwei.textContent = "Error"; }
+            }
+
+            function updateTotalEstimate() {
+                const feeEl = document.getElementById("tokenCreationFee");
+                const gasEl = document.getElementById("estimatedGasFee");
+                const totalEl = document.getElementById("totalEstimatedFee");
+                if (!feeEl || !gasEl || !totalEl) return;
+                const fee = parseFloat(feeEl.textContent.split(" ")[0]) || 0;
+                const gas = parseFloat(gasEl.textContent.split(" ")[0]) || 0;
+                totalEl.textContent = `${(fee + gas).toFixed(5)} ${blockchainConfig[selectedBlockchain].symbol}`;
+            }
+
+            function startGasPriceUpdates() {
+                if (gasPriceInterval) clearInterval(gasPriceInterval);
+                updateGasPrice();
+                gasPriceInterval = setInterval(updateGasPrice, 30000);
+            }
+
+            function stopGasPriceUpdates() {
+                if (gasPriceInterval) {
+                    clearInterval(gasPriceInterval);
+                    gasPriceInterval = null;
+                }
+            }
+
+            async function createToken() {
+                if (!factoryContract) { showError("Hubungkan dompet terlebih dahulu!"); return; }
+                if (!isCorrectNetwork) {
+                    showError(
+                        `Alihkan dompet ke ${blockchainConfig[selectedBlockchain].chainName}`); return;
+                }
+                try {
+                    const id = await signer.getAddress();
+                    window.rateLimiter.checkLimit(id);
+                } catch (e) { if (e instanceof SecurityError) { showError(e.message); return; } }
+                clearValidationErrors();
+                try {
+                    const name = InputValidator.validateTokenName(document.getElementById("tokenName").value);
+                    const symbol = InputValidator.validateTokenSymbol(document.getElementById("tokenSymbol").value);
+                    const decimals = InputValidator.validateDecimals(document.getElementById("tokenDecimals").value);
+                    const supply = InputValidator.validateSupply(document.getElementById("tokenSupply").value);
+                    showLoading();
+                    const fee = await factoryContract.creationFee();
+                    const balance = await signer.provider.getBalance(await signer.getAddress());
+                    if (balance < fee) {
+                        showError(`Saldo ${blockchainConfig[selectedBlockchain].symbol} tidak cukup!`);
+                        hideLoading();
+                        return;
+                    }
+                    const tx = await factoryContract.createToken(name, symbol, decimals, supply, { value: fee });
+                    showTransactionPending(tx.hash);
+                    const receipt = await tx.wait();
+                    hideLoading();
+                    processSuccess(receipt, name, symbol, decimals, supply);
+                } catch (err) {
+                    hideLoading();
+                    if (err instanceof SecurityError) handleValidationError(err);
+                    else handleTransactionError(err);
+                }
+            }
+
+            function clearValidationErrors() {
+                document.querySelectorAll(".error-message").forEach(el => {
+                    el.classList.remove("show");
+                    el.textContent = "";
+                });
+                document.querySelectorAll(".form-control").forEach(el => el.classList.remove("error"));
+            }
+
+            function handleValidationError(err) {
+                const map = {
+                    EMPTY_NAME: "tokenName",
+                    INVALID_NAME: "tokenName",
+                    EMPTY_SYMBOL: "tokenSymbol",
+                    INVALID_SYMBOL: "tokenSymbol",
+                    INVALID_DECIMALS: "tokenDecimals",
+                    DECIMALS_OUT_OF_RANGE: "tokenDecimals",
+                    INVALID_SUPPLY: "tokenSupply",
+                    SUPPLY_TOO_LARGE: "tokenSupply"
+                };
+                const fieldId = map[err.code];
+                if (fieldId) {
+                    const field = document.getElementById(fieldId);
+                    const errorEl = document.getElementById(fieldId + "Error");
+                    if (field && errorEl) {
+                        field.classList.add("error");
+                        errorEl.textContent = err.message;
+                        errorEl.classList.add("show");
+                        field.focus();
+                    }
+                } else showError(err.message);
+            }
+
+            function showTransactionPending(hash) {
+                showPopup("pending", "Memproses Transaksi", "Menunggu konfirmasi blockchain...",
+                    hash);
+                updateStepIndicator(4);
+            }
+
+            function extractTokenAddress(receipt) {
+                let addr = null;
+                try {
+                    for (const log of receipt.logs) {
+                        try {
+                            const parsed = factoryContract.interface.parseLog(log);
+                            if (parsed && parsed.name === "TokenCreated") { addr = parsed.args.tokenAddress; break; }
+                        } catch (e) { continue; }
+                    }
+                } catch (e) { console.log("Error processing logs:", e); }
+                return addr && ethers.isAddress(addr) ? addr : null;
+            }
+
+            function processSuccess(receipt, name, symbol, decimals, supply) {
+                const tokenAddr = extractTokenAddress(receipt);
+                const config = blockchainConfig[selectedBlockchain];
+                if (!tokenAddr) {
+                    showPopup("error", "Token Berhasil Dibuat",
+                        `Token ${name} (${symbol}) berhasil dibuat di ${config.chainName}, namun alamat token tidak dapat diekstrak. Cek di explorer.`
+                    );
+                    return;
+                }
+                currentTokenAddress = tokenAddr;
+                currentTokenSymbol = symbol;
+                currentTokenDecimals = decimals;
+                createConfetti();
+                statusDiv.innerHTML = "";
+
+                function downloadSourceCode() {
+                    const supplyStr = supply.toString();
+                    const multiplier = 10n ** BigInt(decimals);
+                    const initialSupplyStr = (BigInt(supplyStr) * multiplier).toString();
+                    const creator = walletAddressText.textContent;
+                    const code = `// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\n\nimport "@openzeppelin/contracts/token/ERC20/ERC20.sol";\nimport "@openzeppelin/contracts/access/Ownable.sol";\n\ncontract Token is ERC20, Ownable {\n    uint8 private _customDecimals;\n    constructor(string memory name_, string memory symbol_, uint8 decimals_, uint256 initialSupply, address creator) ERC20(name_, symbol_) Ownable(creator) {\n        _customDecimals = decimals_;\n        _mint(creator, initialSupply);\n    }\n    function decimals() public view override returns (uint8) { return _customDecimals; }\n}\n\n/*\n==================================================\nTOKEN DETAILS\n==================================================\nNetwork: ${config.chainName}\nToken: ${name} (${symbol})\nDecimals: ${decimals}\nTotal Supply: ${supplyStr.replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",")}\nContract Address: ${tokenAddr}\nCreator: ${creator}\nTransaction: ${receipt.transactionHash}\n==================================================\n*/`;
+                    const blob = new Blob([code], { type: "text/plain" });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `${symbol}_Token.sol`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                    showToast("✅ Kode sumber berhasil diunduh!", "success");
+                }
+                const actions = [{
+                    text: "📥 Download Kode Sumber", icon: "fas fa-download",
+                    className: "btn-primary btn-download", onclick: downloadSourceCode
+                }];
+                showPopup("success", "Token Berhasil Dibuat! 🚀",
+                    `Token ${name} (${symbol}) berhasil di-deploy di ${config.chainName}. Total Suplai: ${supply.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",")} dengan ${decimals} desimal.`,
+                    receipt.transactionHash, tokenAddr, actions);
+            }
+
+            function handleTransactionError(err) {
+                let msg = "Gagal membuat token";
+                if (err.code === "INSUFFICIENT_FUNDS") msg =
+                    `Saldo ${blockchainConfig[selectedBlockchain].symbol} tidak cukup untuk gas fee`;
+                else if (err.code === "USER_REJECTED") msg = "Transaksi dibatalkan oleh pengguna";
+                else if (err.message.includes("gas")) msg = "Gas fee terlalu tinggi, coba lagi nanti";
+                showPopup("error", "Transaksi Gagal", `${msg}: ${err.message}`);
+            }
+
+            function showError(msg) {
+                showPopup("error", "Error", msg);
+                showToast(msg, "error", 5000);
+            }
+
+            function showLoading() {
+                loading.style.display = "block";
+                createButton.disabled = true;
+                createButton.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Memproses...';
+            }
+
+            function hideLoading() {
+                loading.style.display = "none";
+                createButton.disabled = false;
+                createButton.innerHTML = '<i class="fas fa-rocket" aria-hidden="true"></i> Deploy Token Kripto';
+            }
+
+            async function addTokenToWallet(address, symbol, decimals) {
+                try {
+                    await window.ethereum.request({
+                        method: "wallet_watchAsset",
+                        params: { type: "ERC20", options: { address, symbol, decimals } }
+                    });
+                    showToast("Token berhasil ditambahkan ke dompet!", "success");
+                } catch (e) { showToast("Gagal menambahkan token", "error"); }
+            }
+
+            function setupNetworkListeners() {
+                if (window.ethereum) {
+                    window.ethereum.on("chainChanged", async () => {
+                        await refreshProvider();
+                        await checkNetwork();
+                    });
+                    window.ethereum.on("accountsChanged", async (accounts) => {
+                        if (accounts.length === 0) disconnectWallet();
+                        else if (isConnected) {
+                            await refreshProvider();
+                            await checkNetwork();
+                            await updateWalletBalance();
+                        }
+                    });
+                }
+            }
+
+            function handleAccountsChanged(accounts) { if (accounts.length === 0) disconnectWallet(); }
+
+            function handleChainChanged() { window.location.reload(); }
+
+            function initEventListeners() {
+                popupClose.onclick = hidePopup;
+                popupOverlay.onclick = function (e) { if (e.target === popupOverlay) hidePopup(); };
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape" && popupOverlay.classList.contains(
+                        "active")) hidePopup();
+                });
+                copyTokenAddressBtn.onclick = function () { copyToClipboardText(currentTokenAddress); };
+                addTokenToWalletBtn.onclick = function () {
+                    addTokenToWallet(currentTokenAddress, currentTokenSymbol,
+                        currentTokenDecimals);
+                };
+                viewExplorerBtn.onclick = function () {
+                    window.open(`${blockchainConfig[selectedBlockchain].blockExplorer}/token/${currentTokenAddress}`,
+                        "_blank");
+                };
+                mobileMenuBtn.onclick = function () {
+                    mobileNav.classList.add("active");
+                    document.body.style.overflow = "hidden";
+                };
+                mobileNavClose.onclick = function () {
+                    mobileNav.classList.remove("active");
+                    document.body.style.overflow = "";
+                    mobileMenuBtn.focus();
+                };
+                document.addEventListener("click", function (e) {
+                    if (mobileNav.classList.contains("active") && !mobileNav.contains(e.target) && !mobileMenuBtn
+                        .contains(e.target)) {
+                        mobileNav.classList.remove("active");
+                        document.body.style.overflow = "";
+                    }
+                });
+                switchNetworkBtn.onclick = switchToCorrectNetwork;
+                connectButton.onclick = connectWallet;
+                createButton.onclick = createToken;
+                document.querySelectorAll(".form-control").forEach(input => {
+                    input.addEventListener("blur", clearValidationErrors);
+                });
+                window.addEventListener("scroll", handleScroll, { passive: true });
+            }
+
+            function copyUrlAndClose() {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast("URL berhasil disalin! Buka di DApp Browser dompet Anda.", "success");
+                    document.getElementById("mobileModal").classList.remove("active");
+                });
+            }
+
+            async function initApp() {
+                initLoadingScreen();
+                initBlockchainSelector();
+                initEventListeners();
+                initTooltips();
+                setupNetworkListeners();
+                blockchainSelect.value = "bnb";
+                selectedBlockchain = "bnb";
+                currentNetworkIndicator.style.display = "flex";
+                currentNetworkText.textContent = `Dipilih: ${blockchainConfig[selectedBlockchain].chainName}`;
+                await updateCreationFee();
+                if (typeof window.ethereum !== "undefined") {
+                    try {
+                        const accounts = await window.ethereum.request({ method: "eth_accounts" });
+                        if (accounts.length > 0) {
+                            await refreshProvider();
+                            signer = await provider.getSigner();
+                            connectButton.innerHTML = '<i class="fas fa-plug" aria-hidden="true"></i> Putuskan';
+                            connectButton.onclick = disconnectWallet;
+                            isConnected = true;
+                            await checkNetwork();
+                            if (isCorrectNetwork) showToast("Dompet terhubung otomatis!", "success");
+                            else showToast("Dompet terhubung tapi jaringan salah", "warning");
+                        }
+                    } catch (e) { console.log("No previous wallet connection:", e); }
+                }
+            }
+
+            window.addEventListener("error", function (e) {
+                console.error("Global error:", e.error);
+                showToast("Terjadi kesalahan tak terduga", "error");
+            });
+            window.addEventListener("unhandledrejection", function (e) {
+                console.error("Unhandled rejection:", e.reason);
+                showToast("Terjadi masalah pada operasi", "error");
+                e.preventDefault();
+            });
+            window.addEventListener("load", initApp);
+            window.copyUrlAndClose = copyUrlAndClose;
+            window.toggleFAQ = function (btn) {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains("open");
+                document.querySelectorAll(".faq-item").forEach(el => { if (el !== item) el.classList.remove("open"); });
+                if (isOpen) item.classList.remove("open");
+                else item.classList.add("open");
+            };
+
+            console.log('🚀 Token Kripto Platform Loaded');
+            console.log('🇮🇩 Pembuat Token Kripto Indonesia');
+            console.log('💰 Gratis - Hanya biaya gas jaringan');
+        })();
+    </script>
+
 </body>
 
 </html>
